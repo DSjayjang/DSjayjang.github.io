@@ -12,7 +12,9 @@ typora-root-url: ../
 <br><br>
 
 # ※ Data Mining Background
+
 ## `Why data mining?`
+
 ### - Traditional data collection methods
 - Survery sampling (표본추출)
 - Experiment (실험)
