@@ -98,7 +98,7 @@ Since the data in the data warehouse is a snapshot of a corporation's data at a 
 - 다양한 형태의 데이터 제공
 - 데이터 지도 제공
 
-## `Data Base vs. Data Warehouse
+## `Data Base vs. Data Warehouse`
 
 | **-**    | **Data Base**                 | **Data Warehouse**         |
 |:--------:|:-----------------------------:|:--------------------------:|
@@ -109,3 +109,22 @@ Since the data in the data warehouse is a snapshot of a corporation's data at a 
 | **사례**   | 예금입출, 대체                      | 상품수익률 분석, 우량고객 분류지원        |
 
 
+## `OLAP (On-Line Analytical Processing)
+- DB나 DW에 정보 요구자가 직접 접근<br>
+  -> 다차원적인 질의를 통해 대화식으로 정보를 탐색<br>
+  -> 분석하고자 하는 관점에서 자료를 요약해주는 기법<br>
+
+- 탐색적 목적의 정보 제공<br>
+  -> 문제의 원인, 데이터간의 연관관계 등 새로운 지식 추출은 불가
+
+### **∴ 현재 데이터로부터 사실에 대한 답을 얻는데 사용**
+
+## `OLAP vs. Data Mining`
+- OLAP
+    + multi-dimensional analysis
+    + 현재의 데이터 상황을 보여줌
+- Data Mining
+    + Flexible, nonparametric regression<br>
+        (neural network, projection pursuit regression, polyclass)
+    + OLAP보다 정밀, 정확, 패턴도 알려줌
+    + 비모수회귀, 사영추적회귀 등
