@@ -15,7 +15,8 @@ typora-root-url: ../
 Knowledge Discovery in Database
 
 ## **1. Problem Formulation**
-   ### 1. Specific objectives 
+
+### 1. Specific objectives 
     - 문제 확인, 자세하게 정의
     - 문제들간의 관계 이해
     - 모호한 부분 해소
@@ -37,7 +38,7 @@ Knowledge Discovery in Database
     - 짧은 소요기간 (복잡성과 연관)
     - 결과의 가시성
 
-   ### 2. Translation into analytical methods (problem translation)
+### 2. Translation into analytical methods (problem translation)
     1. Predctive Modeling (예측 모형)
         - Supervised classification **(y: 범주형)**
           + event / no event (binary target)
