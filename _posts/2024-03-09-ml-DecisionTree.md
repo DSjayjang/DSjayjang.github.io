@@ -1,8 +1,8 @@
 ---
 layout: single
 title: "Decision Tree"
-categories: DataMining
-tag: datamining
+categories: Machine-Learning
+tag: datamining,machine-learning,DecisionTree
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -48,7 +48,7 @@ typora-root-url: ../
 1. **grwoing**<br>
 split search, splitting criterion, stopping rule
 2. **pruning**<br>
-$X^2$ 검정의 $p$값, Entropy or Gini index의 순수도, 각 노드에서의 최저 data 수, depth 수준
+$\chi^2$ 검정의 $p$값, Entropy or Gini index의 순수도, 각 노드에서의 최저 data 수, depth 수준
 3. 타당성 평가
 4. 해석 및 예측
 
@@ -90,7 +90,7 @@ $p(g)$: 최종노드 $g$에 속할 확률<br>
     $$
     - C4.5에서 사용하는 불순도 측정 지수
     - 엔트로피 지수가 가장 작을 때
-- $X^2$ 통계량의 $p-value$
+- $\chi^2$ 통계량의 $p-value$
     - $p-value$가 가장 작은 예측변수와 그 때의 최적 분리에 의해 자식마디 생성
 - Deviance (이탈도)<br>
     $$
@@ -118,7 +118,7 @@ $p(g)$: 최종노드 $g$에 속할 확률<br>
 - Pruning Rule
 
 ### Decision Tree Pruning Method
-- $X^2$ 검정의 $p-value$
+- $\chi^2$ 검정의 $p-value$
 - Gini, Entropy index의 순수도(purity)
 - 분리를 위한 각 node에서의 최저 data 수
 - Tree의 depth 수준
@@ -127,6 +127,7 @@ $p(g)$: 최종노드 $g$에 속할 확률<br>
 ### 사전 가지치기
 - 4가지 방법 동시에 실행<br>
     → 제일 먼저 해당하는 Tree를 자른다
+
 ### 사후 가지치기
 - 더이상 순수도가 높아지지 않는 시점에서 Tree를 자른다
 ### 회귀나무모형 (Regression Tree)
@@ -160,7 +161,7 @@ $p(g)$: 최종노드 $g$에 속할 확률<br>
 
 <br>
 
-## **Optimizing the Complexity of Decision Tress**
+## **Optimizing the Complexity of Decision Trees**
 
 ### 3. Optimize complexity
 - Pruning
@@ -204,5 +205,3 @@ $p(g)$: 최종노드 $g$에 속할 확률<br>
 ### ■ Estimate Optimization - Squared Error
 #### Minimize squared error
 - squred difference between target and prediction.
-- asaasd
-- 

@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "데이터 마이닝 - Introduction"
-categories: DataMining
+categories: Data-Mining
 tag: datamining
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
