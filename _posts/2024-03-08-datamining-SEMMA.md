@@ -126,6 +126,17 @@ typora-root-url: ../
                 $$
             - ranking ~Uniform <br>
                 $$
-                Z = \cfrac{i}{n} \quad \text{(x가 i번째로 작은 값일 때)}
+                Z = \cfrac{i}{n} \quad \text{($x$가 $i$번째로 작은 값일 때)}
                 $$
-                                
+        2. transformation for symmetry
+            - Box-Cox transformation <br>
+                $$
+                Z =
+                \begin{cases}
+                
+                \cfrac{(x+c)^\lambda}{\lambda} \quad \text {, if $\lambda$ $\ne$ 0} \\
+                log(x+c) \quad \text {, if $\lambda$ = 0}
+                
+                \end{cases}
+                $$
+                
