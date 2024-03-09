@@ -116,16 +116,16 @@ typora-root-url: ../
 * 표준화
     - 변동(variation)에 따른 변수의 영향력을 줄이기 위해
         1. transformation for standardization
-            - Min-Max normalization
+            - Min-Max normalization <br>
                 $$
                 Z = \cfrac{x-min}{max-min}
                 $$
-            - Normalization
+            - Normalization <br>
                 $$
                 Z = \cfrac{x-\mu}{\sigma}
                 $$
-            - ranking ~Uniform
+            - ranking ~Uniform <br>
                 $$
-                Z = \cfrac{i}{n} (x가 i번째로 작은 값일 때)
+                Z = \cfrac{i}{n} \quad \text{(x가 i번째로 작은 값일 때)}
                 $$
                                 
