@@ -120,14 +120,17 @@ typora-root-url: ../
                 $$
                 Z = \cfrac{x-min}{max-min}
                 $$
+                <br>
             - Normalization <br>
                 $$
                 Z = \cfrac{x-\mu}{\sigma}
                 $$
+                <br>
             - ranking ~Uniform <br>
                 $$
                 Z = \cfrac{i}{n} \quad \text{($x$가 $i$번째로 작은 값일 때)}
                 $$
+                <br>
         2. transformation for symmetry
             - Box-Cox transformation <br>
                 $$
@@ -137,4 +140,61 @@ typora-root-url: ../
                     log(x+c) \quad \text {, if $\lambda$ = 0}    
                     \end{cases}
                 $$
-                
+                <br>
+        3. Smoothing
+            - remove noise
+        <br>
+        4. aggregation
+            - summarization
+            - data cube construction
+        <br>
+        5. 왜도 수정
+ 
+<br>
+
+### 범주형 변수
+  1. 차원 줄이기
+  2. 쉽게 해석하기
+  3. 범주의 통합
+     - 빈도가 낮은건 통합
+     - 패턴이 비슷하면 통합
+     - **모형은 간단해지지만 underfitting의 가능성 있음**
+  4. 범주의 생성
+     - 범주형 변수간 교호작용이 있는 경우 새로운 범주를 생성
+
+<br>
+
+### 연속형 변수를 범주화 하기
+1. 연속형 변수를 구간으로 나눔<br>
+→ 각 구간에 범주를 할당<br>
+→ 설명이 쉬워짐<br>
+but, 차원이 증가함, 구간 안의 특징이 사라짐, decision tree를 사용해서 범주를 찾을 수 있음
+
+<br>
+
+## **M: Modeling**
+### 모델링 기법
+- 전통적인 통계 기법
+    - 선형회귀
+    - 로지스틱회귀
+    - discriminant analysis
+    - GLM
+    - factor analysis
+- Data Mining
+    - Classification
+        - decision tree
+        - neural nets
+            + 더 복잡한 곳에서 사용 가능
+            + 더 정확함<br>
+            → 데이터 overfit 가능성, random noise에서 패턴 발견 가능
+        - linear regression
+    - Nearest neighbor
+    - Clustering
+    - Rule induction
+
+<br>
+
+## **A: Assess**
+- 분류정확도, 오분류확률 분석
+- 만들어진 Model들 중 어느것이 가장 좋은지 비교, 분석하는 과정
+  - 정확도, 향상도 등
