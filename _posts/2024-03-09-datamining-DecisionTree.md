@@ -101,8 +101,8 @@ $p(g)$: 최종노드 $g$에 속할 확률<br>
 <br>
 
 ### 노드 g의 분할
-![노드]({{site.url}}/images/2024-03-09-datamining-DecisionTree/1.JPG)
-
+<!-- ![노드]({{site.url}}/images/2024-03-09-datamining-DecisionTree/1.JPG)
+-->
 - 최적의 분할은 $D_{g}$ - $D_{g_{L}}$ - $D_{g_{R}}$ 이 최대일 때
 - 즉, $D_{g_{L}}$, $D_{g_{R}}$ 의 값이 최소일 때.
 
