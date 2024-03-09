@@ -87,3 +87,17 @@ $x^30$ = 0.05 → 필요한 한 변의 길이는 0.86
 → 변수가 증가할수록 심각해짐
 
 **∴ 데이터의 양보단 질이 중요**
+
+<br>
+
+## 3. Optimize complexity
+1. Data Partitioning
+   - Partition available data into training and validation sets
+2. Predictive Model Sequence
+   - Create a sequence of models with increasing complexity
+3. Model Performance Assessment
+   - Rate model performance using validation data
+3. Model Selection
+   - Select the simplest model with the highest validation assessment
+
+### ∴ **Tune models with validation data**
