@@ -204,4 +204,5 @@ $p(g)$: 최종노드 $g$에 속할 확률<br>
 ### ■ Estimate Optimization - Squared Error
 #### Minimize squared error
 - squred difference between target and prediction.
-- asa
+- asaasd
+- 
