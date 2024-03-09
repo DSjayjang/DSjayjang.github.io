@@ -33,7 +33,10 @@ typora-root-url: ../
     → 정확도에 편향이 생길수도 있기 때문에 사용
 
 ### ■ Data Splitting
-    * 모형 선택과 진오차 추정이 동시에 되어야할 때, 데이터는 3가지로 분리되어야 함.
+  * 모형 선택과 진오차 추정이 동시에 되어야할 때, 데이터는 3가지로 분리되어야 함
+
+<br>
+
 1. Training set
     - 모수를 적합시키기 위해
 2. Validation set
@@ -94,3 +97,35 @@ typora-root-url: ../
     → 한 범주가 다른 범주에 어떤 영향을 주는지
 * Bining continuous variables
 
+## `■ Outlier`
+* 탐지
+  - histogram, scatter plot, boxplot 등
+  - 고차원에서는 principal component, clustering을 통해
+  - 모형적합 후, 잔차그림을 통해
+* 해결
+  - 수정: 입력 시, 체계적인 오류일 경우 수정
+  - 변수변환
+  - 그냥 놔두기: 변수변환으로도 해결이 안될경우
+  - 제거
+  - 합치기: 범주형일 때, 패턴이 비슷한 범주로 합침
+
+<br>
+
+## **M: Modify**
+### 연속형 변수
+* 표준화
+    - 변동(variation)에 따른 변수의 영향력을 줄이기 위해
+        1. transformation for standardization
+            - Min-Max normalization
+                $$
+                Z = \cfrac{x-min}{max-min}
+                $$
+            - Normalization
+                $$
+                Z = \cfrac{x-\mu}{\sigma}
+                $$
+            - ranking ~Uniform
+                $$
+                Z = \cfrac{i}{n} (x가 i번째로 작은 값일 때)
+                $$
+                                
