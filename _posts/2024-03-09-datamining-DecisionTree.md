@@ -1,8 +1,8 @@
 ---
 layout: single
-title: "데이터 마이닝 - Decision Tree"
+title: "Decision Tree"
 categories: DataMining
-tag: datamining
+tag: {datamining,decisiontree,machinelearning}
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -78,13 +78,13 @@ $p(g)$: 최종노드 $g$에 속할 확률<br>
 **$\phi(g)$: 불순도 함수**
 
 ### **불순도 함수**
-- 지니 지수 (Gini Index)
+- 지니 지수 (Gini Index)<br>
     $$
     \phi = \sum_{j}P_{j}(g)(1-P_{j}(g)) \quad \text{df, $P_{j}(g)$: 각 범주에 속할 확률}
     $$
     - CART에서 사용하는 불순도 측정 지수
     - 지니지수가 가장 작을 때
-- 엔트로피 지수 (Entropy Index)
+- 엔트로피 지수 (Entropy Index)<br>
     $$
     \phi = -\sum_{j}P_{j}(g)logP_{j}(g)
     $$
@@ -92,7 +92,7 @@ $p(g)$: 최종노드 $g$에 속할 확률<br>
     - 엔트로피 지수가 가장 작을 때
 - $X^2$ 통계량의 $p-value$
     - $p-value$가 가장 작은 예측변수와 그 때의 최적 분리에 의해 자식마디 생성
-- Deviance (이탈도)
+- Deviance (이탈도)<br>
     $$
     \phi = -2\sum_{j}n_{j}logP_{j}(g)
     $$
@@ -101,3 +101,106 @@ $p(g)$: 최종노드 $g$에 속할 확률<br>
 <br>
 
 ### 노드 g의 분할
+![노드]({{site.url}}/images/2024-03-09-datamining-DecisionTree/1.JPG)
+
+- 최적의 분할은 $D_{g}$ - $D_{g_{L}}$ - $D_{g_{R}}$ 이 최대일 때
+- 즉, $D_{g_{L}}$, $D_{g_{R}}$ 의 값이 최소일 때.
+
+<br>
+
+### The Cultivation of Trees
+- Split Search
+  - 어느 분할을 사용해야 하는가
+- Splitting Criterion
+  - 어느 분할 기준이 Best인가
+- Stopping Rule
+  - 언제 분할을 멈춰야 하는가
+- Pruning Rule
+
+### Decision Tree Pruning Method
+- $X^2$ 검정의 $p-value$
+- Gini, Entropy index의 순수도(purity)
+- 분리를 위한 각 node에서의 최저 data 수
+- Tree의 depth 수준
+
+
+### 사전 가지치기
+- 4가지 방법 동시에 실행<br>
+    → 제일 먼저 해당하는 Tree를 자른다
+### 사후 가지치기
+- 더이상 순수도가 높아지지 않는 시점에서 Tree를 자른다
+### 회귀나무모형 (Regression Tree)
+- 목표변수가 연속형일 때, 여러개의 다른 설명변수로 나무모형화하는 분석방법
+- 불순도 함수<br>
+    $$
+    \phi(g) = \cfrac{1}{N}\sum(y_{i}-\bar y_{g})^2 \\
+    \text{$\bar y_{g}$: 노드 g에 속하는 목표변수의 표본평균}
+    $$
+    - 분산의 감소량을 최대화하는 기준의 최적분리에 의해 자식마디 형성
+
+<br>
+
+## **Cultivating Decision Trees**
+### 1. Predict new cases
+- Prediction rules
+  - simple prediction illustration<br>
+  → Predict dot color for each $X1$, $X2$
+  - Decision tree prediction rules
+
+### 2. Select useful inputs
+- Split Serach
+  - Decision Tree Split Search
+    1. Calculate the **logworth** of every partition on input $x1$
+    $$ logworth = -log(p-value)$$
+    2. Select the partition with maximum logworth
+    3. Repeat for input $x2$
+    4. Compare partition logworth ratings
+    5. Create a partition rule from the best partition across all inputs
+    6. Repeat the process in each subsset
+
+<br>
+
+## **Optimizing the Complexity of Decision Tress**
+
+### 3. Optimize complexity
+- Pruning
+  - Predictive Model Sequence<br>
+    1. Create a sequence of models with increasing complexity
+  - The Maximal Tree<br>
+    2. A maximal tree is the most complex model in the sequence
+  - Pruning One Split<br>
+    3. The next model in the sequence is formed by pruning one split from the maximal tree<br>
+    4. Each subtree's predictive performance is rated on validation data<br>
+    5. The subtree with the highest validation asseement is selected<br>
+  - Pruning Two Splits
+    6. Similarly this is done for subsequent models<br>
+    7. Prune two splits from the maximal tree, ...<br>
+    8. rate each subtree using validation assessment, and ...<br>
+    9. select the subtree with the best assessment rating<br>
+  - Subsequent Pruning  
+    10. Continue pruning until all subtrees are considered<br>
+  - **Selecting the best tree**  
+    11. Compare validation assessment between tree complexities<br>
+    12. Choose the **simplest model with highest validation assessment**<br>
+
+### ■ Decision Optimization - Accuracy
+#### Maximize accuracy
+- agreement between outcome and prediction
+
+<br>
+
+### ■ Decision Optimization - Misclassification
+#### Minimize misclassfication
+- disagreement between outcome and prediction
+
+<br>
+
+### ■ Ranking Optimization - Concordance
+#### Maximize concordance
+- inproper ordering of primary and secondary outcomes
+
+<br>
+
+### ■ Estimate Optimization - Squared Error
+#### Minimize squared error
+- squred difference between target and prediction
