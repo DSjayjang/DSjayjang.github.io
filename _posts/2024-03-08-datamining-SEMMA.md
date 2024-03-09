@@ -131,12 +131,10 @@ typora-root-url: ../
         2. transformation for symmetry
             - Box-Cox transformation <br>
                 $$
-                Z =
-                \begin{cases}
-                
-                \cfrac{(x+c)^\lambda}{\lambda} \quad \text {, if $\lambda$ $\ne$ 0} \\
-                log(x+c) \quad \text {, if $\lambda$ = 0}
-                
-                \end{cases}
+                Z = 
+                    \begin{cases}           
+                    \cfrac{(x+c)^\lambda}{\lambda} \quad \text {, if $\lambda$ $\ne$ 0} \\
+                    log(x+c) \quad \text {, if $\lambda$ = 0}    
+                    \end{cases}
                 $$
                 
