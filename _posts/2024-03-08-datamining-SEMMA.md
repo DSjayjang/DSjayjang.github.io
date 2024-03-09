@@ -2,7 +2,7 @@
 layout: single
 title: "데이터 마이닝 - SEMMA"
 categories: Data-Mining
-tag: datamining, SEMMA
+tag: [datamining, SEMMA]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
