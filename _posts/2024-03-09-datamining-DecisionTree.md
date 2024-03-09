@@ -2,7 +2,7 @@
 layout: single
 title: "Decision Tree"
 categories: DataMining
-tag: {datamining,decisiontree,machinelearning}
+tag: datamining
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -101,8 +101,8 @@ $p(g)$: 최종노드 $g$에 속할 확률<br>
 <br>
 
 ### 노드 g의 분할
-<!-- ![노드]({{site.url}}/images/2024-03-09-datamining-DecisionTree/1.JPG)
--->
+![노드]({{site.url}}/images/2024-03-09-datamining-DecisionTree/1.JPG)
+
 - 최적의 분할은 $D_{g}$ - $D_{g_{L}}$ - $D_{g_{R}}$ 이 최대일 때
 - 즉, $D_{g_{L}}$, $D_{g_{R}}$ 의 값이 최소일 때.
 
