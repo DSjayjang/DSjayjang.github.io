@@ -101,3 +101,4 @@ $x^{30}$ = 0.05 → 필요한 한 변의 길이는 0.86
    - Select the simplest model with the highest validation assessment
 
 ### ∴ **Tune models with validation data**
+aa
