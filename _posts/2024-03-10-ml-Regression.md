@@ -16,11 +16,11 @@ typora-root-url: ../
 ## Introduction
 ## 1. Predict new cases
 - Prediction formula
-  - Logistic regression model
+  - Logistic regression model<br>
     $$
     logit(p) = log\cfrac{p}{1-p} = \beta_{0} + \beta_{1}x + ... + \beta_{k}x_{k}
     $$
-  - Logistic Regression Prediction Formula
+  - Logistic Regression Prediction Formula<br>
     $$
     log(\cfrac{\hat p}{1-\hat p}) = \hat \omega + \hat \omega_{1}x_{1} + \hat \omega_{2}x_{2}
     $$
