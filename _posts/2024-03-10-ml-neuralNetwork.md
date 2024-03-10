@@ -70,7 +70,7 @@ typora-root-url: ../
     ![logisticFunction]({{site.url}}/images/2024-03-10-ml-neuralNetwork/1.JPG)
 
     <br>
-    
+
     - 특징
     - 0 근처의 값들 구별가능<br>
     → X값이 작은 범위에서는 input에 대한 작은 변화도 영향이 크다.<br>
@@ -127,3 +127,14 @@ node를 늘려가면서 수를 선택한다.<br>
 input layer node의 두배이상은 안좋다.<br>
 시행착오(tiral-error)를 통해 선택<br>
 AIC, BIC 등을 통해 선택<br>
+
+<br>
+
+## Training Process
+### Neural Network Prediction Formula
+$$
+\hat y = \hat \omega_{00} + \hat \omega_{01}H_{1} + \hat \omega_{02}H_{2} + \hat \omega_{03}H_{3}
+$$
+$$
+H_{1} = tanh(\hat \omega_{10} + \hat \omega_{11}x+{1} + \hat \omega_{12}x_2)
+$$
