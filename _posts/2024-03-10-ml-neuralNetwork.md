@@ -131,10 +131,73 @@ AIC, BIC 등을 통해 선택<br>
 <br>
 
 ## Training Process
-### Neural Network Prediction Formula
+### **Neural Network Prediction Formula**
 $$
 \hat y = \hat \omega_{00} + \hat \omega_{01}H_{1} + \hat \omega_{02}H_{2} + \hat \omega_{03}H_{3}
-$$
-$$
+\\
 H_{1} = tanh(\hat \omega_{10} + \hat \omega_{11}x+{1} + \hat \omega_{12}x_2)
+\\
+\begin{cases}
+\text{$\hat y$: prediction estimate}
+\\
+\text{$\omega$: weight estimate}
+\\
+\text{$H$: hidden unit}
+\\
+\text{$tanh$: activation function}
+\end{cases}
+$$ 
+
+<br>
+
+### **Neural Network Binary Prediction Formula**
 $$
+log(\cfrac{\hat p}{1-\hat p}) = \hat \omega_{00} + \hat \omega_{01}H_{1} + \hat \omega_{02}H_{2} + \hat \omega_{03}H_{3}
+\\
+\begin{cases}
+H_{1} = tanh(\hat \omega_{10} + \hat \omega_{11}x+{1} + \hat \omega_{12}x_2) ...
+\end{cases}
+$$
+
+<br>
+
+### **Prediction Illustration - Neural Networks**
+1. Need weight estimates
+2. Weight estimates found by maximizing<br>
+    $$
+    \sum log(\hat p) + \sum log(1-\hat p)
+    $$
+3. Pribability estimates are obtained by s olving the logit equation for $\hat p$ for each($x_{1}$, $x_{2}$)
+
+<br>
+
+## Stopped Training
+### Fit Statistic vs. Optimization Iteration
+
+고려사항 - training set
+
+### Neural Network 구성하기
+1. hidden layer, 각 hidden layer에서 neuron(node) 개수 정하기
+2. hiddien layer 1개로 한후에 node 수를 늘려간다
+3. 계산시간이 길면 대략의 node에서 performance 측정 후 node 수에 따른 performance 변화 추정 후 node 수 결정
+
+### ■ 시행착오(trial-error)
+- 경우별로 적합한 함수들의 선택이 달라짐
+    → data에 따라, 원하는 output에 따라 어떤 것이 가장 적합한 것인지는 여러번의 반복된 실험을 통해서만 찾을 수 있다.
+
+### ■ sensitivity analysis
+- network 결과에 미치는 input들의 상대적 중요성을 제시해준다.
+1. 각 input들의 평균값을 찾는다
+2. 모든 input이 평균값에 있을 때의 network의 output 산출
+3. 각 input이 한번에 하나씩 변경될 때 network의 output 산출
+
+#### 장점
+- 복잡한 domain들에서도 좋은 결과를 보여줌
+- target 변수가 범주형, 연속형 모두를 처리할수 있음
+- powerful(예측력에서)하다
+- input의 비선형적 특성도 잘 처리한다
+    → 모든 가능한 input 특성을 조합가능
+
+#### 단점
+- 결과를 설명하기 어렵다
+- 결과 설명보다 결과 자체가 중요할 때 선호됨
