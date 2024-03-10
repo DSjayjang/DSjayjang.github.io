@@ -67,7 +67,10 @@ typora-root-url: ../
     $$
     <br>
 
-        ![logisticFunction]({{site.url}}/images/2024-03-10-ml-neuralNetwork/1.JPG)
+    ![logisticFunction]({{site.url}}/images/2024-03-10-ml-neuralNetwork/1.JPG)
+
+    <br>
+    
     - 특징
     - 0 근처의 값들 구별가능<br>
     → X값이 작은 범위에서는 input에 대한 작은 변화도 영향이 크다.<br>
