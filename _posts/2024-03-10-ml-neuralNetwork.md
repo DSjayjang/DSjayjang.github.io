@@ -1,8 +1,8 @@
 ---
 layout: single
-title: "Nueral Network"
+title: "Neural Network"
 categories: Machine-Learning
-tag: [datamining, machine-learning, nueral-network]
+tag: [datamining, machine-learning, neural-network]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
