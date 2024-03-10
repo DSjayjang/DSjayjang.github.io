@@ -2,7 +2,7 @@
 layout: single
 title: "Decision Tree"
 categories: Machine-Learning
-tag: [datamining, machine-learning, DecisionTree]
+tag: [datamining, machine-learning, decision-tree]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
