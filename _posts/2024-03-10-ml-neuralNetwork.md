@@ -199,5 +199,24 @@ $$
     → 모든 가능한 input 특성을 조합가능
 
 #### 단점
-- 결과를 설명하기 어렵다
-- 결과 설명보다 결과 자체가 중요할 때 선호됨
+- 결과를 설명하기 어렵다<br>
+  → 결과 설명보다 결과 자체가 중요할 때 선호됨
+- 만족스럽지 못한 모형을 제시할 수 있다<br>
+  → 주어진 training set에 대하여 모형 제공<br>
+  → but test set을 이용할 필요가 있음
+- 복잡한 학습과정
+- paramete의 setup 필요
+- slow convergence (long training time)
+- local minima
+
+#### when to use neural network
+- **supervised learning**
+  - classification
+  - value prediction
+
+  → model의 설명보다 결과가 중요할 때
+
+#### when not to use neural network
+- 모형의 결정을 설명하는 rule이 필요할 때
+- 간단한 모형으로도 가능한 작업일 때
+- input 특성이 너무 많을 때 → decision tree 사용
