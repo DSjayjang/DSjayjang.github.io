@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Regression"
+title: "Nueral Network"
 categories: Machine-Learning
 tag: [datamining, machine-learning, nueral-network]
 toc: true # 목차 보여주기
@@ -65,7 +65,9 @@ typora-root-url: ../
     $$
     \cfrac{1}{1+e^{-X}} \quad \text{,범위: (0, 1)}
     $$
-    ![logisticFunction]({{site.url}}/images/2024-03-10-ml-neuralNetwork/1.JPG)
+    <br>
+
+        ![logisticFunction]({{site.url}}/images/2024-03-10-ml-neuralNetwork/1.JPG)
     - 특징
     - 0 근처의 값들 구별가능<br>
     → X값이 작은 범위에서는 input에 대한 작은 변화도 영향이 크다.<br>
