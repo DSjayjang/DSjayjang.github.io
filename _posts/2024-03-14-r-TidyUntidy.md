@@ -74,6 +74,8 @@ stu2 <- data.frame(id = rep(1:3, each = 4),
 ```
 ![4]({{site.url}}/images/2024-03-14-r-TidyUntidy/4.JPG)
 
+## Convert **"Tidy Data"** to **"Untidy Data"**
+
 ```r
 # 년도, 학기별로 수학, 영어 점수
 pivot_wider(stu2, 
