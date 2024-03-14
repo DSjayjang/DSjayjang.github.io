@@ -12,18 +12,25 @@ typora-root-url: ../
 <br><br>
 
 # **※ Tidy Data**
-- = Long Format Data(Table)<br>
+- = Long Format Data(Table)
+- 데이터 전처리에 걸리는 시간을 최소하하기 위한 표준화된 데이터 형태
 - 데이터를 행 방향으로 구성하는 형식으로, 각 행은 하나의 *데이터 관찰값*을 나타냄
-
+- 필요 조건
+  - Each variable forms a column. 각 변수는 열을 형성
+  - Each observation forms a row. 각 관찰값은 행을 형성
+  - Each type of observational unit forms a table. 각 유형의 관찰 단위(값)는 테이블을 구성
+  
+ 
 ## 장점
-- 데이터가 sparse하고, 추가 변수가 있을 때 잘 확장될 수 있다는 것입니다.
-- 데이터를 분석하기에는 효과적임
+- 데이터가 sparse하고, 추가 변수가 있을 때 잘 확장될 수 있음
+- 데이터를 분석하기에 효과적임
 - 시각화, 데이터 저장, 데이터 변환에 용이함
 
 ## 단점
 - 데이터가 너무 길어짐
 
-## Example Data
+### Example Data
+
 | **학생**  | **과목** | **점수** |
 |---------|--------|--------|
 | **A**   | 수학     | 80     |
@@ -36,12 +43,17 @@ typora-root-url: ../
 
 - 각 행은 *특정 학생*의 *특정 과목에 대한 점수*를 나타냄
 
+<br>
+<br>
 
+# **※ Untidy Data**
+- = Wide Format Data(Table)
+- 변수가 열로 구성되는 형식으로, 각 행은 하나의 *관측치*를 나타냄
+- 여러 변수가 하나의 열에 저장된 데이터
+- 변수가 열과 행 모두에 저장된 데이터
+- 여러 유형의 다른 관측 단위가 동일한 테이블에 저장된 데이터
+- 단일 관측 단위가 여러 테이블에 저장된 데이터
 
-
-
-# **※ Wide Table**
-변수가 열로 구성되는 형식으로, 각 행은 하나의 *관측치*를 나타냄
 
 ## 장점
 - 각 관측치의 모든 변수가 하나의 행에 포함되어 있기 때문에 해석하기 쉬움
@@ -49,7 +61,8 @@ typora-root-url: ../
 ## 단점
 - 데이터가 sparse하거나 추가 변수가 있는 경우에는 확장하기 어려움
 
-## Example Data
+### Example Data
+
 | **학생**  | **수학** | **과학** | **영어** |
 |---------|--------|--------|--------|
 | **A**   | 80     | 75     | 85     |
@@ -59,9 +72,13 @@ typora-root-url: ../
 - **각 행**은 *특정 학생의 성적*을 나타냄
 - **각 열**은 해당 학생의 특정 과목에 대한 점수를 나타냄
 
-# Convert **Wide Table** to **Long Table** in Excel
+<br>
+<br>
+
+# Convert **"Untidy Data"** to **"Tidy Data"** in Excel
 
 ### Example Data
+
 | **지역**  | **인구** | **등급** | **가격** |
 |---------|--------|--------|--------|
 | **서울**  | 1      | A      | 999    |
@@ -76,24 +93,27 @@ typora-root-url: ../
 
 1. 변환하고자 하는 테이블 선택 후, "데이터" -> "테이블/범위에서"
 
-<사진>
+![W2L_2_1]({{site.url}}/images/2024-03-14-datamining-TidyUntidy/W2L_2_1.JPG)
+![W2L_3_1]({{site.url}}/images/2024-03-14-datamining-TidyUntidy/W2L_3_1.JPG)
 
 2. 변환하고자 하는 열 선택 후, "변환" -> "열 피벗 해제" -> "선택한 열만 피벗 해제"
 
-<사진>
+![W2L_7_1]({{site.url}}/images/2024-03-14-datamining-TidyUntidy/W2L_7_1.JPG)
+
 
 3. 닫기 및 로드
 
-<사진>
+![W2L_9_1]({{site.url}}/images/2024-03-14-datamining-TidyUntidy/W2L_9_1.JPG)
 
 4. 결과
 
-<사진>
+![W2L_10_result]({{site.url}}/images/2024-03-14-datamining-TidyUntidy/W2L_10_result.JPG)
 
 
 # Convert **Long Table** to **Wide Table** in Excel
 
 ### Example Data
+
 | **지역**  | **특성** | **값** |
 |---------|--------|-------|
 | **서울**  | 인구     | 1     |
