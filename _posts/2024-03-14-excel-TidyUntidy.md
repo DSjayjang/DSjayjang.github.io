@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Covert Tidy data & Untidy data in Excel"
+title: "Convert Tidy data & Untidy data in Excel"
 categories: Excel
 tag: [datamining, tidy-data, untidy-data, excel]
 toc: true # 목차 보여주기
@@ -28,22 +28,28 @@ typora-root-url: ../
 | **강원도** | 8      | H      | 222    |
 
 
-1. 변환하고자 하는 테이블 선택 후, "데이터" -> "테이블/범위에서"
+(1) 변환하고자 하는 테이블 선택 후, "데이터" -> "테이블/범위에서"
 
-![W2L_2_1]({{site.url}}/images/2024-03-14-excel-TidyUntidy/W2L_2_1.JPG)<br>
+![W2L_2_1]({{site.url}}/images/2024-03-14-excel-TidyUntidy/W2L_2_1.JPG)
+
+<br>
+
 ![W2L_3_1]({{site.url}}/images/2024-03-14-excel-TidyUntidy/W2L_3_1.JPG)
 
-2. 변환하고자 하는 열 선택 후, "변환" -> "열 피벗 해제" -> "선택한 열만 피벗 해제"
+(2) 변환하고자 하는 열 선택 후, "변환" -> "열 피벗 해제" -> "선택한 열만 피벗 해제"
 
-![W2L_5]({{site.url}}/images/2024-03-14-excel-TidyUntidy/W2L_5.JPG)<br>
+![W2L_5]({{site.url}}/images/2024-03-14-excel-TidyUntidy/W2L_5.JPG)
+
+<br>
+
 ![W2L_7_1]({{site.url}}/images/2024-03-14-excel-TidyUntidy/W2L_7_1.JPG)
 
 
-3. 닫기 및 로드
+(3) 닫기 및 로드
 
 ![W2L_9_1]({{site.url}}/images/2024-03-14-excel-TidyUntidy/W2L_9_1.JPG)
 
-4. 결과
+(4) 결과
 
 ![W2L_10_result]({{site.url}}/images/2024-03-14-excel-TidyUntidy/W2L_10_result.JPG)
 
@@ -83,24 +89,27 @@ typora-root-url: ../
 | **강원도** | 가격     | 222   |
 
 
-1. 변환하고자 하는 테이블 선택 후, "데이터" -> "테이블/범위에서"
+(1) 변환하고자 하는 테이블 선택 후, "데이터" -> "테이블/범위에서"
 
 ![L2W_2_1]({{site.url}}/images/2024-03-14-excel-TidyUntidy/L2W_2_1.JPG)
 
-2. 변환하고자 하는 열 선택 후, "변환" -> "피벗 열"
+(2) 변환하고자 하는 열 선택 후, "변환" -> "피벗 열"
 
-![L2W_3_1]({{site.url}}/images/2024-03-14-excel-TidyUntidy/L2W_4_1.JPG)<br>
+![L2W_3_1]({{site.url}}/images/2024-03-14-excel-TidyUntidy/L2W_4_1.JPG)
+
+<br>
+
 ![L2W_4_1]({{site.url}}/images/2024-03-14-excel-TidyUntidy/L2W_4_1.JPG)
 
-3. 값 열: 값으로 들어갈 열 선택
+(3) 값 열: 값으로 들어갈 열 선택
 값 집계 함수: "집계 안함"
 
 ![L2W_5_1]({{site.url}}/images/2024-03-14-excel-TidyUntidy/L2W_4_1.JPG)
 
-4. 닫기 및 로드
+(41) 닫기 및 로드
 
 ![L2W_7]({{site.url}}/images/2024-03-14-excel-TidyUntidy/L2W_7.JPG)
 
-5. 결과
+(5) 결과
 
 ![L2W_8_result]({{site.url}}/images/2024-03-14-excel-TidyUntidy/L2W_8_result.JPG)
