@@ -75,8 +75,8 @@ typora-root-url: ../
 <br>
 <br>
 
-# ※ Conver in Excel
-## Convert **"Untidy Data"** to **"Tidy Data"**
+# ※ Convert in Excel
+## 1. Convert **"Untidy Data"** to **"Tidy Data"**
 
 ### Example Data
 
@@ -94,12 +94,12 @@ typora-root-url: ../
 
 1. 변환하고자 하는 테이블 선택 후, "데이터" -> "테이블/범위에서"
 
-![W2L_2_1]({{site.url}}/images/2024-03-14-datamining-TidyUntidy/W2L_2_1.JPG)
+![W2L_2_1]({{site.url}}/images/2024-03-14-datamining-TidyUntidy/W2L_2_1.JPG)<br>
 ![W2L_3_1]({{site.url}}/images/2024-03-14-datamining-TidyUntidy/W2L_3_1.JPG)
 
 2. 변환하고자 하는 열 선택 후, "변환" -> "열 피벗 해제" -> "선택한 열만 피벗 해제"
 
-![W2L_5]({{site.url}}/images/2024-03-14-datamining-TidyUntidy/W2L_5.JPG)
+![W2L_5]({{site.url}}/images/2024-03-14-datamining-TidyUntidy/W2L_5.JPG)<br>
 ![W2L_7_1]({{site.url}}/images/2024-03-14-datamining-TidyUntidy/W2L_7_1.JPG)
 
 
@@ -113,7 +113,7 @@ typora-root-url: ../
 
 <br>
 
-## Convert **"Tidy Data"** to **"Untidy Data"**
+## 2. Convert **"Tidy Data"** to **"Untidy Data"**
 
 ### Example Data
 
@@ -151,7 +151,7 @@ typora-root-url: ../
 
 2. 변환하고자 하는 열 선택 후, "변환" -> "피벗 열"
 
-![L2W_3_1]({{site.url}}/images/2024-03-14-datamining-TidyUntidy/L2W_4_1.JPG)
+![L2W_3_1]({{site.url}}/images/2024-03-14-datamining-TidyUntidy/L2W_4_1.JPG)<br>
 ![L2W_4_1]({{site.url}}/images/2024-03-14-datamining-TidyUntidy/L2W_4_1.JPG)
 
 3. 값 열: 값으로 들어갈 열 선택
