@@ -105,8 +105,7 @@ pivot_wider(stu2[1:5],
 # %>%를 활용하여 math열 제외
 stu2 %>%
   select(-math) %>%
-  pivot_wider(stu2[c(1:4,6)], 
-              names_from = c("year","term"),
+  pivot_wider(names_from = c("year","term"),
               values_from = "eng")
 ```
 
