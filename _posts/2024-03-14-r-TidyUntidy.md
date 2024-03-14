@@ -23,7 +23,7 @@ library(tidyverse)
 
 ---
 
-## 예시 1.
+### 예시 1.
 
 ```r
 #  Untidy data 생성
@@ -61,7 +61,7 @@ stu1_wide <- pivot_wider(stu1_long,
 
 ---
 
-## 예시 2.
+### 예시 2.
 
 ```r
 # Tidy data 생성
