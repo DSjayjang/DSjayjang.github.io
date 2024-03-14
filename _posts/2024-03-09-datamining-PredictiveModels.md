@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "데이터 마이닝 - Predictive Models"
-categories: DataMining
+categories: Data-Mining
 tag: datamining
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
@@ -101,4 +101,3 @@ $x^{30}$ = 0.05 → 필요한 한 변의 길이는 0.86
    - Select the simplest model with the highest validation assessment
 
 ### ∴ **Tune models with validation data**
-aa
