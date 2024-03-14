@@ -85,6 +85,8 @@ pivot_wider(stu2,
 
 ![5]({{site.url}}/images/2024-03-14-r-TidyUntidy/5.JPG)
 
+<br>
+
 ```r
 pivot_wider(stu2, 
             names_from = "year",
@@ -92,6 +94,8 @@ pivot_wider(stu2,
 ```
 
 ![6]({{site.url}}/images/2024-03-14-r-TidyUntidy/6.JPG)
+
+<br>
 
 ```r
 # 수학 점수만 년도, 학기별
@@ -101,6 +105,8 @@ pivot_wider(stu2[1:5],
 ```
 
 ![7]({{site.url}}/images/2024-03-14-r-TidyUntidy/7.JPG)
+
+<br>
 
 ```r
 # 영어 점수만 년도, 학기별
@@ -112,6 +118,8 @@ stu2 %>%
 ```
 
 ![8]({{site.url}}/images/2024-03-14-r-TidyUntidy/8.JPG)
+
+<br>
 
 ```r
 # 년도별 수학 점수 평균
