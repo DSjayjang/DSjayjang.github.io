@@ -12,6 +12,12 @@ typora-root-url: ../
 <br><br>
 
 # ※ t-test in Excel
+## ■ t-검정의 종류
+1. 단일 표본 t-검정 (one sample t-test)
+2. 대응 표본 t-검정 (paired samples t-test) - 짝비교
+3. 독립 표본 t-검정 (independent samples t-test)
+
+<br>
 
 ### Example Data
 
@@ -25,53 +31,84 @@ typora-root-url: ../
 
 <br>
 
-(1) 각 데이터의 개수 구하기
-```
-=count(data)
-```
+(1) 데이터 -> 데이터 분석
 
-|    |    |
-|----|----|
-| Nx | 50 |
-| Ny | 50 |
-| Nd | 50 |
-
-(2) 각 데이터의 평균 구하기
-```
-=average(data)
-```
-|       |       |
-|-------|-------|
-| X_bar | 9.11  |
-| Y_bar | 9.67  |
-| D_bar | -0.56 |
-
-(3) $\sum (x-\bar x)^2$ 구하기
-|                  |        |
-|------------------|--------|
-| SUM((X-X_bar)^2) | 37.96  |
-| SUM((Y-Y_bar)^2) | 34.76  |
-| SUM((D-D_bar)^2) | 74.33  |
-
-(4) 표본표준편차 구하기
-
-|      |       |
-|------|-------|
-| Sx^2 | 0.77  |
-| Sy^2 | 0.71  |
-| S^2  | 0.74  |
-| Sd^2 | 1.52  |
+![1]({{site.url}}/images/2024-03-20-excel-tTest/1_1.JPG)
 
 <br>
 
-## ■ 독립표본 t-검정
-### 1. 등분산 가정
+(2) 통계 데이터 분석 -> 원하는 검정 선택
+- t-검정: 쌍체비교
+- t-검정: 등분산 가정 두집단
+- t-검정: 이분산 가정 두집단
 
-- t-value
-    $$
-    t_{0} = \cfrac{(\bar X-\bar Y) - (\mu_{X}-\mu_{Y})}{S_{p}\sqrt(\cfrac{1}{n_{1}} + \cfrac{1}{n_{2}})} \quad \text{~ $t(n_{1}+n_{2}-2)$}
-    $$
-- p-value
-    ```
-    t.test(data)
-    ```
+![2]({{site.url}}/images/2024-03-20-excel-tTest/2.JPG)
+
+<br>
+
+(3) t-검정
+
+![3]({{site.url}}/images/2024-03-20-excel-tTest/3.JPG)
+
+<br>
+
+(4) t-검정 - 데이터 선택 예시
+
+![5]({{site.url}}/images/2024-03-20-excel-tTest/5.JPG)
+
+<br>
+<br>
+
+### 1. 단일 표본 t-검정 (one sample t-test)
+
+<br>
+
+### 2. 대응 표본 t-검정 (paired samples t-test) - 짝비교
+- 단일 모집ㄷ에서 두 번의 처리를 가했을 때, 두 개의 처리에 따른 평균의 차이 비교
+- 쉽게 말하면, 한 그룹에서의 전/후를 비교
+
+```excel
+=t.test(arrayX, arrayY, (단측or양측), 대응표본)
+```
+
+#### 출력 예시
+
+![6]({{site.url}}/images/2024-03-20-excel-tTest/6.JPG)
+
+<br>
+
+- t-value: 공식을 통해 직접 구한 값
+- p-value: t.test의 결과값
+
+![6_1]({{site.url}}/images/2024-03-20-excel-tTest/6_1.JPG)
+
+<br>
+<br>
+
+### 3. 독립 표본 t-검정 (independent samples t-test)
+- 두 개의 독립된 모집단의 평균을 비교
+
+<br>
+
+#### 3-1 등분산 가정 ($\sigma_{1}^{2} = \sigma_{2}^{2}$)
+
+```excel
+=t.test(arrayX, arrayY, (단측or양측), 두 표본의 등분산)
+```
+
+![7]({{site.url}}/images/2024-03-20-excel-tTest/7.JPG)
+
+<br>
+
+#### 3-2 이분산 가정 ($\sigma_{1}^{2} \ne \sigma_{2}^{2}$)
+
+```excel
+=t.test(arrayX, arrayY, (단측or양측), 두 표본의 이분산)
+```
+![8]({{site.url}}/images/2024-03-20-excel-tTest/8.JPG)
+
+<br>
+<br>
+
+- t-검정 연습 프로세스
+![9]({{site.url}}/images/2024-03-20-excel-tTest/9.JPG)
