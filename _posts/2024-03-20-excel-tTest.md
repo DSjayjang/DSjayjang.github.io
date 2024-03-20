@@ -64,7 +64,7 @@ typora-root-url: ../
 <br>
 
 ### 2. 대응 표본 t-검정 (paired samples t-test) - 짝비교
-- 단일 모집ㄷ에서 두 번의 처리를 가했을 때, 두 개의 처리에 따른 평균의 차이 비교
+- 단일 모집단에서 두 번의 처리를 가했을 때, 두 개의 처리에 따른 평균의 차이 비교
 - 쉽게 말하면, 한 그룹에서의 전/후를 비교
 
 ```excel
@@ -77,10 +77,10 @@ typora-root-url: ../
 
 <br>
 
+![6_1]({{site.url}}/images/2024-03-20-excel-tTest/6_1.JPG)
+
 - t-value: 공식을 통해 직접 구한 값
 - p-value: t.test의 결과값
-
-![6_1]({{site.url}}/images/2024-03-20-excel-tTest/6_1.JPG)
 
 <br>
 <br>
@@ -110,5 +110,6 @@ typora-root-url: ../
 <br>
 <br>
 
-- t-검정 연습 프로세스
+- ***t-검정 연습 프로세스***
+- 
 ![9]({{site.url}}/images/2024-03-20-excel-tTest/9.JPG)
