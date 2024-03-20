@@ -82,4 +82,4 @@ typora-root-url: ../
 
 (7) 상관 분석 완성 예시
 
-![10]({{site.url}}/images/2024-03-20-excel-correlation/10.JPG)
+![10]({{site.url}}/images/2024-03-20-excel-correlation/10_result.JPG)
