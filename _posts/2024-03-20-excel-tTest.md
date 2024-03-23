@@ -96,6 +96,8 @@ typora-root-url: ../
 =t.test(arrayX, arrayY, (단측or양측), 두 표본의 등분산)
 ```
 
+#### 출력 예시
+
 ![7]({{site.url}}/images/2024-03-20-excel-tTest/7.JPG)
 
 <br>
@@ -105,6 +107,8 @@ typora-root-url: ../
 ```excel
 =t.test(arrayX, arrayY, (단측or양측), 두 표본의 이분산)
 ```
+#### 출력 예시
+
 ![8]({{site.url}}/images/2024-03-20-excel-tTest/8.JPG)
 
 <br>

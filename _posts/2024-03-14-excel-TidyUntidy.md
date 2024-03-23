@@ -104,7 +104,7 @@ typora-root-url: ../
 (3) 값 열: 값으로 들어갈 열 선택
 값 집계 함수: "집계 안함"
 
-![L2W_5_1]({{site.url}}/images/2024-03-14-excel-TidyUntidy/L2W_4_1.JPG)
+![L2W_5_1]({{site.url}}/images/2024-03-14-excel-TidyUntidy/L2W_5_1.JPG)
 
 (41) 닫기 및 로드
 
