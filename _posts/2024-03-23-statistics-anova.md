@@ -37,10 +37,10 @@ typora-root-url: ../
 #### ● **$y_{ij} - \bar y$**
 - 개개의 관측값의 총평균에 대한 편차
 
-#### ● **$y_{i} - \bar y$**
+#### ● **$y_{i\cdot} - \bar y$**
 - 각 처리간의 평균값의 차이에서 기인하는 부분
 
-#### ● **$y_{ij} - \bar y_{i}$**
+#### ● **$y_{ij} - \bar y_{i\cdot}$**
 - ***잔차(랜덤오차)***
 - 동일한 처리 내에서 발생하는 측정값의 오차에 의한 부분
 - 각 관측값과 그 관측값이 속한 처리평균과의 편차
@@ -50,12 +50,12 @@ typora-root-url: ../
 #### ● **SStr (Treatment Sum of Squares)**
 - ***처리제곱합***
 - 전체 처리효과들의 변동을 측정하는 양으로, 이 행렬의 원소들의 제곱합
-- $\sum_{i=1}^{k} n_{i}(\bar y_{i}-\bar y)^2$
+- $\sum_{i=1}^{k} n_{i}(\bar y_{i\cdot}-\bar y)^2$
 
 #### ● **SSE (Error Sum of Squares)**
 - ***잔차제곱합***
 - 잔차(랜덤오차)들의 제곱합
-- $\sum_{i}^{k} \sum_{j}^{n_{i}} (y_{ij}-\bar y_{i})^2$
+- $\sum_{i}^{k} \sum_{j}^{n_{i}} (y_{ij}-\bar y_{i\cdot})^2$
 
 #### ● **SST (Total Sum of Squares)**
 - ***전체제곱합***
@@ -65,30 +65,49 @@ typora-root-url: ../
 #### **∴ SST = SStr + SSE**
 
 <br>
+<br>
 
 #### ● **제곱합의 자유도 = (제곱을 하여 더하는 항의 수) - (각 항들에 의하여 만족되는 선형제약 조건의 수)**
-
-#### ● **SSE의 자유도**
-= $(n_{1} + n_{2} + ... + n_{k}) - k$<br>
-↔ $-k$ 이유 : $\sum_{j}^{n_{i}} (y_{ij}-\bar y_{i}) = 0$ → 행의 수 $k$개의 선형제약조건
 
 #### ● **SStr의 자유도**
 = $k-1$<br>
 ↔ $-1$ 이유 : 가중평균 $\bar y = \cfrac{n_{1}\bar y_{1} + ... + n_{k}\bar y_{k}}{n_{1} + ... + n_{k}}$ 라는 선형제약조건
+
+#### ● **SSE의 자유도**
+= $(n_{1} + n_{2} + ... + n_{k}) - k$<br>
+↔ $-k$ 이유 : $\sum_{j}^{n_{i}} (y_{ij}-\bar y_{i\cdot}) = 0$ → 행의 수 $k$개의 선형제약조건
 
 #### ● **SST의 자유도**
 = $n_{1} + n_{1} + ... + n_{k} - 1$<br>
 ↔ $-1$ 이유 : $\sum_{i}^{k} \sum_{j}^{n_{i}} (y_{ij}-\bar y)^2 = 0$이라는 선형제약조건
 
 #### **∴ SST의 자유도 = SStr의 자유도 + SSE의 자유도**
-- $\sum_{i=1}^{k} (n_{i}) - 1 = (k - 1) + (\sum_{i=1}^{k} (n_{i}) -k$)
+- $\sum_{i=1}^{k} n_{i} - 1 = (k - 1) + (\sum_{i=1}^{k} n_{i} -k$)
 
 <br>
 
-## 분산분석표
+## ■ 분산분석표
 
 | **요인**    | **제곱합** | **자유도** | **평균제곱** |
 |:--------:|:---------:|:------:|:-------:|
-| **처리**  | $SStr = \sum_{i=1}^{k} n_{i}(\bar y_{i}-\bar y)^2$         | $k-1$      | $MStr = \cfrac{SStr}{k-1}$       |
-| **오차**  | $SSE = $\sum_{i}^{k} \sum_{j}^{n_{i}} (y_{ij}-\bar y_{i})^2$         | $\sum_{i=1}^{k} n_{i}-k$         | $MSE = \cfrac{SSE}{\sum_{i=1}^{k} n_{i}-k}$       |
+| **처리**  | $SStr = \sum_{i=1}^{k} n_{i}(\bar y_{i\cdot}-\bar y)^2$         | $k-1$      | $MStr = \cfrac{SStr}{k-1}$       |
+| **오차**  | $SSE = \sum_{i}^{k} \sum_{j}^{n_{i}} (y_{ij}-\bar y_{i})^2$         | $\sum_{i=1}^{k} n_{i}-k$         | $MSE = \cfrac{SSE}{\sum_{i=1}^{k} n_{i}-k}$       |
 | **합계**    | $\sum_{i}^{k} \sum_{j}^{n_{i}} (y_{ij}-\bar y)^2$         | $\sum_{i=1}^{k} n_{i}-1$      |        |
+
+## ■ 제곱합의 간편 계산식
+$$
+T_{i} = \sum_{j=1}^{n_{i}} y_{ij} = \text{처리 $i$에서의 모든 관측값의 합계}
+$$
+$$
+T = \sum_{i=1}^{k} T_{i} = \sum_{i}^{k} \sum_{j}^{n_{i}} y_{ij} = \text{모든 관측값의 총계}
+$$
+$$
+SST = \sum_{i}^{k} \sum_{j}^{n_{i}} y_{ij}^2 - \cfrac{T^2}{n}
+$$
+$$
+SStr = \sum_{i=1}^{k} \cfrac{T_{i}^2}{n_{i}} - \cfrac{T^2}{n} \quad ,(n=\sum_{i=1}^{k} n_{i})
+$$
+$$
+SSE = \sum_{i}^{k} \sum_{j}^{n_{i}} y_{ij}^2 - \sum_{i=1}^{k} \cfrac{T_{i}^2}{n_{i}} \\
+= SST - SStr
+$$
