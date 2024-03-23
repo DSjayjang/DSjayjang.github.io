@@ -136,12 +136,12 @@ $H_{1}$ : not $H_{0}$
 
 ### □ 검정통계량
 $$
-\cfrac{MStr}{MSE} = \cfrac{\cfrac{SStr}{k-1}}{\cfrac{SSE}{n-k}} \quad \mathtt{\sim} F(k-1, n-k)
+\cfrac{MStr}{MSE} = \cfrac{\cfrac{SStr}{k-1}}{\cfrac{SSE}{n-k}} \quad \mathtt{\sim} F(k-1, ~n-k)
 $$
 
 ### □ 모형
 $$
-y_{ij} = \mu_{i} + \epsilon_{ij}, \quad \epsilon_{ij} \mathtt{\sim} N(0, \sigma^2)
+y_{ij} = \mu_{i} + \epsilon_{ij}, \quad \epsilon_{ij} \mathtt{\sim} N(0,~\sigma^2)
 $$
 
 ### □ 가정
