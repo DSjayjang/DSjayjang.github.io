@@ -50,7 +50,7 @@ typora-root-url: ../
 #### ● **SStr (Treatment Sum of Squares)**
 - ***처리제곱합***
 - 전체 처리효과들의 변동을 측정하는 양으로, 이 행렬의 원소들의 제곱합
-- $\sum n_{i}(\bar y_{i}-\bar y)^2$
+- $\sum_{i=1}^{k} n_{i}(\bar y_{i}-\bar y)^2$
 
 #### ● **SSE (Error Sum of Squares)**
 - ***잔차제곱합***
@@ -87,3 +87,8 @@ typora-root-url: ../
 
 ## 분산분석표
 
+| **요인**    | **제곱합** | **자유도** | **평균제곱** |
+|:--------:|:---------:|:------:|:-------:|
+| **처리**  | $SStr = \sum_{i=1}^{k} n_{i}(\bar y_{i}-\bar y)^2$         | $k-1$      | $MStr = \cfrac{SStr}{k-1}$       |
+| **오차**  | $SSE = $\sum_{i}^{k} \sum_{j}^{n_{i}} (y_{ij}-\bar y_{i})^2$         | $\sum_{i=1}^{k} n_{i}-k$         | $MSE = \cfrac{SSE}{\sum_{i=1}^{k} n_{i}-k}$       |
+| **합계**    | $\sum_{i}^{k} \sum_{j}^{n_{i}} (y_{ij}-\bar y)^2$         | $\sum_{i=1}^{k} n_{i}-1$      |        |
