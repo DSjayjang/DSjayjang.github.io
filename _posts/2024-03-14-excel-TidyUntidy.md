@@ -106,7 +106,7 @@ typora-root-url: ../
 
 ![L2W_5_1]({{site.url}}/images/2024-03-14-excel-TidyUntidy/L2W_5_1.JPG)
 
-(41) 닫기 및 로드
+(4) 닫기 및 로드
 
 ![L2W_7]({{site.url}}/images/2024-03-14-excel-TidyUntidy/L2W_7.JPG)
 
