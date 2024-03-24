@@ -74,10 +74,10 @@ typora-root-url: ../
 
 ## **■ ROC (Receiver Operating Characteristic) Chart**
 - 예측의 정확도를 측정
-- $x$축 : 1 - Specificity(상세성)
-- $y$축 : Sensitivity (민감도)
+- $x$축 : 1 - Specificity
+- $y$축 : Sensitivity
 
-### ROC 커브 해석
+### □ ROC 커브 해석
 - 예측선 (a)
   - Sensitivity = 1
     - $\cfrac{TP}{TP+FN}$에서, $FN = 0$이 됨 (다 정답)
