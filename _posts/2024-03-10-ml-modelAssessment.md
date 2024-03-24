@@ -77,6 +77,12 @@ typora-root-url: ../
 - $x$축 : 1 - Specificity
 - $y$축 : Sensitivity
 
+<br>
+
+![4]({{site.url}}/images/2024-03-10-ml-modelAssessment/4.jpg)
+
+<br>
+
 ### □ ROC 커브 해석
 - 예측선 (a)
   - Sensitivity = 1
@@ -89,16 +95,8 @@ typora-root-url: ../
   - Specificity = 1
     - $\cfrac{TN}{TN+FP}$에서, $TN = 0$이 됨 (다 정답)
 
-<br>
-
-![4]({{site.url}}/images/2024-03-10-ml-modelAssessment/4.jpg)
-
-<br>
-
 - The ROC Chart illustrates a tradeoff between a captured response fraction and a false positive fraction
 - Each point on the ROC Chart corresponds to a specific fraction of cases, ordered by their predicted value
-
-
 
 ### □ AUC (Area Under ROC Curve)
 - 곡선 아래의 면적
@@ -133,26 +131,26 @@ typora-root-url: ../
 - 80:20의 business rule 제공
 - 원하는 범주가 많이 속하도록 하는 모형이 바람직
 
+<br>
+
 ## ■ Criteria for prediction
-실제 target value: ($y_{1}$, ..., $y_{n}$)<br>
-예측 target value: ($\hat y_{1}$, ..., $\hat y_{n}$)
+- 연속형 종속변수 모형 평가 <br>
+- 실제 target value: ($y_{1}$, ..., $y_{n}$)<br>
+- 예측 target value: ($\hat y_{1}$, ..., $\hat y_{n}$)
 
 ### **□ MSE (Mean Squared Error, 평균제곱오차)**
-- 연속형 종속변수 모형 평가
-$$
-\cfrac{1}{n} \sum(y_{i}-\hat y_{i})^2
-$$
+- $\cfrac{1}{n} \sum(y_{i}-\hat y_{i})^2$
 
-### Root Mean Squared Error
-$$
-\sqrt(\cfrac{1}{n} \sum(y_{i}-\hat y{i})^2)
-$$
+### **□ RMSE (Root Mean Squared Error, 평균제곱근오차)**
+- 값이 작을수록 좋음
+- $\sqrt(\cfrac{1}{n} \sum(y_{i}-\hat y{i})^2)$
 
-### Mean Absolute Error
-$$
-\cfrac{1}{n} \sum \lvert y_{i}-\hat y{i} \rvert
-$$
+### **□ MAE (Mean Absolute Error, 평균절대오차)**
+- 값이 작을수록 좋음
+- 예측값과 같은 단위를 가짐
+- $\cfrac{1}{n} \sum \lvert y_{i}-\hat y{i} \rvert$
 
-### ■ MSE의 단점
-MSE exaggerates the presence of outlier.<br>
-아웃라이어의 존재를 과장한다
+<br>
+
+### □ MSE의 단점
+MSE exaggerates the presence of outlier (아웃라이어의 존재를 과장한다)
