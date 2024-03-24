@@ -58,13 +58,17 @@ typora-root-url: ../
 
 <br>
 
-- **상세성 (Specificity)**<br>
+- **Specificity (특이도)**<br>
   = $\cfrac{TN}{TN+FP}$ = $\cfrac{음성~정답}{실제~음성}$
 
 <br>
 
-- **False Positive Rate** = (1-Specificity)<br>
+- **False Positive Rate** = ***1-Specificity***<br>
   = $\cfrac{FP}{TN+FP}$ = $\cfrac{예측양성,실제음성}{실제~음성}$
+
+<br>
+
+![3]({{site.url}}/images/2024-03-10-ml-modelAssessment/3.JPG)
 
 <br>
 
@@ -73,16 +77,34 @@ typora-root-url: ../
 - $x$축 : 1 - Specificity(상세성)
 - $y$축 : Sensitivity (민감도)
 
+### ROC 커브 해석
+- 예측선 (a)
+  - Sensitivity = 1
+    - $\cfrac{TP}{TP+FN}$에서, $FN = 0$이 됨 (다 정답)
+  - Specificity = 0
+    - $\cfrac{TN}{TN+FP}$에서, $TN = 0$이 됨 (다 틀림)
+- 예측선 (b)
+  - Sensitivity = 0
+    - $\cfrac{TP}{TP+FN}$에서, $TP = 0$이 됨 (다 틀림)
+  - Specificity = 1
+    - $\cfrac{TN}{TN+FP}$에서, $TN = 0$이 됨 (다 정답)
+
+<br>
+
+![4]({{site.url}}/images/2024-03-10-ml-modelAssessment/4.JPG)
+
+<br>
 
 - The ROC Chart illustrates a tradeoff between a captured response fraction and a false positive fraction
 - Each point on the ROC Chart corresponds to a specific fraction of cases, ordered by their predicted value
 
-![1]({{site.url}}/images/2024-03-10-ml-modelAssessment/1.JPG) <br>
-![2]({{site.url}}/images/2024-03-10-ml-modelAssessment/2.JPG) <br>
+
 
 ### □ AUC (Area Under ROC Curve)
 - 곡선 아래의 면적
 - 1에 가까울 수록 좋음
+
+![2]({{site.url}}/images/2024-03-10-ml-modelAssessment/2.JPG) <br>
 
 <br>
 <br>
