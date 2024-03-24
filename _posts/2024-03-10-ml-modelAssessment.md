@@ -2,7 +2,7 @@
 layout: single
 title: "Model Assessment (모형평가)"
 categories: Machine-Learning
-tag: [datamining, machine-learning]
+tag: [datamining, machine-learning, roc, cross-validation, k-fold-CV]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -107,21 +107,75 @@ typora-root-url: ../
 <br>
 <br>
 
-## $K$-fold cross validation
-### Process
+## ■ Cross Validation (교차 검증)
+- 오버피팅을 막기 위해
+- K-Fold Cross validation is similar to Random Subsampling
+- The advantage of K-Fold Cross validation is that all the examples 
+in the dataset are eventually used for both training and test set
+- Cross-validation is a simple and widely used method for 
+estimating prediction error
+- This is only feasible where there is enough data to set aside a 
+test dataset and still have enough to reliably train the learning 
+algorithm
+
+<br>
+
+### □ Cross Validation 방법
+- k-fold Cross-validation
+  - k: 데이터를 나눌 개수
+  - 데이터를 k개로 나누어, k-1개를 Train data로, 나머지 1개를 Validation data로 나눔
+  - Validation data를 단계별로 나누어 가며 k번 반복
+- Leave-One-Out Cross-validation
+  - special case for k-fold Cross-validation with k=number of observations
+  - 즉, K-fold CV에서 k=n인 경우
+  - Total data n개 중, n-1개를 Train data로, 나머지 1개만 Validation data로 나눔.
+  - Validation data를 하나씩 바꿔 n번 반복
+- Stratified(계층적) k-fold Cross-validation
+  - data를 나눌 때, Train data와 Validation data의 변수(parameter) 비율이 깨지지 않게 비율을 유지하며 수행하는 것
+
+![6]({{site.url}}/images/2024-03-10-ml-modelAssessment/6.jpg)
+
+<br>
+
+### □ 머신러닝 과정 전체 요약
+1. Data를 Train Data와 Test Data로 나눔
+2. Train Data를 다시 Train Data와 Validation Data로 나눔
+3. Train Data를 이용하여 모형 생성
+4. Validation Data를 이용하여 parameter 설정
+5. 2~4번을 여러번 반복 (***Cross-validation***)
+6. 최종 모형 생성
+7. Test Data를 이용하여 최종 모형 평가
+
+![5]({{site.url}}/images/2024-03-10-ml-modelAssessment/5.jpg) <br>
+
+<br>
+<br>
+
+### ■ $K$-fold Cross Validation Process
 1. Randomly partition the data into $K$ mutually exclusive subsets, each approximately equal size
 2. In each run, use one distinct subset as a test set and the remaning $K$-$1$ subset as a training set
 3. Evaluate the method using the average of the $K$ runs
 
+![7]({{site.url}}/images/2024-03-10-ml-modelAssessment/7.jpg)
+
+<br>
+
 ### How many folds are needed in K-CV?
+- A common choice for K-Fold Cross Validation is K=10
+
 - with large number of folds
-  - bias ↓
-  - variance ↑
-  - 계산 시간 ↑
--  with a small number of folds
-  - bias ↑
-  - variance ↓
-  - 계산 시간 ↓
+  - The bias of the true error rate estimator will be small ***(bias ↓)***
+  - The variance of the true error rate estimator will be large ***(variance ↑)***
+  - The computational time will be very large as well ***(계산 시간 ↑)***
+
+- with a small number of folds
+  - The bias of the estimator will be large In practice, the choice of 
+the number of folds depends on the size of the dataset ***(bias ↑)***
+  - The variance of the estimator will be small ***(variance ↓)***
+  - The number of subsets and, therefore, computation time are 
+reduced ***(계산 시간 ↓)***
+  - **For very sparse datasets, we may have to use leave-one-out in 
+order to train on as many examples as possible**
 
 <br>
 
