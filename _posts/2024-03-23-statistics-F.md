@@ -17,9 +17,7 @@ typora-root-url: ../
 $$
 F(u,v) = \cfrac{\cfrac{\chi^2(u)}{u}}{\cfrac{\chi^2(v)}{v}} \quad \mathtt{\sim}F(u, ~v)
 $$
-$$
-h(x) = \cfrac{\Gamma(\cfrac{u+v}{2})(\cfrac{u}{v})^{\cfrac{u}{2}}x^{\cfrac{u}{2}-1}}{\Gamma(\cfrac{u}{x})\Gamma(\cfrac{v}{2})[(\cfrac{u}{v})x+1]^{\cfrac{u+v}{2}}}, \quad 0 <x < \infty
-$$
+
 
 - 분자의 자유도 $u$, 분모의 자유도가 $v$일 때,
 > $F_{\alpha}(u, v)$ : 자유도가 ($u$, $v$)인 F분포에서 상위 $\alpha$의 확률을 주는 경계점 
@@ -30,5 +28,31 @@ $$
 \cfrac{s_{1}^{2}}{s_{2}^{2}} \quad \mathtt{\sim}F(n_{1}-1, ~n_{2}-1)을 ~따른다.
 $$
 > → 두 모집단의 분산의 비가 1인가를 검정
+
+## ■ F-분포의 특징
 - 양수 구간에서만 확률값을 가짐
 - 대칭이 아님
+
+<br>
+<br>
+
+- F-분포의 확률밀도함수
+  
+$$
+h(x) = \cfrac{\Gamma(\cfrac{u+v}{2})(\cfrac{u}{v})^{\cfrac{u}{2}}x^{\cfrac{u}{2}-1}}{\Gamma(\cfrac{u}{x})\Gamma(\cfrac{v}{2})[(\cfrac{u}{v})x+1]^{\cfrac{u+v}{2}}}, \quad 0 <x < \infty
+$$
+
+<br>
+<br>
+
+------
+
+# **※ F-검정 (F-test)**
+### F-검정 (one sample t-test)
+- 두 모집단의 분산의 비가 1인가를 검정
+- 가설
+  - $H_{0}$ : $\sigma_{1}^{2}$ = $\sigma_{2}^{2}$ vs. $H_{1}$ : $\sigma_{1}^{2}$ $\ne$ $\sigma_{2}^{2}$
+- 검정통계량
+$$
+F_{n_{1},n_{2}} = \cfrac{s_{1}^{2}}{s_{2}^{2}} \quad \mathtt{\sim}\text{$F(n_{1}-1,n_{2}-1)$}
+$$
