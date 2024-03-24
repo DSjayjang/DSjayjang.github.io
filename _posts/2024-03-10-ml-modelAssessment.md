@@ -68,7 +68,7 @@ typora-root-url: ../
 
 <br>
 
-![3]({{site.url}}/images/2024-03-10-ml-modelAssessment/3.JPG)
+![3]({{site.url}}/images/2024-03-10-ml-modelAssessment/3.jpg)
 
 <br>
 
@@ -91,7 +91,7 @@ typora-root-url: ../
 
 <br>
 
-![4]({{site.url}}/images/2024-03-10-ml-modelAssessment/4.JPG)
+![4]({{site.url}}/images/2024-03-10-ml-modelAssessment/4.jpg)
 
 <br>
 
