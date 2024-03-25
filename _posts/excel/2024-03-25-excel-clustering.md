@@ -14,13 +14,20 @@ typora-root-url: ../
 # ※ K-Means Clustering in Excel
 
 ### Example Data
-
+- 구매정보 Data
 ![구매정보]({{site.url}}/images/excel/2024-03-25-excel-clustering/0_구매정보.JPG)
+
+<br>
+
+- 고객정보 Data
 ![고객정보]({{site.url}}/images/excel/2024-03-25-excel-clustering/0_고객정보.JPG)
+
+<br>
+<br>
 
 ## ■ 데이터전처리
 
-### 1. 구매정보 피벗테이블로 만들기
+### 1. 구매정보 Data를 피벗테이블로 만들기
 
 ![피벗테이블]({{site.url}}/images/excel/2024-03-25-excel-clustering/1_구매정보_피벗처리_1.JPG)
 
@@ -53,11 +60,13 @@ typora-root-url: ../
 
 <br>
 
+- 엑셀수식
+
 ![표준화수식]({{site.url}}/images/excel/2024-03-25-excel-clustering/4_표준화준비_수식.jpg)
 
 <br>
 
-2. 표준화
+1. 표준화
 
 ```excel
 =(data-average)/stdev.s
@@ -66,6 +75,8 @@ typora-root-url: ../
 ![표준화]({{site.url}}/images/excel/2024-03-25-excel-clustering/5_표준화.jpg)
 
 <br>
+
+- 엑셀수식
 
 ![표준화수식]({{site.url}}/images/excel/2024-03-25-excel-clustering/5_표준화_수식.jpg)
 
@@ -83,6 +94,8 @@ typora-root-url: ../
 ![중심점]({{site.url}}/images/excel/2024-03-25-excel-clustering/6_중심점정하기.jpg)
 
 <br>
+
+- 엑셀수식
 
 ![중심점수식]({{site.url}}/images/excel/2024-03-25-excel-clustering/6_중심점정하기_수식.jpg)
 
@@ -104,6 +117,8 @@ typora-root-url: ../
 
 <br>
 
+- 엑셀수식
+
 ![군집화수식]({{site.url}}/images/excel/2024-03-25-excel-clustering/7_군집화_수식.jpg)
 
 ### 7. 각 데이터들의 최소거리의 합
@@ -115,6 +130,8 @@ typora-root-url: ../
 ![최소거리]({{site.url}}/images/excel/2024-03-25-excel-clustering/8_최소거리.jpg)
 
 <br>
+
+- 엑셀수식
 
 ![최소거리수식]({{site.url}}/images/excel/2024-03-25-excel-clustering/8_최소거리_수식.jpg)
 
@@ -146,4 +163,4 @@ typora-root-url: ../
 
 <br>
 
-![해찾기결과]({{site.url}}/images/excel/2024-03-25-excel-clustering/10_해찾기도구_결과_1.JPG)
+![해찾기결과]({{site.url}}/images/excel/2024-03-25-excel-clustering/10_해찾기도구_결과_1.jpg)
