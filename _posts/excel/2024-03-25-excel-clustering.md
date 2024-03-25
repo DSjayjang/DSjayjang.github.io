@@ -1,8 +1,8 @@
 ---
 layout: single
-title: "Clustering in Excel"
+title: "K-Means Clustering in Excel"
 categories: Excel
-tag: [datamining, machine-learning, clustering, unsupervised-learning, excel]
+tag: [datamining, machine-learning, clustering, unsupervised-learning, excel, k-means-clustering]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -11,7 +11,7 @@ typora-root-url: ../
 ---
 <br><br>
 
-# ※ Clustering in Excel
+# ※ K-Means Clustering in Excel
 
 ### Example Data
 

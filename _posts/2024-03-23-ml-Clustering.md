@@ -2,7 +2,7 @@
 layout: single
 title: "Clustering"
 categories: Machine-Learning
-tag: [datamining, machine-learning, clustering, unsupervised-learning]
+tag: [datamining, machine-learning, clustering, unsupervised-learning,k-means-clustering, k-medoids-clustering, hierarchical-clustering]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
