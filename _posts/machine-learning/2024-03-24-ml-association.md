@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Association Analysis"
 categories: Machine-Learning
 tag: [datamining, machine-learning, association-rule, association-rule-analysis, unsupervised-learning]
