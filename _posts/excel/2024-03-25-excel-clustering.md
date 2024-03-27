@@ -58,8 +58,6 @@ typora-root-url: ../
 
 ![표준화준비]({{site.url}}/images/excel/2024-03-25-excel-clustering/4_표준화준비.jpg)
 
-<br>
-
 - 엑셀수식
 
 ![표준화수식]({{site.url}}/images/excel/2024-03-25-excel-clustering/4_표준화준비_수식.jpg)
@@ -73,8 +71,6 @@ typora-root-url: ../
 ```
 
 ![표준화]({{site.url}}/images/excel/2024-03-25-excel-clustering/5_표준화.jpg)
-
-<br>
 
 - 엑셀수식
 
@@ -92,8 +88,6 @@ typora-root-url: ../
 ```
 
 ![중심점]({{site.url}}/images/excel/2024-03-25-excel-clustering/6_중심점정하기.jpg)
-
-<br>
 
 - 엑셀수식
 
@@ -115,8 +109,6 @@ typora-root-url: ../
 
 ![군집화]({{site.url}}/images/excel/2024-03-25-excel-clustering/7_군집화.jpg)
 
-<br>
-
 - 엑셀수식
 
 ![군집화수식]({{site.url}}/images/excel/2024-03-25-excel-clustering/7_군집화_수식.jpg)
@@ -128,8 +120,6 @@ typora-root-url: ../
 ```
 
 ![최소거리]({{site.url}}/images/excel/2024-03-25-excel-clustering/8_최소거리.jpg)
-
-<br>
 
 - 엑셀수식
 
@@ -153,6 +143,8 @@ typora-root-url: ../
 ![해찾기도구]({{site.url}}/images/excel/2024-03-25-excel-clustering/10_해찾기도구.JPG)
 
 ![해찾기도구]({{site.url}}/images/excel/2024-03-25-excel-clustering/10_해찾기도구_1.JPG)
+
+![해찾기도구]({{site.url}}/images/excel/2024-03-25-excel-clustering/10_해찾기도구_2.JPG)
 
 <br>
 

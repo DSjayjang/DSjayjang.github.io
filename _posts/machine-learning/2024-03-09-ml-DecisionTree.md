@@ -11,8 +11,8 @@ typora-root-url: ../
 ---
 <br><br>
 
-# Decision Tree
-## 나무 모형 (Tree Model)
+# **※ Decision Tree (의사결정 나무)**
+## Tree Model (나무 모형)
 - 발견된 변수의 규칙 혹은 조건문을 토대로 나무 구조로 도표화하여 **분류**와 **예측** 을 수행하는 방법
 - 대상이 되는 집단을 몇개의 소집단으로 구분하는 ***Segmentation 모델링 기법***
 
@@ -38,7 +38,7 @@ typora-root-url: ../
 - 변수간 교호작용의 지나친 강조
 - 재규적인 알고리즘에 의해 결과가 초기의 분할에 큰 영향을 받는다
 - 이산형 변수의 수준이 많은 경우 결과가 정확하지 않을 수 있다
-- 과도 적합된 모형이 작성되기 쉬워서 새로운 자료에 대한 예측력이 낮아서 불안정하다
+- (오버피팅)과도 적합된 모형이 작성되기 쉬워서 새로운 자료에 대한 예측력이 낮아서 불안정하다 > 일반화하기 어렵다
 - 끝 마디에 속한 관측값들에게는 같은 예측을 적용 <br>
 → 예측표면이 매끄럽지 못하다
 - 관측값의 개수에 민감
@@ -84,7 +84,7 @@ $p(g)$: 최종노드 $g$에 속할 확률<br>
     $$
     - CART에서 사용하는 불순도 측정 지수
     - 지니지수가 가장 작을 때
-- 엔트로피 지수 (Entropy Index)<br>
+- ★ 엔트로피 지수 (Entropy Index)<br>
     $$
     \phi = -\sum_{j}P_{j}(g)logP_{j}(g)
     $$
@@ -205,3 +205,53 @@ $p(g)$: 최종노드 $g$에 속할 확률<br>
 ### ■ Estimate Optimization - Squared Error
 #### Minimize squared error
 - squred difference between target and prediction.
+
+<br>
+
+## ■ 무질서(disorder) 측정 공식(엔트로피)
+$$
+D(set) = -\cfrac{P}{T}log_2\cfrac{P}{T} ~-\cfrac{N}{T}log_2\cfrac{N}{T}
+$$
+- D: disorder
+- set: data set
+- P: Positive(양성) 데이터 개수
+- N: Negiative(음성) 데이터 개수
+- T: 노드 내 전체 데이터 개수
+
+- 무질서는 작을 수록 좋음
+
+![disorder]({{site.url}}/images/ml/2024-03-09-ml-DecisionTree/disorder.jpg)
+
+
+## ■ 테스트 퀄리티
+$$
+Q(Test) = \sum D(sets) \times \cfrac{해당~노드~데이터~수}{테스트~전체~데이터~수}
+$$
+
+- 작을수록 좋음
+
+### □ 예시 문제
+
+![disorder]({{site.url}}/images/ml/2024-03-09-ml-DecisionTree/disorder_ex.jpg)
+
+![entropy]({{site.url}}/images/ml/2024-03-09-ml-DecisionTree/entropy.jpg)
+
+
+### □ 변수(feature)가 연속형인 경우
+- 모든 data를 기준으로 노드분할테스트 진행 > 가장 성능 좋은 data로 분할
+
+### □ 타겟(target)이 연속형인 경우
+- 각 노드의 평균값을 예측값으로 함
+
+## ■ Random Forest (랜덤 포레스트)
+- 앙상블 학습
+- Decision Tree의 단점을 보완하기 위해 만들어짐
+- 여러 Decision Tree를 결합한 것
+
+### □ Random Forest 순서 (랜덤 포레스트)
+1. n개의 랜덤 데이터 샘플 선택(중복 가능)
+    - 배깅(bagging): 트레이닝 데이터에서 중복을 허용하여 랜덤 샘플링
+2. d개의 변수(feature) 선택(중복 불가능)
+3. Decision Tree 학습
+4. 각 Decision Tree 결과의 ***투표***를 통해 클래스 할당
+
