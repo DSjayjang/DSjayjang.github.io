@@ -22,19 +22,22 @@ typora-root-url: ../
 <br>
 
 ## ■ Overfitting 예시
+### □ ***overfitting***
 
 ![1]({{site.url}}/images/datamining/2024-03-31-datamining-overfitting/overfitting1.JPG)
 
-- Training Set에서는 90.5%의 Accuracy, Validation Set에서는 75.5%의 Accuracy
-- Training Set에 overfitting(과적합)되어 있어, Validation Set에서 accuracy가 감소하였다. 
+> - Training Set에서는 90.5%의 Accuracy, Validation Set에서는 75.5%의 Accuracy
+> - Training Set에 overfitting(과적합)되어 있어, Validation Set에서 accuracy가 감소하였다. 
 
 <br>
 
+### □ ***better fitting***
+
 ![2]({{site.url}}/images/datamining/2024-03-31-datamining-overfitting/overfitting2.JPG)
 
-- Training Set에서는 83%의 Accuracy, Validation Set에서는 78.5%의 Accuracy
-- 첫 번째 예시보다 Training Set에서 accuracy가 감소하였지만, Validation Set에서는 오히려 accuracy가 증가하였다.
-- 새로운 데이터에 대해 
+> - Training Set에서는 83%의 Accuracy, Validation Set에서는 78.5%의 Accuracy
+> - 첫 번째 예시보다 Training Set에서 accuracy가 감소하였지만, Validation Set에서는 오히려 accuracy가 증가하였다.
+> - 새로운 데이터에 대해 더 좋은 예측력을 가지는 모형
 
 <br>
 
