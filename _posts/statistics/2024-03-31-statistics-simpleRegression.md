@@ -42,17 +42,17 @@ $$
 
 > - $y_{i} = \beta_{0} + \beta_{1}x_{i} + \epsilon_{i}$
 > - $\epsilon_{i} \sim N(0,~\sigma^{2})$
->> - 오차 $\epsilon_{i}$들은 서로 독립이며 평균이 0, 분산이 $\sigma^{2}$인 정규분포를 따르는 확률변수이다.
+>> 오차 $\epsilon_{i}$들은 서로 독립이며 평균이 0, 분산이 $\sigma^{2}$인 정규분포를 따르는 확률변수이다.
 
 > - $(Y \mid X=x) ~=~ \beta_{0}+\beta_{1}x+\epsilon \sim N(\beta_{0}+\beta_{1}x,~\sigma^{2})$
->> - 직선상의 $\beta_{0} + \beta_{1}x_{i}$가 정규분포를 따르는 오차 $\epsilon_{i}$에 의해 변동된 것
+>> 직선상의 $\beta_{0} + \beta_{1}x_{i}$가 정규분포를 따르는 오차 $\epsilon_{i}$에 의해 변동된 것
 
 > - $y_{i} \sim N(\beta_{0} + \beta_{1}x_{i}, \sigma^{2})$
->> - $y_{i}$는 독립변수 $x_{i}$로 고정시켰을 때의 종속변수의 값이다.
+>> $y_{i}$는 독립변수 $x_{i}$로 고정시켰을 때의 종속변수의 값이다.
 
 > - $\bar y = \beta_{0} + \beta_{1}\bar x + \bar \epsilon$
 > - $\bar \epsilon \sim N(0,~\cfrac{\sigma^{2}}{n})들은~서로~독립$
->> - $\bar y \sim N(\beta_{0} + \beta_{1}\bar x, \cfrac{\sigma^{2}}{n})$
+>> $\bar y \sim N(\beta_{0} + \beta_{1}\bar x, \cfrac{\sigma^{2}}{n})$
 
 ![1]({{site.url}}/images/statistics/2024-03-31-statistics-simpleRegression/1.jpg)
 
@@ -67,7 +67,7 @@ $$
 
 #### ※ 편차
 - 실제 관측값 $y_{i}$과 예측된 값 $\beta_{0}+\beta_{1}x_{i}$과의 차이
-- $d_{i} = y_{i} - \beta_{0} + \beta_{1}x_{i}$
+- $d_{i} = y_{i} - (\beta_{0} + \beta_{1}x_{i}$)
 
 #### ※ 편차제곱합
 - $D = \sum_{i=1}^{n} d_{i}^{2} = \sum_{i=1}^{n} (y_{i} - (\beta_{0} + \beta_{1}x_{i}))^{2}$
@@ -76,17 +76,61 @@ $$
 - 편차제곱합 $D$를 최소화하는 $\beta_{0}$, $\beta_{1}$의 값
 - $\hat \beta_{0}$, $\hat \beta_{1}$으로 표현
 
-#### ※ 추정회귀직선
-- 최소제곱법에 의한 추정직석
-- $\hat y~=~\hat \beta_{0}~+~\hat \beta_{1}x$
 
 ---
-- $\bar x = \cfrac{1}{n} \sum_{i=1}^{n} x_{i}$
 $$
+\bar x = \cfrac{1}{n} \sum_{i=1}^{n} x_{i} \\
+\\
 S_{xx} = \sum (x_{i}-\bar x)^2 \\
-\quad = \sum x_{i}^{2} - n \bar x^{2} \\
+\quad \quad = \sum x_{i}^{2} - n \bar x^{2} \\
 \quad \quad = \sum x_{i}^{2} - \cfrac{(\sum x_{i})^{2}}{n}
 $$
+
+$$
+\bar y = \cfrac{1}{n} \sum_{i=1}^{n} y_{i} \\
+\\
+S_{yy} = \sum (y_{i}-\bar y)^2 \\
+\quad \quad = \sum y_{i}^{2} - n \bar y^{2} \\
+\quad \quad = \sum y_{i}^{2} - \cfrac{(\sum y_{i})^{2}}{n}
+$$
+
+$$
+S_{xy} = \sum (x_{i}-\bar x)(y_{i}-\bar y) \\
+\quad \quad = \sum x_{i}y_{i} - n \bar x \bar y \\
+\quad \quad = \sum x_{i}y_{i} - \cfrac{(\sum x_{i})(\sum y_{i})}{n}
+$$
+
+#### ※ 최소제곱추정량
+- $\hat \beta_{1} = \cfrac{S_{xy}}{S_{xx}}$
+- $\hat \beta_{0} = \bar y - \hat \beta_{1}\bar x$
+
+#### ※ 추정회귀직선
+- 최소제곱법에 의한 추정직선
+- $\hat y~=~\hat \beta_{0}~+~\hat \beta_{1}x$
+
+#### ※ 오차
+- $\epsilon_{i} = y_{i} - (\beta_{0}~+~\beta_{1}x_{i})$
+
+#### ※ 잔차 (residual)
+- 오차의 추정량
+- 관측값 $y_{i}$와 그의 추정량 $\hat y_{i}$ 사이의 차이
+- 잔차의 합은 0, $\sum e_{i}=0$
+- $e_{i} = y_{i} - \hat y_{i} \\ \quad \quad = y_{i} - (\hat \beta_{0}~+~\hat \beta_{1}x_{i})$
+
+#### ※ 예측값
+- $\hat y_{i} = \hat \beta_{0}~+~\hat \beta_{1}x_{i}$
+
+#### ※ 잔차제곱합 (residual sum of squares)
+- 오차에 기인한 제곱합 (sum of squares due to error)
+- 오차의 분산을 추정하기 위해 잔차의 제곱합을 사용
+- $SSE = \sum e_{i}^{2} \\ \quad \quad = S_{yy} - \cfrac{S{xy}^{2}}{S{xx}}$
+
+#### ※ 평균제곱합 (mean squared error) : MSE
+- 오차의 분산 $\sigma^{2}$의 추정량 $s^{2}$
+- $s^{2} = MSE = \cfrac{SSE}{n-2}$
+> 표본분산에서는 제곱합을 n-1로 나누지만, 오차분산의 추정량에서는 n-2로 나눈다.<br>
+> 그 이유는 n개의 자료로부터 두 개의 모수 $(\beta_{0}, \beta_{1})$를 추정하고 남은 n-2가 잔차제곱합 SSE의 자유도이기 때문이다.
+
 
 
 <br>
