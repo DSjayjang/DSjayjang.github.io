@@ -189,20 +189,38 @@ order to train on as many examples as possible**
 
 ## ■ Criteria for prediction
 - 연속형 종속변수 모형 평가 <br>
+- 회귀모형의 예측력을 평가하기 위해 예측값과 실제값이 유사한지 평가하는 척도가 필요한데, 대표적으로 아래 5가지의 척도를 사용하여 모델의 성능을 평가함
+
 - 실제 target value: ($y_{1}$, ..., $y_{n}$)<br>
 - 예측 target value: ($\hat y_{1}$, ..., $\hat y_{n}$)
 
+<br>
+
 ### **□ MSE (Mean Squared Error, 평균제곱오차)**
-- $\cfrac{1}{n} \sum(y_{i}-\hat y_{i})^2$
+- 실제 값과 예측 값 사이의 오차 제곱의 평균
+- 값이 작을수록 좋음
+- $\cfrac{1}{n} \sum(y_{i} - \hat y_{i})^2$
 
 ### **□ RMSE (Root Mean Squared Error, 평균제곱근오차)**
+- MSE에 root를 취한 값
 - 값이 작을수록 좋음
-- $\sqrt(\cfrac{1}{n} \sum(y_{i}-\hat y{i})^2)$
+- $\sqrt(\cfrac{1}{n} \sum(y_{i}-\hat y_{i})^2)$
+
+### **□ AE (Average Error, 평균오차)**
+- 실제 값에 대한 예측 값의 과대/과소 추정 정도 
+- $\cfrac{1}{n} \sum y_{i}-\hat y_{i}$
 
 ### **□ MAE (Mean Absolute Error, 평균절대오차)**
-- 값이 작을수록 좋음
+- 실제 값과 예측 값 사이의 절대적인 오차의 평균
 - 예측값과 같은 단위를 가짐
-- $\cfrac{1}{n} \sum \lvert y_{i}-\hat y{i} \rvert$
+- 값이 작을수록 좋음
+- $\cfrac{1}{n} \sum \lvert y_{i}-\hat y_{i} \rvert$
+
+### **□ MAPE (Mean Absolute Percentage Error, 평균절대비오차)**
+- 실제 값 대비 실제 값과 예측 값 사이의 절대적인 오차의 평균
+- 상대적인 오차를 추정하기 위해 주로 사용됨
+- $\cfrac{1}{n} \sum \cfrac{\lvert y_{i}-\hat y_{i} \rvert}{\lvert y_{i} \rvert} \times 100(\%)$
+
 
 <br>
 
