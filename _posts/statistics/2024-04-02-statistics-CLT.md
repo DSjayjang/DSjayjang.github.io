@@ -55,6 +55,30 @@ Var(\bar X) &= Var(\cfrac{1}{n}\sum X_{i}) \\
 &= \cfrac{\sigma^{2}}{n}
 \end{align*}
 $$
+- $\sigma$를 모를 때는 표본표준편차 $s$ 사용
+$$
+\begin{align*}
+Var(\bar X) &= \cfrac{s^{2}}{n} \\
+∵ ~s &= \sqrt{\cfrac{1}{n-1}\sum (X_{i}-\bar X)^{2}} \\
+&= \sqrt{\cfrac{1}{n-1}\sum X_{i}^{2}- n\bar X^{2}}
+\end{align*}
+$$
+
+<br>
+
+#### **◎ 표본평균의 표준오차**
+$$
+\begin{align*}
+S.E(\bar X) &= \cfrac{\sigma}{\sqrt{n}}
+\end{align*}
+$$
+- $\sigma$를 모를 때는 표본표준편차 $s$ 사용
+$$
+\begin{align*}
+S.E(\bar X) &= \cfrac{s}{\sqrt{n}} \\
+\end{align*}
+$$
+
 
 <br>
 
@@ -73,3 +97,23 @@ $$
 <br>
 
 ### □ $s^{2}$이 $\sigma^{2}$의 불편 추정량인 이유
+$$
+\begin{align*}
+\mathbb{E}(s^{2}) &= \mathbb{E}[\cfrac{1}{n-1}\sum (X_{i}-\bar X)^{2}] \\
+&= \cfrac{1}{n-1}\mathbb{E}[\sum X_{i}^{2} -\bar X^{2}] \\
+&= \cfrac{1}{n-1} \mathbb{E}(SST) \\
+&= \cfrac{1}{n-1}(n-1)\sigma^{2} \\
+&= \sigma^{2} \\
+
+\\
+\text{, where} \\
+\mathbb{E}(SST) &= \mathbb{E}[\sum(X_{i}-\bar X)^{2}] \\
+&= \sum \mathbb{E}(X_{i}^{2}) - n\mathbb{E}(\bar X^{2}) \\
+&= \sum \mathbb{E}(X_{i}^{2}) -n\mathbb{E}(\bar X^{2}) \\
+(∵ Var(X) &= \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2}) \\
+&= \sum (Var(X_{i}) + \mathbb{E}(X_{i})^{2})) -n(Var(\bar X)+\mathbb{E}(\bar X)^{2}) \\
+&= n\sigma^{2} + n\mu^{2}-n(\cfrac{\sigma^{2}}{n}+\mu^{2}) \\
+&= (n-1)\sigma^{2}
+\\
+\end{align*}
+$$
