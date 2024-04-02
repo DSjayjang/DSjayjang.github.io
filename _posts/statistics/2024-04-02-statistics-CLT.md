@@ -55,7 +55,11 @@ Var(\bar X) &= Var(\cfrac{1}{n}\sum X_{i}) \\
 &= \cfrac{\sigma^{2}}{n}
 \end{align*}
 $$
+
 - $\sigma$를 모를 때는 표본표준편차 $s$ 사용
+
+<br>
+
 $$
 \begin{align*}
 Var(\bar X) &= \cfrac{s^{2}}{n} \\
@@ -73,6 +77,9 @@ S.E(\bar X) &= \cfrac{\sigma}{\sqrt{n}}
 \end{align*}
 $$
 - $\sigma$를 모를 때는 표본표준편차 $s$ 사용
+
+<br>
+
 $$
 \begin{align*}
 S.E(\bar X) &= \cfrac{s}{\sqrt{n}} \\
@@ -104,8 +111,11 @@ $$
 &= \cfrac{1}{n-1} \mathbb{E}(SST) \\
 &= \cfrac{1}{n-1}(n-1)\sigma^{2} \\
 &= \sigma^{2} \\
+\end{align*}
+$$
 
-\\
+$$
+\begin{align*}
 \text{, where} \\
 \mathbb{E}(SST) &= \mathbb{E}[\sum(X_{i}-\bar X)^{2}] \\
 &= \sum \mathbb{E}(X_{i}^{2}) - n\mathbb{E}(\bar X^{2}) \\
@@ -114,6 +124,5 @@ $$
 &= \sum (Var(X_{i}) + \mathbb{E}(X_{i})^{2})) -n(Var(\bar X)+\mathbb{E}(\bar X)^{2}) \\
 &= n\sigma^{2} + n\mu^{2}-n(\cfrac{\sigma^{2}}{n}+\mu^{2}) \\
 &= (n-1)\sigma^{2}
-\\
 \end{align*}
 $$
