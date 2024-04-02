@@ -21,8 +21,8 @@ typora-root-url: ../
 
 $$
 Cov(X, Y) = \cfrac{\sum ((x_{i}-\bar x)(y_{i}-\bar y))}{n-1} \\
-\quad \quad = E(X-\mu_{X})(Y-\mu_Y) \\
-\quad \quad = E(XY) - \mu_{X}\mu_{Y}
+\quad \quad \quad \quad \quad \quad = E(X-\mu_{X})(Y-\mu_Y) \\
+\quad \quad \quad \quad= E(XY) - \mu_{X}\mu_{Y}
 $$
 
 <br>
@@ -64,11 +64,12 @@ where $s_{x}=\sqrt{\cfrac{\sum(x_{i}-\bar x)^{2}}{n-1}} ,~s_{y}=\sqrt{\cfrac{\su
 
 $$
 Corr(X, Y) = \cfrac{1}{n-1} \sum \cfrac{\sum (x_{i}-\bar x)}{s_{x}} \cfrac{(y_{i}-\bar y)}{s_{y}} = Cov(Z_{x},Z_{y}) \\
-\quad \quad = \cfrac{1}{s_{x}s_{y}} \times \cfrac{\sum (x_{i}-\bar x)(y_{i}-\bar y)}{n-1} \\
-\quad \quad = \cfrac{Cov(X,Y)}{s_{x}s_{y}} \\
-\quad \quad = \cfrac{\sum (x_{i}-\bar x)(y_{i}-\bar y)}{\sqrt{\sum (x_{i}-\bar x)^{2}}\sqrt{\sum(y_{i}-\bar y)^{2}}} \\
-\quad \quad =\cfrac{S_{xy}}{\sqrt{S_{xx}}\sqrt{S_{yy}}} \\
-\quad \quad = \rho
+= \cfrac{1}{s_{x}s_{y}} \times \cfrac{\sum (x_{i}-\bar x)(y_{i}-\bar y)}{n-1} \\
+= \cfrac{Cov(X,Y)}{s_{x}s_{y}} \\
+\\
+= \cfrac{\sum (x_{i}-\bar x)(y_{i}-\bar y)}{\sqrt{\sum (x_{i}-\bar x)^{2}}\sqrt{\sum(y_{i}-\bar y)^{2}}} \\
+=\cfrac{S_{xy}}{\sqrt{S_{xx}}\sqrt{S_{yy}}} \\
+= \rho
 $$
 
 <br>
@@ -85,4 +86,4 @@ $$
 
 > $Corr(X,Y)$ 수치값 해석전에 산점도를 살펴보는 것이 좋다.<br>
 > 그러나 $Corr(X,Y)$로 한 변수로 다른 변수를 예측할 순 없다.<br>
-> → 회귀분석 이용
+> → ***회귀분석 이용***
