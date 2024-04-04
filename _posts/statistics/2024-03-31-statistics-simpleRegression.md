@@ -82,7 +82,7 @@ $$
 
 $$
 \begin{align*}
-\cfrac{\partial S(\beta_{0},\beta_{1})}{\partial \beta_{0}} = 0 \text{~임을  이용} \\
+\cfrac{\partial S(\beta_{0},\beta_{1})}{\partial \beta_{0}} = 0 \text{임을  이용} \\
 \sum (y_{i} - (\hat \beta_{0}+ \hat \beta_{1}x_{i}))^{2} &=> \text{미분} \\
 &=> -2 \sum (y_{i}-\hat \beta_{0}-\hat \beta_{1}x_{i}) = 0 \\
 &=> \sum y_{i} -n \hat \beta_{0} - \hat \beta_{1}\sum x_{i} =0 \\
@@ -103,7 +103,7 @@ $$
 
 $$
 \begin{align*}
-\cfrac{\partial S(\beta_{0},\beta_{1})}{\partial \beta_{1}} = 0 \text{~임을  이용} \\
+\cfrac{\partial S(\beta_{0},\beta_{1})}{\partial \beta_{1}} = 0 \text{임을  이용} \\
 \sum (y_{i} - (\hat \beta_{0}+\hat \beta_{1}x_{i}))^{2} &=> \text{미분} \\
 &=> -2 \sum x_{i}(y_{i}-\hat \beta_{0}-\hat \beta_{1}x_{i}) = 0 \\
 &=> \sum x_{i}(y_{i} - \bar y + \hat \beta_{1}\bar x - \hat \beta_{1}x_{i}) =0 \\
@@ -138,12 +138,9 @@ $$
 
 ## ■ Least Squares Regression Line (최소제곱회귀선)
 $$
-\hat Y = \hat \beta_{0} + \hat \beta_{1}X
-$$
-
-<br>
-
-$$
+\hat Y = \hat \beta_{0} + \hat \beta_{1}X \\
+\\
+\\
 \text{where}  \\
 \hat \beta_{0} = \bar Y - \hat \beta_{1}\bar X \\
 \hat \beta_{1}= \cfrac{S_{xy}}{S_{xx}}
@@ -153,23 +150,31 @@ $$
 
 ### □ 회귀 계수의 의미
 - $\hat \beta_{1}$: $x$가 1단위 증가할 때마다 $y$는 $\hat \beta_{1}$만큼 증가한다
-- $\hat \beta_{0}$: $x$가 0일 때 $y$의 값
+- $\hat \beta_{0}$: $x$가 0일 때 $y$의 기댓값
 
 <br>
 <br>
 
 ## ※ 정리
 ### □ 모집단의 단순선형회귀직선
-$$y = \beta_{0} + \beta_{1}x + \epsilon$$
+$$
+y = \beta_{0} + \beta_{1}x + \epsilon
+$$
 
 ### □ 추정된 단순선형회귀직선 (최소제곱회귀선)
-$$\hat y = \hat \beta_{0} + \hat \beta_{1}x$$
+$$
+\hat y = \hat \beta_{0} + \hat \beta_{1}x
+$$
 
 ### □ Error (오차)
-$$\epsilon_{i} = y_{i} - (\beta_{0}~+~\beta_{1}x_{i})$$
+$$
+\epsilon_{i} = y_{i} - (\beta_{0}~+~\beta_{1}x_{i})
+$$
 
 ### □ Fitted Value (적합값)
-$$\hat y_{i} = \hat \beta_{0} + \hat \beta_{1}x_{i}$$
+$$
+\hat y_{i} = \hat \beta_{0} + \hat \beta_{1}x_{i}
+$$
 
 ### □ Residual (잔차)
 $$
