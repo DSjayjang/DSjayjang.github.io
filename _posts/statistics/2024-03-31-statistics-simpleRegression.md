@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Simple Linear Regression (단순회귀분석)"
+title: "Simple Linear Regression (단순선형회귀)"
 categories: Statistics
 tag: [statistics, regression-analysis, regression, simple-linear-regression, linear-regression]
 toc: true # 목차 보여주기
@@ -9,7 +9,7 @@ author_profile: false   # 프로필 제거
 #     nav: "counts"
 typora-root-url: ../
 ---
-<br><br>
+<br>
 
 # **※ Regression Analysis (회귀 분석)**
 > - 종속변수 $y$와 여러 독립변수의 집합 $X$ 사이의 관계를 선형으로 가정하고, 해당 관계를 가장 잘 설명할 수 있는 모형을 찾는 분석 방법론
@@ -17,53 +17,120 @@ typora-root-url: ../
 
 <br>
 
-## ■ 단순선형회귀
+## ■ Simple Linear Regression (단순선형회귀)
 - 종속변수 $y$와 ***단 하나의 독립변수 $X$*** 사이의 관계를 선형으로 추정하고 분석하는 것
-- 독립변수 (설명변수)
+- Independent variable - 독립변수 (설명변수)
   - 실험하는 사람에 의하여 통제되어 독립적으로 주어지는 변수 $x$
-- 종속변수 (반응변수) - dependent variable
+- Dependent variable - 종속변수 (반응변수)
   - 독립변수와 오차에 의해 결정되는 변수 $y$
 
 <br>
 
 ### □ 단순선형회귀 모형
+```
 $$
 Y = \beta_{0}+\beta_{1}X+\epsilon
 $$
-- $\beta_{0}$ : intercept (절편)
-  - $\beta_{0} = \mathbb{E}(Y \mid X=0)$
-  - $X = 0$일 때 $Y$의 기댓값
-- $\beta_{1}$ : slpoe (기울기)
-  - $\beta_{1} = \mathbb{E}(Y \mid X=j) - \mathbb{E}(Y \mid X=j-1)$
-  - $X$의 한단위 변화에 대한 $Y$의 기댓값(변화)
-- $\epsilon$ : error (오차)
+```
+- Regression Coefficient (회귀계수)
+  - $\beta_{0}$ : intercept (절편)
+    - $\beta_{0} = \mathbb{E}(Y \mid X=0)$
+    - $X = 0$일 때 $Y$의 기댓값
+  - $\beta_{1}$ : slpoe (기울기)
+    - $\beta_{1} = \mathbb{E}(Y \mid X=j) - \mathbb{E}(Y \mid X=j-1)$
+    - $X$의 한단위 변화에 대한 $Y$의 기댓값(변화)
+- Random disturbance (확률변동)
+  - $\epsilon$ : error (오차)
 
 <br>
 
-> - $y_{i} = \beta_{0} + \beta_{1}x_{i} + \epsilon_{i}$
-> - $\epsilon_{i} \sim N(0,~\sigma^{2})$
+> - $y_{i} = \beta_{0} + \beta_{1}x_{i} + \epsilon_{i}$ , where $\epsilon_{i} \sim N(0,~\sigma^{2})$
 >> 오차 $\epsilon_{i}$들은 서로 독립이며 평균이 0, 분산이 $\sigma^{2}$인 정규분포를 따르는 확률변수이다.
 
-> - $(Y \mid X=x) ~=~ \beta_{0}+\beta_{1}x+\epsilon \sim N(\beta_{0}+\beta_{1}x,~\sigma^{2})$
+> - $(Y \mid X=x) ~=~ \beta_{0}+\beta_{1}x+\epsilon$ , where $\sim N(\beta_{0}+\beta_{1}x, ~\sigma^{2})$
+> - $y_{i} \sim N(\beta_{0}+\beta_{1}x_{i}, ~\sigma^{2})$
 >> 직선상의 $\beta_{0} + \beta_{1}x_{i}$가 정규분포를 따르는 오차 $\epsilon_{i}$에 의해 변동된 것
-
-> - $y_{i} \sim N(\beta_{0} + \beta_{1}x_{i}, \sigma^{2})$
 >> $y_{i}$는 독립변수 $x_{i}$로 고정시켰을 때의 종속변수의 값이다.
 
-> - $\bar y = \beta_{0} + \beta_{1}\bar x + \bar \epsilon$
-> - $\bar \epsilon \sim N(0,~\cfrac{\sigma^{2}}{n})들은~서로~독립$
->> $\bar y \sim N(\beta_{0} + \beta_{1}\bar x, \cfrac{\sigma^{2}}{n})$
+> - $\bar y = \beta_{0} + \beta_{1}\bar x + \bar \epsilon$, where $\bar \epsilon \sim N(0,~\cfrac{\sigma^{2}}{n})$
+> - $\bar y \sim N(\beta_{0} + \beta_{1}\bar x, \cfrac{\sigma^{2}}{n})$
 
 ![1]({{site.url}}/images/statistics/2024-03-31-statistics-simpleRegression/1.jpg)
 
 <br>
 
 ### □ 최소제곱추정법을 이용한 모수의 추정
-#### ※ 최소제곱법 (Least Squares method)
-- 편차의 전체적인 크기를 최소화시키는 방법
-  - 편차의 제곱합을 최소화하는 모수의 값을 찾아 모수의 추정값으로 사용하는 방법
+#### ※ Least Squares method (최소제곱법)
+- 잔차의 전체적인 크기를 최소화시키는 방법
+- 잔차의 제곱합을 최소화하는 모수의 값을 찾아 모수의 추정값으로 사용하는 방법
+- 각 점 $y_{i}$로부터 구하고자 하는 최적 직선 $\hat y_{i}$까지의 수직거리(잔차)의 제곱합을 최소로 하는 직선의 방정식을 구하는 것
 
-![2]({{site.url}}/images/statistics/2024-03-31-statistics-simpleRegression/2.jpg)
+![2]({{site.url}}/images/statistics/2024-03-31-statistics-simpleRegr6 ession/2.jpg)
+
+<br>
+
+### □ 정규방정식 (Normal Equation)을 이용한 모수 추정
+#### ※ $\hat \beta_{0}$ 추정하기
+
+$$
+\cfrac{\partial S(\beta_{0},\beta_{1})}{\partial \beta_{0}} = 0 \\
+$$
+
+$$
+\begin{align*}
+\sum (y_{i} - (\hat \beta_{0}+ \hat \beta_{1}x_{i}))^{2} &=> \text{미분} \\
+&=> -2 \sum (y_{i}-\hat \beta_{0}-\hat \beta_{1}x_{i}) = 0 \\
+&=> \sum y_{i} -n \hat \beta_{0} - \hat \beta_{1}\sum x_{i} =0 \\
+&=> n \hat \beta_{0} = \sum y_{i}- \hat \beta_{1}\sum x_{i} \\
+&=> \hat \beta_{0} = \bar y - \hat \beta_{1}\bar x \\
+\end{align*}
+$$
+
+<br>
+
+#### ※ $\hat \beta_{1}$ 추정하기
+
+$$
+\cfrac{\partial S(\beta_{0},\beta_{1})}{\partial \beta_{1}} = 0
+$$
+
+$$
+\begin{align*}
+\sum (y_{i} - (\beta_{0}+\beta_{1}x_{i}))^{2} &=> \text{미분} \\
+&=> -2 \sum x_{i}(y_{i}-\hat \beta_{0}-\hat \beta_{1}x_{i}) = 0 \\
+&=> \sum x_{i}(y_{i} - \bar y + \hat \beta_{1}\bar x - \hat \beta_{1}x_{i}) =0 \\
+&=> \sum x_{i}(y_{i}-\bar y) + \hat \beta_{1}\sum x_{i}(\bar x - x_{i}) = 0 \\
+&=> \sum x_{i}(y_{i}-\bar y) = \hat \beta_{1}\sum x_{i}(x_{i}-\bar x) \\
+&=> S_{xy} = \hat \beta_{1}S_{xx} \\
+&=> \hat \beta_{1} = \cfrac{S_{xy}}{S_{xx}}
+\end{align*}
+$$
+
+#### ※ ***tips.***
+
+$$
+\begin{align*}
+S_{xx} &= \sum (x_{i} - \bar x)(x_{i} - \bar x) \\
+&= \sum x_{i}(x_{i} - \bar x) - \sum \bar x(x_{i}-\bar x) \\
+&= \sum x_{i}(x_{i} - \bar x) - \bar x \sum x_{i} + n\bar x^{2} \\
+&= \sum x_{i}(x_{i} - \bar x) - n\bar x^{2} + n\bar x^{2} \\
+&= \sum x_{i}(x_{i} - \bar x) \\
+
+\\
+
+S_{xy} &= \sum (x_{i} - \bar x)(y_{i} - \bar y) \\
+&= \sum x_{i}(y_{i} - \bar y) - \sum \bar x(y_{i}-\bar y) \\
+&= \sum x_{i}(y_{i} - \bar y) - \bar x \sum y_{i} + n\bar x \bar y \\
+&= \sum x_{i}(y_{i} - \bar y) - n\bar x \bar y + n\bar x \bar y \\
+&= \sum x_{i}(y_{i} - \bar y)
+\end{align*}
+$$
+
+
+<br>
+<br>
+<br>
+<br>
 
 #### ※ 편차
 - 실제 관측값 $y_{i}$과 예측된 값 $\beta_{0}+\beta_{1}x_{i}$과의 차이

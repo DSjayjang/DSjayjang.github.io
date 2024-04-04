@@ -13,7 +13,7 @@ typora-root-url: ../
 
 # **※ Overfitting (과적합)**
 - ***too flexible***
-- sample data에 너무 정확하게 적합되어 있어, sample data로 예측을 하면 n개의 data에 accuracy가 거의 100%임. 그러나 새로운 data로 예측을 하면 accuracy가 급격하게 감소됨 <!--more-->
+- sample data에 너무 정확하게 적합되어 있어, sample data로 예측을 하면 n개의 data에 accuracy가 거의 100%임. 그러나 새로운 data로 예측을 하면 accuracy가 급격하게 감소됨
 - 과거데이터는 예측을 잘 하나, 미래데이터는 예측을 잘 하지 못함.
 - 특정 데이터에만 잘 맞고 새로운 데이터에는 안맞음
 
