@@ -173,3 +173,5 @@ $$
 
 ## ■ 평균반응 $\beta_{0}+\beta_{1}x^{*}$의 $100(1-\alpha)\%$ 신뢰구간
 - $(\beta_{0}+\beta_{1}x^{*}) \pm t_{\alpha/2}(n-2) \times {s\sqrt{\cfrac{1}{n}+\cfrac{(x^{*}-\bar x)^{2}}{S_{xx}}}}$
+
+<br>
