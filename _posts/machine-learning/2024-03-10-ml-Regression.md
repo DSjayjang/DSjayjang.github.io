@@ -11,7 +11,7 @@ typora-root-url: ../
 ---
 <br><br>
 
-# **Regression**
+# **※ Regression**
 
 ## Introduction
 ## 1. Predict new cases

@@ -118,12 +118,12 @@ typora-root-url: ../
         1. transformation for standardization
             - Min-Max normalization <br>
                 $$
-                Z = \cfrac{x-min}{max-min}
+                Z = \cfrac{x-\min}{\max-\min}, \quad (0<Z<1)
                 $$
                 <br>
             - Normalization <br>
                 $$
-                Z = \cfrac{x-\mu}{\sigma}
+                Z = \cfrac{x-\mu}{\sigma}, \quad \mathtt{\sim}N(0,~1)
                 $$
                 <br>
             - ranking ~Uniform <br>
