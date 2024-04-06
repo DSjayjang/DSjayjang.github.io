@@ -11,7 +11,7 @@ typora-root-url: ../
 ---
 <br><br>
 
-### Neural Network
+### ※ Neural Network
 데이터로부터 반복적인 학습과정을 거쳐 데이터에 숨어있는 패턴이나 연관관계를 찾아냄
 
 ### Usage

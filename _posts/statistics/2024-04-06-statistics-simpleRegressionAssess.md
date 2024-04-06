@@ -64,7 +64,7 @@ $$
 - ***변수의 개수에 대한 패널티를 추가***해 유의하지 않은 변수가 추가될 경우 결정계수가 증가하지 않도록 함
 
 $$
-R_{adj}^{2} = 1 - [\cfrac{n-1}{n-(p+1)}]\cfrac{SSE}{SST} \le 1 - \cfrac{SSR}{SST} = R^{2}
+R_{adj}^{2} = 1 - [\cfrac{n-1}{n-(p+1)}]\cfrac{SSE}{SST} \le 1 - \cfrac{SSE}{SST} = R^{2}
 $$
 
 <br>
