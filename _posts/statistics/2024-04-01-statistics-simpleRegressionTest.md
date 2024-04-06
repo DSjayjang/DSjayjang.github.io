@@ -37,7 +37,7 @@ $$
 $$
 
 $$
-C_{i} = \cfrac{x_{i}-\bar x}{S_{xx}} \text{라~하면,}~ \hat \beta_{1} = \sum C_{i}y_{i} \\
+C_{i} = \cfrac{x_{i}-\bar x}{S_{xx}} \text{라 하면,}~ \hat \beta_{1} = \sum C_{i}y_{i} \\
 \begin{align*}
 \sum C_{i} &= \cfrac{\sum (x_{i}-\bar x)}{S_{xx}} \\
 &= 0 \\
@@ -57,7 +57,7 @@ $$
 ### □ 가설 : $H_{0}~:~\beta_{1}=\beta_{1}^{*}$에 대한 검정 (유의수준 $\alpha$)
 
 - 검정통계량 $t_{1} = \cfrac{\hat \beta_{1}-\beta_{1}^{*}}{\cfrac{s}{\sqrt{S_{xx}}}} ~\sim t(n-2)$
- 
+
 $H_{1}~:~\beta_{1} > \beta_{1}^{*}$ → $R~:~t \ge t_{\alpha}(n-2)$ <br>
 $H_{1}~:~\beta_{1} < \beta_{1}^{*}$ → $R~:~t \le -t_{\alpha}(n-2)$ <br>
 $H_{1}~:~\beta_{1} \ne \beta_{1}^{*}$ → $R~:~\lvert t \rvert \ge t_{\alpha/2}(n-2)$ <br>
@@ -153,6 +153,31 @@ $$
 &= S_{yy} - \cfrac{S_{xy}^{2}}{S_{xx}} \\
 &= SSE
 \end{align*}
+$$
+
+<br>
+
+###  □ 평균 반응 $\beta_{0}+\beta_{1}x^{*}$에 대한 추정
+###  □ 가설 $H_{0}~:~(\beta_{0}+\beta_{1}x^{*})=\mu_{0}$에 대한 검정 (유의수준 $\alpha$)
+
+- 검정통계량 $t_{1} = \cfrac{(\hat \beta_{0}+\hat \beta_{1}x^{*})-\mu_{0}}{s\sqrt{\cfrac{1}{n}+\cfrac{(x^{*}-\bar x)^{2}}{S_{xx}}}} ~\sim t(n-2)$
+
+#### ◎ $\hat \beta_{0}+\hat \beta_{1}x^{*}$의 추정된 표준오차
+$$
+\text{추정된~표준오차 : } s\sqrt{\cfrac{1}{n}+\cfrac{(x^{*}-\bar x)^{2}}{S_{xx}}}
+$$
+
+> $x^{*}=0$ 이면 $\hat y^{*}=\hat \beta_{0}$이 된다<br>
+> → $\hat y^{*}$ 과 $\hat \beta_{0}$의 표준오차와 분포는 일치한다
+
+<br>
+
+### □ 반응 변수값 $Y$에 대한 추정
+(반응값의 평균이 아니라, 하나의 반응값에 대한 추정)
+
+#### ◎ $x=x^{*}$에서의 반응변수값 $Y$ 예측값의 추정된 표준오차
+$$
+s = \sqrt{1+\cfrac{1}{n}+\cfrac{(x^{*}-\bar x)^{2}}{S_{xx}}}
 $$
 
 <br>
