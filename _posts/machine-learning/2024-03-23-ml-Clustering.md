@@ -2,14 +2,14 @@
 layout: single
 title: "Clustering"
 categories: Machine-Learning
-tag: [datamining, machine-learning, clustering, unsupervised-learning,k-means-clustering, k-medoids-clustering, hierarchical-clustering]
+tag: [datamining, machine-learning, clustering, unsupervised-learning,k-means-clustering, k-medoids-clustering, hierarchical-clustering, dbscan]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
 #     nav: "counts"
 typora-root-url: ../
 ---
-<br><br>
+<br>
 
 # **※ Clustering (군집화)**
 - Unsupervised learning (비지도 학습)
@@ -116,6 +116,7 @@ source:<https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplifi
    > unsupervised learning은 해석이 굉장히 중요함
 - objsective function이 convex라서 무조건 수렴한
    > 언젠가 정답은 나온다
+
 #### ◎ 단점
 - mean을 기준으로 하기 때문에 outlier(이상치)에 민감함
 - 데이터의 모양이 hyper-spherical이 아니라면 잘 묶이지 않음
@@ -190,11 +191,13 @@ source:<https://ratsgo.github.io/machine%20learning/2017/04/18/HC/>
 - dendrogram에서 x축은 데이터 하나하나를 의미, y축은 유사도(대부분 euclidean distance)를 나타냄
 - 군집화 후, dendrogram을 통해 군집의 개수를 정하게 됨
 - 데이터가 계층적으로 유사한 특징을 가질 때 적합
+
 #### ◎ 장점
 - 원하는 similarity와 linkage를 사용할 수 있어, 다양한 공간에서 다양한 형태의 클러스터를 찾을 수 있음
 - dendrogram을 이용하여, 데이터에 따라 유연하게 최적의 클러스터 개수를 정할 수 있음
 - 시각적으로 파악하기 용이
 - 어떤 linkage 방법을 사용하더라도, 한번에 하나씩 클러스터가 줄어들기 때문에 원하는 클러스터 개수를 찾을 수 있음
+
 #### ◎ 단점
 - $O(N^{3})$
 - 모든 데이터간 유사도를 계산해야하기 때문에 느림
@@ -219,11 +222,6 @@ source:<https://ratsgo.github.io/machine%20learning/2017/04/18/HC/>
 
 <br>
 
-### □ Hierarchical Clsutering 장단점
-
-
-<br>
-
 ![hierarchical]({{site.url}}/images/ml/2024-03-23-ml-Clustering/hierarchical2.png)
 
 source:<https://www.statisticshowto.com/hierarchical-clustering/>
@@ -242,3 +240,52 @@ source:<https://www.statisticshowto.com/hierarchical-clustering/>
 | **범주형 데이터 사용** | 불가                | Rank 등으로 치환하여 사용              |
 | **이상치 민감성**    | 높음                | 낮음                            |
 | **데이터 크기**     | 큰 데이터에 적절         | 작은 데이터에 적절                    |
+
+<br>
+<br>
+
+---
+## **■ DBSCAN Clustering**
+- Density-Based Spatial Clustering of Applications with Noise (밀도기반 클러스터링)
+- 정의한 밀도에 따라 인접한 데이터를 계속해서 묶어나가는 방법
+
+<br>
+
+![dbscan]({{site.url}}/images/ml/2024-03-23-ml-Clustering/DBSCAN2.png)
+
+source:<https://lucy-the-marketer.kr/ko/growth/%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0%EB%A7%81%EA%B3%BC-dbscan/>
+
+<br>
+
+### □ DBSCAN Clsutering 특징
+- DBSCAN은 밀도라는 개념을 도입하여, 서로 가까이 있는 데이터들을 하나의 클러스터로 묶어줌
+- noise data를 outlier로 취급하여 분류함
+   > 이러한 특징으로 Outlier를 찾는 문제에 활용<br>
+   > e.g. 불량품 검출, 사기 거래 감지
+
+#### ◎ 장점
+- 다양한 형태의 데이터에 대해서 클러스터를 굉장히 잘 파악함. (= 성능이 좋다.)
+- 어떻게든 다른 클러스터에 모든 데이터를 포함시키는 다른 방법들과는 달리, outlier를 정의하고 있기 때문에 만들어진 클러스터의 품질이 좋음.
+   > 특징이 뚜렷하다, 밀도가 높다, 해석력이 뛰어나다.
+
+#### ◎ 단점
+- MinPts와 Eps가 hyper-parameter임
+- 모든 포인트에 Range Query를 계산해야 해서 꽤 느린 편. $O(N^2)$
+- 고차원 공간에서 성능이 떨어지는 단점 (Curse of Dimensionality)
+
+<br>
+
+### □ DBSCAN Clsutering Process
+1. 밀도를 정의하기 위한 파라미터 MinPts와 Eps를 정의함
+   - Eps는 같은 묶음으로 판단하는 기준이 되는 거리값임. (euclidean distance 기준)
+   - MinPts는 같은 묶음으로 판단하기 위해서 Eps를 반지름으로 하는 원을 그렸을 때, 최소한으로 포함되어야 하는 데이터의 개수. (range query)
+2. 각 데이터를 기준으로 Eps 크기를 가지는 원을 그려서 그에 해당하는 데이터를 찾는다. (range query)
+   - Range query의 결과로 MinPts 이상의 데이터가 포함된다면, 그 데이터를 `Core point`라고 지정
+3. Core Point와 연결된 모든 Core Point들은 하나의 클러스터로 묶임
+4. 만약, 어떤 포인트가 range query를 했을 때 MinPts를 만족하지 못하지만, Range query의 결과에 Core Point가 포함되어있는 경우엔 해당 포인트는 `Border Point`가 됨.
+   > Border Point까지는 하나의 클러스터로 묶입니다.
+5. Core Point, Border Point를 모두 만족하지 못하는 데이터는 `Noise Point`(Outlier)로 판단이 되며, 이 때 **-1**의 cluster label을 할당받음
+
+![dbscan]({{site.url}}/images/ml/2024-03-23-ml-Clustering/DBSCAN.png)
+
+source:<https://medium.com/@agarwalvibhor84/lets-cluster-data-points-using-dbscan-278c5459bee5>
