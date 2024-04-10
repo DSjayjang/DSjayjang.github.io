@@ -60,17 +60,6 @@ source: <https://scikit-learn.org/stable/auto_examples/cluster/plot_cluster_comp
 
 <br>
 
-### □ 군집을 구성하는 방법
-   - 최단거리법 (single linkage)
-   - 최장거리법 (complete linkage)
-   - 평균기준법 (average linkage)
-   - 중앙중심법 (median linkage)
-   - Ward’s method
-     - 군집을 확장했을 때, 추가되는 분산이 적은 군집끼리 묶어주는 방법
-     - Ward’s distance = AB군집의 분산 – (A군집의 분산+B군집의 분산)
-
-<br>
-
 ### □ Clustering 활용 예시
 - 고객 유형을 분류하여 상품 판매 전략 도출
 - 제품의 성분 및 특성에 따라 분류하여 제품 추천 알고리즘 개발
@@ -86,7 +75,7 @@ source: <https://scikit-learn.org/stable/auto_examples/cluster/plot_cluster_comp
 
 <br>
 
-![kmeans]({{site.url}}/images/ml/2024-03-23-ml-Clustering/kmeans.png)
+![kmeans]({{site.url}}/images/ml/2024-03-23-ml-Clustering/kmeans1.png)
 
 source:<https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/>
 
@@ -167,33 +156,78 @@ source:<https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplifi
 ---
 ## **■ Hierarchical Clustering (계층적 군집)**
 - 가장 가까운 데이터끼리 순차적(계층적)으로 묶어 나가는 군집화 기법
+- 일반적으로 HAC (Hierarchical Agglomerative Clustering)를 의미하며, 상향식 계층 클러스터링이라고 부름
+
+<br>
+
+![hierarchical]({{site.url}}/images/ml/2024-03-23-ml-Clustering/hierarchical.png)
+
+source:<https://ratsgo.github.io/machine%20learning/2017/04/18/HC/>
 
 <br>
 
 ### □ Hierarchical Clsutering Process
-1. 모든 데이터들 간의 거리 행렬(유사도 행렬) 생성
+1. 모든 데이터를 각자 독립적인 클러스터로 세팅 (서로 다른 N개의 cluster label을 부여받음)
+2. 모든 데이터들 간의 거리 행렬(유사도 행렬) 생성
    - 유클리드 거리
    - 맨하탄 거리
    - Correlation 등
-2. 군집을 구성할 방법 선택
+2. 클러스터를 구성할 방법 선택
    - 최단거리법 (single linkage)
    - 최장거리법 (complete linkage)
    - 평균기준법 (average linkage)
    - 중앙중심법 (median linkage)
    - Ward’s method
-3. 군집화
+3. 가장 유사도(similarity)가 높은 2개의 클러스터 선택
+4. 정한 방식으로 묶는다. (single linkage의 경우, 가장 가까운 데이터의 pair가 포함된 두 개의 클러스터를 묶음)
+5. 모든 데이터가 묶여 하나의 클러스터가 될 때 까지 3~4번을 반복
+6. dendrogram에서 특정 threshold(distance)를 기준으로 세로로 잘랐을 때, 나뉘는 클러스터들을 최종 클러스터로 선정.
 
 <br>
 
 ### □ Hierarchical Clsutering 특징
 - 각 데이터가 개별 군집으로 시작
+- dendrogram에서 x축은 데이터 하나하나를 의미, y축은 유사도(대부분 euclidean distance)를 나타냄
 - 군집화 후, dendrogram을 통해 군집의 개수를 정하게 됨
+- 데이터가 계층적으로 유사한 특징을 가질 때 적합
+#### ◎ 장점
+- 원하는 similarity와 linkage를 사용할 수 있어, 다양한 공간에서 다양한 형태의 클러스터를 찾을 수 있음
+- dendrogram을 이용하여, 데이터에 따라 유연하게 최적의 클러스터 개수를 정할 수 있음
 - 시각적으로 파악하기 용이
+- 어떤 linkage 방법을 사용하더라도, 한번에 하나씩 클러스터가 줄어들기 때문에 원하는 클러스터 개수를 찾을 수 있음
+#### ◎ 단점
+- $O(N^{3})$
+- 모든 데이터간 유사도를 계산해야하기 때문에 느림
 - 계산 비용이 높음 대규모 데이터에 적합하지 않음
 - 데이터가 많을 경우, 메모리 소모가 크고 계산 시간이 길어짐
-- 데이터가 계층적으로 유사한 특징을 가질 때 적합
 
 <br>
+
+### □ 군집을 구성하는 방법
+   - 최단거리법 (single linkage)
+     - 가장 가까운 데이터 Pair가 포함된 두 개의 클러스터를 합침
+   - 최장거리법 (complete linkage)
+     - 임의의 두 개의 클러스터 중에 가장 멀리 있는 데이터간의 거리가 가장 가까운 두 개의 클러스터를 합침 (minimax)
+   - 평균기준법 (average linkage)
+     - 클러스터 간의 평균 거리가 가장 가까운 두 개의 클러스터를 합침
+   - 중앙중심법 (median linkage)
+   - Ward’s method
+     - 군집을 확장했을 때, 추가되는 분산이 적은 군집끼리 묶어주는 방법
+     - within cluster variance가 최소가 되는 클러스터를 합침
+         > within cluster variance란, 클러스터 내부의 데이터 간의 sum-of-squared distance를 의미
+     - Ward’s distance = AB군집의 분산 – (A군집의 분산+B군집의 분산)
+
+<br>
+
+### □ Hierarchical Clsutering 장단점
+
+
+<br>
+
+![hierarchical]({{site.url}}/images/ml/2024-03-23-ml-Clustering/hierarchical2.png)
+
+source:<https://www.statisticshowto.com/hierarchical-clustering/>
+
 <br>
 
 ---
