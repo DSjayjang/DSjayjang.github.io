@@ -2,7 +2,7 @@
 layout: single
 title: "Clustering"
 categories: Machine-Learning
-tag: [datamining, machine-learning, clustering, unsupervised-learning,k-means-clustering, k-medoids-clustering, hierarchical-clustering, dbscan]
+tag: [datamining, machine-learning, clustering, unsupervised-learning,k-means-clustering, k-medoids-clustering, hierarchical-clustering, dbscan, spectral-clustering]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -283,9 +283,44 @@ source:<https://lucy-the-marketer.kr/ko/growth/%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84
    - Range query의 결과로 MinPts 이상의 데이터가 포함된다면, 그 데이터를 `Core point`라고 지정
 3. Core Point와 연결된 모든 Core Point들은 하나의 클러스터로 묶임
 4. 만약, 어떤 포인트가 range query를 했을 때 MinPts를 만족하지 못하지만, Range query의 결과에 Core Point가 포함되어있는 경우엔 해당 포인트는 `Border Point`가 됨.
-   > Border Point까지는 하나의 클러스터로 묶입니다.
+   > Border Point까지는 하나의 클러스터로 묶임.
 5. Core Point, Border Point를 모두 만족하지 못하는 데이터는 `Noise Point`(Outlier)로 판단이 되며, 이 때 **-1**의 cluster label을 할당받음
 
 ![dbscan]({{site.url}}/images/ml/2024-03-23-ml-Clustering/DBSCAN.png)
 
 source:<https://medium.com/@agarwalvibhor84/lets-cluster-data-points-using-dbscan-278c5459bee5>
+
+<br>
+<br>
+
+---
+## **■ Spectral Clustering**
+- KNN Graph를 생성하여 데이터의 특징을 파악한 뒤 성능이 좋은 클러스터를 생성해주는 방법.
+- 주어진 데이터를 그래프 모델로 해석하여, subgraph로 데이터를 나누는 것으로 묶어주는 방식
+
+<br>
+
+![spectral]({{site.url}}/images/ml/2024-03-23-ml-Clustering/spectral2.png)
+
+![spectral]({{site.url}}/images/ml/2024-03-23-ml-Clustering/spectral1.png)
+
+source:<https://velog.io/@keum0821/%EA%B7%B8%EB%9E%98%ED%94%84Graph%EB%9E%80>
+
+- 데이터 간의 관계를 모델링할 때 사용하는 자료구조를 `Graph`라고 함
+- Node와 Edge로 구성되어 있음
+- Social Network나 Molecular Structure가 대표적인 Graph를 활용해서 해석할 수 있는 도메인임
+
+<br>
+
+### Spectral Clustering Process
+1. 각 데이터를 노드로 두고, 각 데이터로부터 $\epsilon$보다 가까운 거리에 있는 노드들을 연결한 `KNN Graph`를 만듬
+2. 만든 그래프가 가장 잘 나눠지는 곳을 찾아서 그래프를 2분할함 (find min-cut)
+3. 원하는 개수의 클러스터(subgraph)가 생길 때 까지 그래프를 분할 (만약, 찾고자 하는 클러스터가 5개라면 분할을 4번 진행)
+
+<br>
+
+### Spectral Clustering 특징
+#### ◎ 장점
+- 기존 공간에 구애받지 않고 데이터를 그래프 구조로 파악하는 것으로 성능이 꽤 좋게 나오는 편
+#### ◎ 단점
+- KNN Graph를 만들고 min-cut을 찾는게 시간이 오래걸림. $O(N^3)$
