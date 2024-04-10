@@ -20,15 +20,37 @@ typora-root-url: ../
 
 <br>
 
+![clustering]({{site.url}}/images/ml/2024-03-23-ml-Clustering/clustering.png)
+
+source: <https://scikit-learn.org/stable/auto_examples/cluster/plot_cluster_comparison.html>
+
+<br>
+
 ### □ Clustering 목표
-- 집 내 데이터들의 거리는 가깝게, 군집 간 거리는 멀게
+- 군집 내 데이터들의 거리는 가깝게, 군집 간 거리는 멀게
+
+<br>
+
+### □ Clustering 특징
+- input data는 일반적으로 vector(feature vector)이며, target value는 없다.
+- target value가 없다보니, feature vector가 매우 중요
+  > $\rightarrow$ feature engineering의 영향을 많이 받음
+- 주어진 데이터로 판단하는 수 밖에 없기 때문에, 다음 2가지 요소가 매우 중요함
+  1. feature vecor
+  2. similarity
+
 
 <br>
 
 ### □ Clsutering 기법
 - K-means clustering
 - K-medoids clustering
-- Hierarchical clustering 등
+- Hierarchical clustering
+- DBSCAN
+- HDBSCAN
+- Spectral Clustering
+- Mean Shift
+- BIRCH 등
 
 <br>
 
@@ -64,11 +86,18 @@ typora-root-url: ../
 
 <br>
 
+![kmeans]({{site.url}}/images/ml/2024-03-23-ml-Clustering/kmeans.png)
+
+source:<https://www.analyticsvidhya.com/blog/2021/04/k-means-clustering-simplified-in-python/>
+
+<br>
+
 ### □ K-means Clustering Process
 1. 몇개의 군집으로 나눌것인지 K 설정
 2. K개의 랜덤한 초기 중심값 생성
 3. 초기 중심값을 기준으로 군집화
-4. 할당된 군집을 중심으로 새 중심값 선정
+   - 가까운 중심값으로 군집번호 할당
+4. 할당된 군집을 중심으로 새 중심값(평균) 선정
 5. 새 중심으로 중심 이동
 6. 새 중심으로 거리를 다시 계산, 군집 할당 재시행
 7. 군집 내 데이터들이 변하지 않을때까지 2~6 반복
@@ -86,13 +115,25 @@ typora-root-url: ../
      - 평균에서 각 데이터간의 거리 제곱을 모두 합한 값
 3. Silhouette method
    - 군집 내 거리(a)와 최근접 군집 간의 거리(b)를 비교하여 a는 최소, b는 최대가 되는 k로 개수 설정
-   - $s_{i} = \cfrac{b_{i}-a{i}}{\max\{a_{i},b_{i}\}}$
+   - $s_{i} = \cfrac{b_{i}-a_{i}}{\max\{a_{i},b_{i}\}}$
 
 <br>
 
 ### □ K-mean Clsutering 특징
+#### ◎ 장점
 - 사전에 군집의 개수를 정해야함
-- outlier(이상치)에 민감함
+- 모델이 직관적이고 간단하며 빠름. $O(nk)$
+- 모델의 수행 원리가 간단해서 해석이 용이함
+   > unsupervised learning은 해석이 굉장히 중요함
+- objsective function이 convex라서 무조건 수렴한
+   > 언젠가 정답은 나온다
+#### ◎ 단점
+- mean을 기준으로 하기 때문에 outlier(이상치)에 민감함
+- 데이터의 모양이 hyper-spherical이 아니라면 잘 묶이지 않음
+- 첫번째 중심값에 따라 성능이 천차만별로 바뀜
+   > K-Means++가 이 문제를 어느정도 개선함
+- K가 hyper-parameter임
+   > 어떻게 나눠야 가장 좋은 것인지 알 수 없음
 
 <br>
 <br>
