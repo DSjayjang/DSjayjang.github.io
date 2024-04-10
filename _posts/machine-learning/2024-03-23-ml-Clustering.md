@@ -302,7 +302,7 @@ source:<https://medium.com/@agarwalvibhor84/lets-cluster-data-points-using-dbsca
 
 ![spectral]({{site.url}}/images/ml/2024-03-23-ml-Clustering/spectral2.png)
 
-![spectral]({{site.url}}/images/ml/2024-03-23-ml-Clustering/spectral1.png)
+![spectral]({{site.url}}/images/ml/2024-03-23-ml-Clustering/spectral.png)
 
 source:<https://velog.io/@keum0821/%EA%B7%B8%EB%9E%98%ED%94%84Graph%EB%9E%80>
 
@@ -312,14 +312,14 @@ source:<https://velog.io/@keum0821/%EA%B7%B8%EB%9E%98%ED%94%84Graph%EB%9E%80>
 
 <br>
 
-### Spectral Clustering Process
+### □ Spectral Clustering Process
 1. 각 데이터를 노드로 두고, 각 데이터로부터 $\epsilon$보다 가까운 거리에 있는 노드들을 연결한 `KNN Graph`를 만듬
 2. 만든 그래프가 가장 잘 나눠지는 곳을 찾아서 그래프를 2분할함 (find min-cut)
 3. 원하는 개수의 클러스터(subgraph)가 생길 때 까지 그래프를 분할 (만약, 찾고자 하는 클러스터가 5개라면 분할을 4번 진행)
 
 <br>
 
-### Spectral Clustering 특징
+### □ Spectral Clustering 특징
 #### ◎ 장점
 - 기존 공간에 구애받지 않고 데이터를 그래프 구조로 파악하는 것으로 성능이 꽤 좋게 나오는 편
 #### ◎ 단점
