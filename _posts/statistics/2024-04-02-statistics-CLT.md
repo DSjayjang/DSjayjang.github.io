@@ -118,7 +118,7 @@ $$
 \begin{align*}
 \text{, where} \\
 \mathbb{E}(SST) &= \mathbb{E}[\sum(X_{i}-\bar X)^{2}] \\
-&= \sum \mathbb{E}(X_{i}^{2}) - n\mathbb{E}(\bar X^{2}) \\
+&= \mathbb{E} [\sum X_{i}^{2} - n\bar X^{2}] \\
 &= \sum \mathbb{E}(X_{i}^{2}) -n\mathbb{E}(\bar X^{2}) \\
 (∵ Var(X) &= \mathbb{E}(X^{2}) - \mathbb{E}(X)^{2}) \\
 &= \sum (Var(X_{i}) + \mathbb{E}(X_{i})^{2})) -n(Var(\bar X)+\mathbb{E}(\bar X)^{2}) \\

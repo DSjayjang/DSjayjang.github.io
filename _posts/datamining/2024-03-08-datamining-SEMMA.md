@@ -67,7 +67,20 @@ typora-root-url: ../
 
 ## **E: Explore**
 * 데이터 탐색
-* EDA(Exploratory Data Analysis): 탐색적 자료 분석
+* EDA(Exploratory Data Analysis): 탐색적 데이터 분석
+
+### EDA
+- 여러 통계량과 시각화를 사용하여 데이터를 탐색하고 변수 간 잠재적 관계(인사이트)를 찾아내는 프로세스
+    > 데이터셋 본연의 의미를 파악하고 문제를 구체화하는 과정
+
+1. 데이터 크기 확인
+2. 데이터 분포 확인
+3. 데이터 변동의 패턴 발견: 자료의 재표현(로그), 상호작용 효과 발견
+4. 이상치 발견: 이상체 지거
+5. 모델링 전략 수립 방향 설정: 어떤 변수로 어떤 분석을 할 것인지
+6. 분석결과의 발견: 분석 결과에 대한 설명 근거
+
+<br>
 
 ### EDA 방법
 * 히스토그램 (Hisogram)
@@ -96,6 +109,7 @@ typora-root-url: ../
     - 두 범주형 변수 간의 관계 파악<br>
     → 한 범주가 다른 범주에 어떤 영향을 주는지
 * Bining continuous variables
+* Correlation Matrix
 
 ## `■ Outlier`
 * 탐지
