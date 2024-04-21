@@ -44,6 +44,13 @@ stu1_long <- pivot_longer(stu1,
                           cols = c('year1', 'year2'),
                           names_to='year', 
                           values_to = 'math')
+
+# gather 함수 이용
+# gather(data, key, value, colA, colB, ...)
+stu1_long <- gather(stu1,
+                    key = year,
+                    value = math,
+                    year1, year2)
 ```
 ![2]({{site.url}}/images/2024-03-14-r-TidyUntidy/2.JPG)
 
@@ -56,6 +63,12 @@ stu1_long <- pivot_longer(stu1,
 stu1_wide <- pivot_wider(stu1_long,
                         names_from = year,
                         values_from = math)
+
+# spread 함수 이용
+# spread(data, key, value)
+stu1_wide <- spread(stu1_long,
+                    key = year,
+                    value = math)
 ```
 ![3]({{site.url}}/images/2024-03-14-r-TidyUntidy/3.JPG)
 
