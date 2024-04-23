@@ -9,7 +9,7 @@ author_profile: false   # 프로필 제거
 #     nav: "counts"
 typora-root-url: ../
 ---
-<br><br>
+<br>
 
 # **※ Association Analysis (연관분석)**
 - 데이터에서 항목 간의 연관성을 찾아내는데 사용
@@ -26,6 +26,7 @@ typora-root-url: ../
 - Lift (향상도)
   - $\cfrac{P(A \cap B)}{P(A)~P(B)}$
   - 두 항목 간의 상관 관계가 랜덤한 상황보다 얼마나 더 강한지를 측정
+  - 1 보다 크면 양의 상관 / 작으면 음의 상관 / 1이면 상관 X
 
 <br>
 
