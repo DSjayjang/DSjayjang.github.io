@@ -13,7 +13,7 @@ typora-root-url: ../
 
 # **※ Association Analysis in R (연관분석)**
 
-## ■ 패키지
+## ■ 연관분석 패키지
 - arules : 연관분석 패키지
 - arulesViz : 연관분석 시각화용 패키지
 
@@ -22,8 +22,6 @@ typora-root-url: ../
 ## ■ 연관분석
 ### □ transactions 형식의 data
 - apriori()를 사용하기 위해 data를 transactions 형식으로 변환
-- 사용법
-    > as(data, "transactions")
 
 ```r
 > as(data, "transactions")
@@ -32,8 +30,9 @@ typora-root-url: ../
 <br>
 
 ### □ 시각화
-- 사용법
-    > itemFrequencyPlot(data, topN, type, ...)
+- 함수
+  > itemFrequencyPlot()
+- parameter
     - data : transactions 형식의 data
     - topN : 상위 몇 개의 data를 출력할 것인지
     - type : item Frequency 타입 ("absolute" / "relative")
@@ -46,27 +45,33 @@ typora-root-url: ../
 <br>
 
 ### □ 규칙 생성
-- transactions 형식으로 변환된 데이터를 apriori()를 사용하여 연관규칙 생성
-- 사용법
+- apriori()를 사용하여 연관규칙 생성
+- 함수
     > apriori(data, parameter = `NULL`, ...)
+- parameter
+    - data : transactions 형식으로 변환된 데이터
     - supp : 지지도
     - conf : 신뢰도
     - maxlen : 연관 규칙의 최대 길이
     - target : "rules" / ...
 
 ```r
-> rules <- apriori(data, parameter = list(supp=0.1, conf=0.6, maxlen=2, target = "rules"))
+> apriori(data, parameter = list(supp=0.1, conf=0.6, maxlen=2, target = "rules"))
 ```
 
 <br>
 
 ## ■ 결과 해석
-> sort(data, by, decreasing)
-- data : apriori()를 통해 생성된 data
-- by : ("support" / "confidence" / "lift")
-- decreasing : T/F
+- 함수
+    > inspect()
+- parameter
+  - data : apriori()를 통해 생성된 data
+  - by : ("support" / "confidence" / "lift")
+  - decreasing : T/F
 
 ```r
+> rules <- apriori(data, parameter = list(supp=0.1, conf=0.6, maxlen=2, target = "rules"))
+
 # 상위 6개의 지지도별
 > rules_supp <- sort(rules, by = "support", decreasing = T)
 > inspect(rules_supp)
