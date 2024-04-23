@@ -17,12 +17,74 @@ typora-root-url: ../
 - arules : 연관분석 패키지
 - arulesViz : 연관분석 시각화용 패키지
 
+<br>
 
+## ■ 연관분석
+### □ transactions 형식의 data
+- apriori()를 사용하기 위해 data를 transactions 형식으로 변환
+- 사용법
+    > as(data, "transactions")
+
+```r
+> as(data, "transactions")
+```
+
+<br>
+
+### □ 시각화
+- 사용법
+    > itemFrequencyPlot(data, topN, type, ...)
+    - data : transactions 형식의 data
+    - topN : 상위 몇 개의 data를 출력할 것인지
+    - type : item Frequency 타입 ("absolute" / "relative")
+
+```r
+> itemFrequencyPlot(data, topN = 10, type = "absolute")
+> itemFrequencyPlot(data, topN = 10, type = "relative")
+```
+
+<br>
+
+### □ 규칙 생성
+- transactions 형식으로 변환된 데이터를 apriori()를 사용하여 연관규칙 생성
+- 사용법
+    > apriori(data, parameter = `NULL`, ...)
+    - supp : 지지도
+    - conf : 신뢰도
+    - maxlen : 연관 규칙의 최대 길이
+    - target : "rules" / ...
+
+```r
+> rules <- apriori(data, parameter = list(supp=0.1, conf=0.6, maxlen=2, target = "rules"))
+```
 
 <br>
 
 ## ■ 결과 해석
-- lhs: 선행 item
+> sort(data, by, decreasing)
+- data : apriori()를 통해 생성된 data
+- by : ("support" / "confidence" / "lift")
+- decreasing : T/F
+
+```r
+# 상위 6개의 지지도별
+> rules_supp <- sort(rules, by = "support", decreasing = T)
+> inspect(rules_supp)
+
+# 상위 6개의 신뢰도별
+> rules_conf <- sort(rules, by = "confidence", decreasing = T)
+> inspect(rules_conf)
+
+# 상위 6개의 향상도별
+> rules_lift <- sort(rules, by = "lift", decreasing = T)
+> inspect(rules_lift)
+
+# 특정 아이템이 있는 규칙
+> rules_ABC <- subset(rules, items %in% ("ABC"))
+> inspect(rules_ABC)
+```
+
+- lhs : 선행 item
 - rhs : 규칙의 결과, 앞의 item이 발생했을 때 연관되는 item
 - support : 지지도 / lhs와 rhs가 동시에 발생하는 확률
 - confidence : 신뢰도 / lhs가 발생하는 경우, rhs가 발생할 조건부 확률
