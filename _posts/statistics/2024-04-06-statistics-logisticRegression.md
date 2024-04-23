@@ -130,3 +130,22 @@ $$
 - AIC : -2(적합된 모형의 로그우도) + $2p$
 - BIC : -2(적합된 모형의 로그우도) + $p*logn$
     > 최소로 하는 모형을 선택한다
+
+<br>
+
+## Boosted Logistic Regression
+- 약한 분류기를 여러개 더하여 모델을 만들어 가는것
+  - 약한 분류기 : feature하나로 모델을 만드는 것 (정확도가 낮다)
+
+## Logistic Model Trees
+- 로지스틱 회귀와 의사결정나무를 합친 모형
+
+## Penalized Logistic Regression
+- $y = \alpha + \beta x$ 에서 $\beta$에 제한을 주는 것
+- 릿지(ridge) L2 정규화 ($\sum \beta^{2} < t ~(영역)$>)
+- $y = \alpha + \beta x+ \sum \beta^{2}$
+- 정규화(Regularization)를 하는 이유는 모델의 복잡성(complexity)을 조절하기 위해 >> overfitting을 피하기 위해
+
+## Regularized Logistic Regression
+- 라쏘(lasso) L1 정규화 ($\sum \lvert\beta \rvert < t$)
+- $y = \alpha + \beta x+ \sum \lvert\beta \rvert$
