@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Association Analysis in R"
-categories: Machine-Learning
+categories: R
 tag: [datamining, machine-learning, association-rule, association-rule-analysis, unsupervised-learning, r]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
