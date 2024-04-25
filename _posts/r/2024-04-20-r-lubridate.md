@@ -200,9 +200,9 @@ typora-root-url: ../
 ### □ 날짜의 올림 / 내림 / 반올림				
 				
 ```r				
-# 올림	
 > dt_hm <- ymd_hm("20240425 18:30")
 
+# 올림	
 > ceiling_date(dt1_hm, unit="year")
 [1] "2025-01-01 UTC"
 > ceiling_date(dt1_hm, unit="month")
