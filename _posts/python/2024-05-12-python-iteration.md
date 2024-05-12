@@ -29,7 +29,7 @@ source: <https://www.codingem.com/flowchart-loop/>
 
 <br>
 
-### ㅁ 기본 구조
+### □ 기본 구조
 ```py
 > for iterator in iterable_object:
     <statement>
@@ -45,11 +45,80 @@ source: <https://www.codingem.com/flowchart-loop/>
 
 <br>
 
-### ㅁ 기본 구조
+### □ 기본 구조
 
 ```py
 > while condition:
     <statement>
     <statement>
     ...
+```
+
+<br>
+
+## ■ 반복문 제어 (break, continue)
+- break : 반복문을 빠져나감
+- continue : 아래 코드는 수행하지 않고 처음으로 돌아감
+
+```py
+> while True: # 무한반복
+    <statement>
+    ...
+    if <condition>:
+        continue
+    else:
+        break
+```
+
+<br>
+
+## ■ 활용
+
+### □ range() 이용한 for문
+- iterable_object를 range()를 이용
+
+```py
+# 0 <= i < 5
+> for i in range(0, 5):
+
+# List의 길이만큼 반복
+> for i in range(len(List)):
+```
+
+<br>
+
+### □ enumerate() 이용한 for문
+- iterable_object를 enumerate()를 이용
+- index도 함께 출력
+
+```py
+# index는 0부터 시작
+> for index, value in enumerate(List):
+    print(index, value)
+# 시작 index를 직접 지정할 수 있음
+> for index, value in enumerate(List, start=1):
+    print(index, value)
+```
+
+<br>
+
+### □ zip() 이용한 for문
+
+```py
+> for value1, value2 in zip(List1, List2):
+    print(value1, value2)
+```
+
+<br>
+
+### □ 기타
+
+```py
+# 리스트, 튜플, 문자열에도 사용이 가능
+> L = [1, 2, 3]
+> for i in L:
+    print(i)
+1
+2
+3
 ```
