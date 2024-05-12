@@ -13,7 +13,7 @@ typora-root-url: ../
 # ※ 반복문 (For / While)
 - 조건에 따라 반복 작업을 수행해야 할 때 사용
 
-![1]({{site.url}}/images/python/2024-05-12-python-iteration/1.png)
+![1]({{site.url}}/images/python/2024-05-12-python-iteration/1.jpeg)
 
 source: <https://www.codingem.com/flowchart-loop/>
 
