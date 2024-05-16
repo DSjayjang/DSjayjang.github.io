@@ -85,6 +85,16 @@ df.sort_values(by = "컬럼명", ascending = False) ** column을 기준으로 �
 ## dataframe 불러오기
 ### csv file
 - pd.read_csv("경로")
+- base_path("/")
+- csv 파일 읽어오면 인덱스까지 같이 불러와져서 인덱스 제거해주는게 좋음
+  - pd.read_csv(~~).drop(columns=["Unnamed: 0"])
+  - pd.read_csv(~~).drop("Unnamed: 0", axis=1)
+base_path = "폴더경로"
+data = pd.read.csv(base_path + "파일명")
+
 
 ## pivot tabel
 - pd.pivot_table(data, index, values, aggfunc)
+
+## 날짜로 변환
+- pd.to_datetime(data.astype(str), format = "%Y%m%d")
