@@ -65,10 +65,10 @@ typora-root-url: ../
 - Anomaly detection (이상치 탐지)
   - Unsupervised Learning
   - 평소의 패턴이랑 다른 것들을 잡아내는데 사용
-  - Ex) 분실카드 특이사용패턴, 게임 버그성 플레이 탐지
+  - e.g. 분실카드 특이사용패턴, 게임 버그성 플레이 탐지
 - Time-series modeling 
   - 과거의 상태(state)를 기반으로 미래의 state를 예측
-  - Ex) 날씨 예측, 음성 인식, 주가 예측
+  - e.g. 날씨 예측, 음성 인식, 주가 예측
   - Supervised Learning : State의 label이 있는 경우
   - Unsupervised Learning : State의 label이 없는 경우
 - Latent variable models & Dimension reduction
@@ -78,3 +78,19 @@ typora-root-url: ../
     - 데이터를 잘 설명 못하는 변수를 제거하면 dimension reduction이 되기 때문
   - 전처리 과정으로 (성능 향상을 위해) 사용
     - 이미지 데이터 크기 축소
+
+<br>
+
+## ■ Data Split
+- 학습에 사용할 데이터와 평가를 할 때 사용할 데이터를 나누는 것 (train data / test data)
+- **train data와 test data는 서로 겹치지 않음**
+- training data는 학습에 사용, test data는 평가에 사용함
+<br>
+
+## ■ Loss Function
+- 모델의 inference 결과(예측값)와 실제 값(y) 사이의 틀린 정도를 계산하는 함수
+- $\hat y$ (predicted value)와 $y$ (target value) 사이의 차이를 계산해주는 함수.
+  - 차이가 적을수록 학습을 잘한 것.
+- Loss function의 결과에 영향을 주는 변수는 **parameter (weights)**
+- Loss function의 계산 결과가 가장 작아질 수 있는 parameter를 찾는 것이 학습의 목표임.
+- 현실적으로 최적의 파라미터 조합을 찾을 수 있는 "경사하강법" (Gradient Descent Algorithm) 이 제일 많이 사용됨
