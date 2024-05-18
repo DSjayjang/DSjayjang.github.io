@@ -14,11 +14,13 @@ typora-root-url: ../
 # **※ Model Assessment란**?
 예측을 위해 만든 모형이 random model보다 과연 우수한지, 서로 다른 모형들 중 어느 것이 가장 우수한 예측력을 가지는지 비교, 분석하는 과정
 
-## Evaluating classification models
+<br>
+
+## Evaluating classification models (분류모델 평가)
 - Predictive accuracy
 - Speed and scalability
 - Robutness
-- Inerpretability
+- Interpretability
 - Goodness of rules
 
 ## 모형 평가 기준
@@ -49,11 +51,13 @@ typora-root-url: ../
 <br>
 
 - **Sensitivity (민감도, Recall)**<br>
+  - 실제 positive 중에서 예측 모델이 맞은 비율
   = $\cfrac{TP}{TP+FN}$ = $\cfrac{양성~정답}{실제~양성}$
 
 <br>
 
 - **Precision (정밀도)**<br>
+  - 예측 모델이 positive로 예측한 것 중 실제로 맞은 비율
   = $\cfrac{TP}{TP+FP}$ = $\cfrac{양성~정답}{예측~양성}$
 
 <br>
@@ -65,6 +69,13 @@ typora-root-url: ../
 
 - **False Positive Rate** = ***1-Specificity***<br>
   = $\cfrac{FP}{TN+FP}$ = $\cfrac{예측양성,실제음성}{실제~음성}$
+
+<br>
+
+- **F1 score***<br>
+  - precision(정밀도)와 recall(민감도)의 조화평균
+  - 둘 다 좋아야 좋게 나오는 평가 지표
+  = $\cfrac{2*precision*recall}{precision+recall}$
 
 <br>
 
@@ -221,8 +232,23 @@ order to train on as many examples as possible**
 - 상대적인 오차를 추정하기 위해 주로 사용됨
 - $\cfrac{1}{n} \sum \cfrac{\lvert y_{i}-\hat y_{i} \rvert}{\lvert y_{i} \rvert} \times 100(\%)$
 
+### **□ $R^{2}$ Score**
+- 실제 값의 분산 대비, 예측 모델이 얼마나 더 실제 값을 잘 맞췄는지의 비율을 계산.
+- $R^{2}=1$ 일 때 best, $R^{2}=0$ 일 때 worst
+
+![8]({{site.url}}/images/2024-03-10-ml-modelAssessment/8.png)
 
 <br>
 
 ### □ MSE의 단점
 MSE exaggerates the presence of outlier (아웃라이어의 존재를 과장한다)
+
+<br>
+
+## ■ Metric for Clustering
+### **□ Silhouette Score**
+- 군집 내에서는 잘 붙어있고, 다른 군집과는 잘 떨어져 있는지를 평가하는 지표
+- 1일 때 best, $s(i) = \cfrac{b(i)}{b(i)}$
+- -1일 때 worst, $s(i) = \cfrac{a(i)}{a(i)}$
+
+![9]({{site.url}}/images/2024-03-10-ml-modelAssessment/9.JPG)
