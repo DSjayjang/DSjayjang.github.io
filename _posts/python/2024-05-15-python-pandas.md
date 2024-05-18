@@ -79,6 +79,7 @@ df.sort_values(by = "컬럼명", ascending = False) ** column을 기준으로 �
 - 그냥 합치기 pd.concat([df1, df2, df3]) # default가 아래로 붙음
 - axis=1 추가하면 옆으로 붙음
 - .reset_index()를 붙이면 index가 붙음
+  - df.index = range(len(df)) # 위와 같음
 - pd.concat(List).reset_index()
 - pd.concat(List).reset_index(drop = True) # 기존 index 없어지고 새로 0~시작
 
@@ -94,7 +95,8 @@ data = pd.read.csv(base_path + "파일명")
 
 
 ## pivot tabel
-- pd.pivot_table(data, index, values, aggfunc)
+- pd.pivot_table(data, index, columns, values, aggfunc)
+- 비어있는 값은 fill_value = 0을 통해 가능
 
 ## 날짜로 변환
 - pd.to_datetime(data.astype(str), format = "%Y%m%d")

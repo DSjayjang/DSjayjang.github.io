@@ -75,7 +75,7 @@ typora-root-url: ../
 - **F1 score***<br>
   - precision(정밀도)와 recall(민감도)의 조화평균
   - 둘 다 좋아야 좋게 나오는 평가 지표<br>
-  = $\cfrac{2*precision*recall}{precision+recall}$
+  = $\cfrac{2 * \text{precision * recall}}{\text{\text{precision+recall}}}$
 
 <br>
 

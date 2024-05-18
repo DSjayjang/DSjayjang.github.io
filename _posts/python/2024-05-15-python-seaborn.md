@@ -31,6 +31,10 @@ sns.displot(data, kind, x, hue)
 
 #### barplot
 sns.barplot(data, x, )
+정렬
+x = data.value_counts().index
+y = data.value_counts().values
+sns.barplot(x=x, y=y, order=x)
 
 #### countplot
 sns.countplot(data, x, )

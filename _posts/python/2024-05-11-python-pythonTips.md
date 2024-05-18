@@ -76,5 +76,34 @@ HelloHelloHelloHelloHelloHelloHelloHelloHelloHello
 - s.split("구분자") : 괄호안에 아무것도 안쓰면 공백을 기준으로 잘라줌
 - s.replace("변경전 문자", "변경후 문자")
 
+
+<br>
 <br>
 
+from glob import glob
+glob(base_path + "*.csv") # 파일경로 내의 .csv 파일 이름 전부
+
+=====EDA=====
+
+### 데이터분석 필수 라이브러리
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+1. 데이터 전처리
+- 결측치 확인
+  - data.info()
+  - data.isnull()
+  - data.isnull().any(axis=1) # null이 한개라도 포함하는 행
+  - nulls=data[data.isnull().any(axis=1)]
+  - nulls."컬럼".value_counts()
+  - nulls."컬럼".nunique()
+  - .str.contains("포함할문자열")
+  - NA값 버리기
+  - data = data.dropna()
+- 피벗테이블
+  - pd.pivot_table(data, index, values)
+- 그림 sns.countplot, ...
+- value.counts()
+- data.columns.str.startswith("~")
