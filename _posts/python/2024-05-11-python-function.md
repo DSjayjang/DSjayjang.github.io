@@ -152,8 +152,8 @@ KIM
 ### □ 함수의 parameter 개수가 너무 많아 일부만 넣고 싶을 때
 - parameter앞에 **(asterisk)를 붙여줌
 - 여러 개의 parameter를 받아서 dictionary로 변환해 줌
-
 - default 값을 지정해 놓으면 함수호출 시 parameter를 지정하지 않아도 default값이 사용됨
+
  ```py
 # 기본 구조
 > def function_name(**kwargs):
@@ -179,6 +179,7 @@ KIM
 # 예시
 def __init__(self, penalty='12', *, dual=False, tol=1e-4, max_iter=100, ...):
     <statement>
+    ...
 ```
 
 ## ■ 함수 안에서 정의한 변수의 효력 범위와 수명
