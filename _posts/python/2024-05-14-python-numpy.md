@@ -25,10 +25,10 @@ typora-root-url: ../
 - 원소의 크기(memory size)를 조절할 수 있으며, 크기에 따라 표현할 수 있는 수치 범위가 정해짐
   - e.g. np.int8 → 수치 표현에 8 bits를 사용한다 → 00000000 ~ 11111111 → 2^8 (256개) → -128 ~ 127
   - e.g. np.float32 → 실수 표현에 32 bits를 사용한다 → exponent, mantissa, sign → single precision
-- <리스트와 같은 점>
+- <리스트와 같은점>
   - indexing으로 원소에 접근할 수 있음
   - 생성 후 assignment operator를 이용해서 원소의 update가 가능
-- <리스트와 다른 점>
+- <리스트와 다른점>
   - numpy array는 선언한 이후에 크기 변경이 불가능함
 
 <br>
