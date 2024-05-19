@@ -16,18 +16,18 @@ typora-root-url: ../
 ```py
 # sklearn을 사용하여 분류 모델을 학습, 평가하는 예시
 # 모델 불러오기
->>> from sklearn.ensemble import RandomForestClassifier
->>> from sklearn.metrics import accuracy_score
+> from sklearn.ensemble import RandomForestClassifier
+> from sklearn.metrics import accuracy_score
 
 # 모델 객체 선언
->>> model = RandomForestClassifier()
+> model = RandomForestClassifier()
 
 # training data로 학습 진행
->>> model.fit(X_train, y_train)
+> model.fit(X_train, y_train)
 
 # test data로 inference 진행
->>> pred = model.predict(X_test)
+> pred = model.predict(X_test)
 
 # Evaluation metric으로 평가 진행
->>> print("Accuracy : %.4f" accuracy_score(y_test, pred)) # Accuracy : ~~~
+> print("Accuracy : %.4f" accuracy_score(y_test, pred)) # Accuracy : ~~~
 ```

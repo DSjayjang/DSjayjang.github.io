@@ -41,5 +41,7 @@ source: <https://www.kaggle.com/code/kashnitsky/topic-4-linear-models-part-2-cla
 
 ### □ Detail
 - $y = Wx + b$는 아래와 같이 표현 가능
+
   - $y = w_{1}*x_{1} + w_{2}*x_{2} + ... + w_{n}*x_{n} + b$
+
 - ($x_{1}, ..., x_{n}$)은 n차원 feature vector, y는 output score.
