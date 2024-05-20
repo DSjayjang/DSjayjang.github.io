@@ -34,8 +34,8 @@ typora-root-url: ../
 - $y = \cfrac{1}{1+e^{-z}} = \cfrac{1}{1+e^{-(\beta_{0} + \beta_{1} x)}}$
   > $y$의 범위가 0 ~ 1사이로 변함
 - $\pi(x) = y$로 표기
-  - $\pi(x)$의 의미 : $\pi(x) = P(y=1|X=x)$
-  - X=x일때 y=1일 확률;
+- $\pi(x)의 ~의미 : \pi(x) = P(y=1|X=x)$
+- X=x일때 y=1일 확률
 
 <br>
 
