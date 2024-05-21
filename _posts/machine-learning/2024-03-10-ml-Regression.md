@@ -12,6 +12,13 @@ typora-root-url: ../
 <br><br>
 
 # **※ Regression**
+- 주어진 데이터(X)와 찾고자 하는 값(y) 사이의 관계를 찾는 방법
+- 주어진 input data와 관심 있는 target value 사이의 관계를 모델링하는 것
+- input data는 일반적으로 벡터(feature vector), target value는 일반적으로 실수값(real value)
+
+![re]({{site.url}}/images/2024-03-10-ml-Regression/1.png)
+
+source: <https://www.imsl.com/blog/what-is-regression-model>
 
 ## Introduction
 ## 1. Predict new cases

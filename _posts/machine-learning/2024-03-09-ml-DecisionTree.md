@@ -1,44 +1,64 @@
 ---
 layout: single
-title: "Decision Tree"
+title: "Decision Tree and Random Forest"
 categories: Machine-Learning
-tag: [datamining, machine-learning, decision-tree]
+tag: [datamining, machine-learning, decision-tree, random-forest]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
 #     nav: "counts"
 typora-root-url: ../
 ---
-<br><br>
 
 # **※ Decision Tree (의사결정 나무)**
-## Tree Model (나무 모형)
+
+![구조]({{site.url}}/images/2024-03-09-datamining-DecisionTree/structure.png)
+
+source: <https://scikit-learn.org/stable/auto_examples/tree/plot_iris_dtc.html>
+
+## ■ Tree Model (나무 모형)
 - 발견된 변수의 규칙 혹은 조건문을 토대로 나무 구조로 도표화하여 **분류**와 **예측** 을 수행하는 방법
 - 대상이 되는 집단을 몇개의 소집단으로 구분하는 ***Segmentation 모델링 기법***
+- 대표적인 non-parametric 모델 (비모수적 모델)
+- 대표적인 white-box 모델 (explainable, interpretable )
 
-### 나무 모형의 구성 요소
+<br>
+
+### □ CART (Classification And Regression Tree)
+- binary tree (children이 최대 2개인 tree)
+- 노드마다 feature 하나를 골라서 최적의 기준으로 나눌 수 있게 기준을 정함
+- 이 때 최적이 되는 기준은 “`Gini Criterion(지니계수)`”을 사용
+- Gini Criterion은 불순도(impurity)를 의미함
+- 불순도란 불순한 정도 즉 섞여있는 정도를 의미.
+- 불순도가 제일 낮은 경우가 서로 제일 안 섞여 있는 경우 즉, Gini Criterion이 0일 때가 best case.
+
+### □ 나무 모형의 구성 요소
 - 뿌리마디 (root node)
 - 자식마디 (child node)
 - 부모마디 (parent node)
 - 끝마디 (terminal node)
 - 중간마디 (intermediate node)
 
-### Decision Tree 장점
-- 해석이 편함
+![tree]({{site.url}}/images/2024-03-09-datamining-DecisionTree/tree.png)
+
+source: <https://dev.to/christinamcmahon/understanding-binary-search-trees-4d90>
+
+### □ Decision Tree 장점
+- 해석이 편함 (white box model)
 - 변수간의 교호작용의 파악
 - 다양한 형태의 변수에 적용가능 (변수 형태에 영향을 받지 않음)
-- 비모수적 모형
 - 빠른 계산속도 (명목형변수일 땐 제외 → 명목형(범주 개수가 적을떄))
 - 변수의 개수에 영향을 덜 받음
 - 변수의 중요도 파악
 - 국소중요도 파악 가능
 - Robustness (outlier의 영향을 받지 않음)
 
-### Decision Tree 단점
+### □ Decision Tree 단점
 - 변수간 교호작용의 지나친 강조
 - 재규적인 알고리즘에 의해 결과가 초기의 분할에 큰 영향을 받는다
 - 이산형 변수의 수준이 많은 경우 결과가 정확하지 않을 수 있다
-- (오버피팅)과도 적합된 모형이 작성되기 쉬워서 새로운 자료에 대한 예측력이 낮아서 불안정하다 > 일반화하기 어렵다
+- (overfitting)과도 적합된 모형이 작성되기 쉬워서 새로운 자료에 대한 예측력이 낮아서 불안정하다 <br>
+→ 일반화하기 어렵다
 - 끝 마디에 속한 관측값들에게는 같은 예측을 적용 <br>
 → 예측표면이 매끄럽지 못하다
 - 관측값의 개수에 민감
@@ -243,15 +263,34 @@ $$
 ### □ 타겟(target)이 연속형인 경우
 - 각 노드의 평균값을 예측값으로 함
 
-## ■ Random Forest (랜덤 포레스트)
-- 앙상블 학습
-- Decision Tree의 단점을 보완하기 위해 만들어짐
+# **※ Random Forest (랜덤 포레스트)**
 - 여러 Decision Tree를 결합한 것
+- 앙상블 학습 (단일 모델을 여러개 모아서 더 좋은 판단을 하는 방법론)
+- Decision Tree의 단점을 보완하기 위해 만들어진 모델
 
-### □ Random Forest 순서 (랜덤 포레스트)
+<br>
+
+## ■ Random Forest 전략
+- Bagging (Bootstrap Aggregating)
+  - data sampling (모집단(training data) 자체를 바꾼다)
+- Random Subspace Method
+  - feature sampling (DT가 뽑는 feature를 바꾼다)
+- data sampling + feature sampling을 통해 만들어진 각 DT에 다양성을 제공
+- 각 DT를 학습할 때마다, Bootstrap과 Random Subspace method를 적용
+- 몇 개의 DT를 모을지는 hyper-parameter임. 
+
+<br>
+
+## ■ Random Forest 순서
 1. n개의 랜덤 데이터 샘플 선택(중복 가능)
     - 배깅(bagging): 트레이닝 데이터에서 중복을 허용하여 랜덤 샘플링
 2. d개의 변수(feature) 선택(중복 불가능)
 3. Decision Tree 학습
 4. 각 Decision Tree 결과의 ***투표***를 통해 클래스 할당
 
+<br>
+
+## ■ Random Forest 장점
+- 그냥 DT들을 모으는게 아닌, randomness를 적당히 포함하는 것으로 DT의 약점을 잘 보완한 모델임
+- 정형 데이터를 머신러닝으로 수행할 때 굉장히 좋은 baseline model이 됨
+- DT들의 모임이기 때문에 어느정도 explainability를 가지고 있음
