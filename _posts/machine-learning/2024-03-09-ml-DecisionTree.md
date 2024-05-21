@@ -12,7 +12,7 @@ typora-root-url: ../
 
 # **※ Decision Tree (의사결정 나무)**
 
-![구조]({{site.url}}/images/2024-03-09-datamining-DecisionTree/structure.png)
+![구조]({{site.url}}/images/ml/2024-03-09-ml-DecisionTree/structure.png)
 
 source: <https://scikit-learn.org/stable/auto_examples/tree/plot_iris_dtc.html>
 
@@ -39,7 +39,7 @@ source: <https://scikit-learn.org/stable/auto_examples/tree/plot_iris_dtc.html>
 - 끝마디 (terminal node)
 - 중간마디 (intermediate node)
 
-![tree]({{site.url}}/images/2024-03-09-datamining-DecisionTree/tree.png)
+![tree]({{site.url}}/images/ml/2024-03-09-ml-DecisionTree/tree.png)
 
 source: <https://dev.to/christinamcmahon/understanding-binary-search-trees-4d90>
 
@@ -121,7 +121,7 @@ $p(g)$: 최종노드 $g$에 속할 확률<br>
 <br>
 
 ### 노드 g의 분할
-![노드]({{site.url}}/images/2024-03-09-datamining-DecisionTree/1.JPG)
+![노드]({{site.url}}/images/ml/2024-03-09-ml-DecisionTree/1.JPG)
 
 - 최적의 분할은 $D_{g}$ - $D_{g_{L}}$ - $D_{g_{R}}$ 이 최대일 때
 - 즉, $D_{g_{L}}$, $D_{g_{R}}$ 의 값이 최소일 때.
