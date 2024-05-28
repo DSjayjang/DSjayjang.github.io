@@ -26,6 +26,21 @@ typora-root-url: ../
 
 <br>
 
+### □ List Comprehenstion
+- 리스트를 생성하는 방법 중의 하나
+- [] 안에 for문 또는 if문을 사용
+
+```py
+# 일반적인 리스트 생성 방법
+> L = [] for x in range(1,4):
+    L.append(x+2)
+
+# List Comprehension
+> L = [x+2 for x in range(1,4)]
+```
+
+<br>
+
 ## ■ Indexing
 - index는 맨 앞부터 0으로 시작
 - 마지막 index는 -1로 표현가능
