@@ -64,3 +64,59 @@ source: <https://www.imsl.com/blog/what-is-regression-model>
 <br>
 
 ## Interpreting Regression Models
+
+<br>
+
+## ■ Lasso, Ridge
+- Linear Regression 모델이 고차원 공간에 overfitting이 쉽게 되는 문제를 해결한 기법
+
+![la]({{site.url}}/images/ml/2024-03-10-ml-Regression/2.png)
+
+source: <http://freesearch.pe.kr/archives/4473>
+
+### □ Simple Linear Regression
+
+$$
+\sum_{i=1}^{M} (y_{i}-\hat y_{i})^{2} = \sum_{i=1}^{M}(y_{i} - \sum_{j=0}^{p}(w_{j} \times x_{ij}))^{2}
+$$
+
+- $y = Wx + b$, MSE function
+
+### □ Lasso
+
+$$
+\sum_{i=1}^{M} (y_{i}-\hat y_{i})^{2} = \sum_{i=1}^{M}(y_{i} - \sum_{j=0}^{p}(w_{j} \times x_{ij}))^{2} + \lambda \sum_{j=0}^{p}\lvert w_{j} \rvert
+$$
+
+- weight의 L1 term을 Loss function에 더해줌 ($\lambda$는 hyper-parameter)
+- Loss가 무조건 증가하게 됨
+- 추가한 항(L1 term)도 gradient descent algorithm의 최적화 대상에 속함
+- L1 term을 제약조건(constraint)이라고 부르거나, `Regularization term`이라고 함<br>
+  → `L1 regularization`
+
+<br>
+
+### □ Ridge
+
+$$
+\sum_{i=1}^{M} (y_{i}-\hat y_{i})^{2} = \sum_{i=1}^{M}(y_{i} - \sum_{j=0}^{p}(w_{j} \times x_{ij}))^{2} + \lambda \sum_{j=0}^{p}w_{j}^{2}
+$$
+
+- weight의 L2 term을 Loss function에 더해줌 ($\lambda$는 hyper-parameter)
+- Loss가 무조건 증가하게 됨
+- 추가한 항(L2 term)도 gradient descent algorithm의 최적화 대상에 속함
+- L2 term을 제약조건(constraint)이라고 부르거나, `Regularization term`이라고 함<br>
+  → `L2 regularization`
+
+<br>
+
+---
+
+<br>
+
+### □ 정리
+- asso나 Ridge를 적용했을 때, 성능이 향상된다면 Linear Regression 모델에 사용되는 feature vector가 차원을 줄일 필요가 있다는 말<br>
+  → feature selection이 성능 향상을 가져온다.
+- Regularization을 할 때, weight를 사용하는 방식을 `weight decay`라고 함
+- weight decay를 주게 되면, Gradient descent algorithm이 loss space를 탐색할 때 제약조건을 받게 되는 효과가 있음 (청록색 영역)
+- 제약 조건 때문에, 특정 weight들이 사라지는 효과가 생기면서 (0에 가까워짐) **feature subset selection**을 하는 효과가 있음
