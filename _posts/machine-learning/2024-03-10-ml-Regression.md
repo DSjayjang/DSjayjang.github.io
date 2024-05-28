@@ -115,8 +115,16 @@ $$
 <br>
 
 ### □ 정리
-- asso나 Ridge를 적용했을 때, 성능이 향상된다면 Linear Regression 모델에 사용되는 feature vector가 차원을 줄일 필요가 있다는 말<br>
+- Lasso나 Ridge를 적용했을 때, 성능이 향상된다면 Linear Regression 모델에 사용되는 feature vector가 차원을 줄일 필요가 있다는 말<br>
   → feature selection이 성능 향상을 가져온다.
 - Regularization을 할 때, weight를 사용하는 방식을 `weight decay`라고 함
 - weight decay를 주게 되면, Gradient descent algorithm이 loss space를 탐색할 때 제약조건을 받게 되는 효과가 있음 (청록색 영역)
 - 제약 조건 때문에, 특정 weight들이 사라지는 효과가 생기면서 (0에 가까워짐) **feature subset selection**을 하는 효과가 있음
+
+<br>
+
+## ■ XGBoost
+
+<br>
+
+## ■ LightGBM
