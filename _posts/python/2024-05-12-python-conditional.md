@@ -33,6 +33,20 @@ typora-root-url: ../
 
 <br>
 
+### □ pass
+- 조건문에서 코드를 실행하지 않고 넘어가고 싶을 때 사용
+
+```py
+> a = 1
+> if a >= 0:
+    pass
+  else:
+    print("AA")
+# 아무것도 출력 X
+```
+
+<br>
+
 ## ■ key points
 - :(콜론) 사용에 주의
 - 조건의 예외사항에 주의 (보통 edge case에서 주로 발생)

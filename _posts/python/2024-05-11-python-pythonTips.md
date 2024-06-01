@@ -28,7 +28,18 @@ world
 > print("hello\tworld") # 탭
 hello   world
 ```
+### print
 
+```py
+# 여러 값을 한 줄에 출력
+> print("hello", a, 10/100, sep = "구분자")
+
+# 여러 번 호출을 한 줄에 출력
+> print("hello", end =", ")
+> print(a, end =", ")
+> print(10/100, end =", ")
+
+```
 <br>
 
 ### □ 문자열 연산
@@ -59,10 +70,10 @@ HelloHelloHelloHelloHelloHelloHelloHelloHelloHello
 > var1 = "사과"
 > var2 = 5
 
-> print("%s는 %d개", % (var1, var2))
+> print("%s는 %d개" %(var1, var2))
 
 # str.format
-> print("{}는 {}개", .format(var1, var2))
+> print("{}는 {}개" .format(var1, var2))
 
 # f-string
 > print(f"{var1}는 {var2}개")
@@ -72,9 +83,17 @@ HelloHelloHelloHelloHelloHelloHelloHelloHelloHello
 - 변수.upper() : 대문자로
 - 변수.lower() : 소문자로
 - 변수.strip() : 문자열 좌우 공백제거
+- 변수.lstrip() / 변수.rstrip() : 문자열 왼/오 공백 제거
+- 변수.count("문자") : "문자"가 변수 안에서 몇번 나왔는지
+- 변수.find("문자") : "문자"가 처음으로 나온 index
+  - 찾는 문자가 없는 경우 -1 출력
+- 변수.index("문자") : "문자"가 처음으로 나온 index
+  - 찾는 문자가 없는 경우 에러
 - "삽입할문자".join("문자열")
 - s.split("구분자") : 괄호안에 아무것도 안쓰면 공백을 기준으로 잘라줌
 - s.replace("변경전 문자", "변경후 문자")
+- startswith("문자") / endswith("문자") : "문자"로 시작/끝나는지을 T/F 출력
+- **`변수를 변경하는 것이 아니라 출력하는 역할만 함`**
 
 
 <br>
