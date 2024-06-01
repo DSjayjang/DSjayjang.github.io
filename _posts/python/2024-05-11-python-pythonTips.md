@@ -95,6 +95,29 @@ HelloHelloHelloHelloHelloHelloHelloHelloHelloHello
 - startswith("문자") / endswith("문자") : "문자"로 시작/끝나는지을 T/F 출력
 - **`변수를 변경하는 것이 아니라 출력하는 역할만 함`**
 
+### copy()
+
+```py
+> a = [1, 2, 3]
+> b = a
+> print(a) # [1, 2, 3]
+> print(b) # [1, 2, 3]
+
+> a[2] = 4
+> print(a) # [1, 2, 4]
+> print(b) # [1, 2, 4]
+```
+
+```py
+> a = [1, 2, 3]
+> b = a.copy()
+> print(a) # [1, 2, 3]
+> print(b) # [1, 2, 3]
+
+> a[2] = 4
+> print(a) # [1, 2, 4]
+> print(b) # [1, 2, 3]
+```
 
 <br>
 <br>

@@ -85,6 +85,16 @@ source: <https://www.codingem.com/flowchart-loop/>
 > for i in range(len(List)):
 ```
 
+```py
+> ls = ['a', 'b', 'c', 'd', 'e']
+> for i in ls:
+    print(i) # a b c d e
+
+> for i in range(len(ls)):
+    print(ls[i]) # a b c d e
+
+```
+
 <br>
 
 ### □ enumerate() 이용한 for문
@@ -107,6 +117,32 @@ source: <https://www.codingem.com/flowchart-loop/>
 ```py
 > for value1, value2 in zip(List1, List2):
     print(value1, value2)
+```
+
+<br>
+
+### □ 딕셔너리 / 튜플에서의 for문 사용
+
+```py
+# 딕셔너리
+> dic = {'name' : "Jane", 'age' : 18, 'birth' : 2000}
+
+> for k, v in dic.items():
+    print(k, v)
+# name Jane
+# age 18
+# birth 2000
+
+
+# 튜플
+> a = [(1,2), (3,4), (5,6)]
+> for i in a:
+    print(i[0] + i[1])
+# 3 7 11
+
+> for i, j in a:
+    print(i + j)
+# 3 7 11
 ```
 
 <br>
