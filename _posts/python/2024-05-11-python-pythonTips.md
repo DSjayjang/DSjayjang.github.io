@@ -149,3 +149,64 @@ import seaborn as sns
 - 그림 sns.countplot, ...
 - value.counts()
 - data.columns.str.startswith("~")
+=======================================
+
+예외처리
+
+try:
+ ...
+except 발생오류 as 오류변수:
+...
+
+```py
+try:
+  a = 10 / 0
+except ZeroDivisionError as e:
+  print(e) # division by zeor
+
+try:
+  a = 10 / 0
+except:
+  print("에러입니다")
+
+# 패스 가능
+try:
+  a = 10 / 0
+except:
+  pass
+
+> a # 찾을 수 없음
+```
+
+오루명을 모를땐 except Exception으로 사용가능
+
+```py
+a = [1,2,3,4,5]
+b = 6
+try:
+  print(a.index(b))
+except Exception as e:
+  print(e)
+# 6 is not in list
+```
+
+try:
+ ...
+except 발생오류 as 오류변수:
+...
+else # 오류가 없을때만 수행됨
+
+try:
+...
+fianlly: # 오류가 나더라도 수행됨
+...
+```py
+try:
+  a = 10
+  b = a/0
+except Exception as e:
+  print(e)
+finally:
+  print("종료")
+# division by zero
+# 종료
