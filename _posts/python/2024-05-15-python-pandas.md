@@ -69,14 +69,25 @@ typora-root-url: ../
 > df.describe() # data frame 통계정보 (수치형 변수만 출력)
 ```
 
-```py
-> df.sort_values(by, ascending = True)
+<br>
 
+### □ 데이터 정렬
+
+```py
+# 기본 구조
+> df.sort_values(by, ascending = True)
+```
+
+```py
 # 특정 컬럼기준으로 value들 오름차순 정렬
 > df.sort_values(by = "컬럼", ascending = True)
 
 # 특정 컬럼기준으로 value들 내림차순 정렬
 > df.sort_values(by = "컬럼", ascending = False)
+
+# 여러 컬럼을 오름/내림차순 정렬
+# e.g. 컬럼1을 기준으로 내림차순, 같은 값이면 컬럼2를 기준으로 오름차순, ...
+> df.sort_values(by = ["컬럼1", "컬럼2", ...], ascending = [False, True, ...])
 ```
 
 <br>
@@ -87,6 +98,10 @@ typora-root-url: ../
 # Column Indexing
 > df["컬럼명"]
 > df.컬럼명
+
+## 데이터프레임 형식으로 출력
+> df.컬럼명.to_frame()
+> df[["컬럼명"]]
 
 # Slicing
 ## 기본적으로 row 단위로 slicing 됨.
@@ -101,11 +116,16 @@ typora-root-url: ../
 
 ### □ loc()
 - location based indexing
-- index value로 출력
+- index value를 이용하여 출력
 - :(콜론)을 사용하여 범위를 지정하여 indexing 가능
   - (주의) index value 기준으로 slicing 하기 때문에, 끝자리 index 값도 함께 출력함
   - (주의) 일반적인 df[ : ] 과 출력 결과가 다름 - 1행이 더 출력됨
 - mask: 조건을 적용하여 indexing 가능
+
+```py
+# 기본 구조
+> df.loc[행조건, 열조건]
+```
 
 ```py
 # 해당 index_value를 가지는 데이터프레임의 values 출력
@@ -115,24 +135,62 @@ typora-root-url: ../
 
 # :(콜론)을 이용한 indexing 예시
 > df.loc[3:5, ["컬럼명", "컬럼명"]]
-
-# 조건을 적용한 indexing 예시
-> df["X3"] > 20 # True / False 출력
-
-> df[df["X3"] > 20 # 컬럼 X3의 value가 20 초과인 값들의 dataframe 전체 출력
-> df[df["X3"] % 3 == 0] # 컬럼 X3의 value가 3의 배수인 값들의 dataframe 전체 출력
 ```
 
 <br>
 
 ### □ iloc()
 - integer-location based indexing
+- 위치인덱스를 사용하여 출력
+- 
 - loc와 다르게 끝자리 값은 제외됨
 - 몇 번째인지를 index로 정의
 
 ```py
+# 기본 구조
+> df.iloc[행인덱스조건, 열인덱스조건]
+```
+
+```py
 > df.iloc[0]
 > df.iloc[[3, 4], [0, 1]]
+```
+
+<br>
+
+### □ 조건을 적용한 Indexing
+
+```py
+# 기본 구조
+> df[조건식]
+> df.query('조건식')
+```
+
+```py
+# 예시
+> df["X3"] > 20 # True / False 출력
+> df[df["X3"] > 20 # 컬럼 X3의 value가 20 초과인 값들의 dataframe 전체 출력
+> df[df["X3"] % 3 == 0] # 컬럼 X3의 value가 3의 배수인 값들의 dataframe 전체 출력
+
+> df[df["X1"] == 1 & df["X3"] >= 30] # and 조건
+> df[df["X1"] == 1 | df["X3"] >= 30] # or 조건
+
+# isin을 이용하여 특정 컬럼의 여러 값들 출력
+> df[df["X1"].isin([3, 100, 200])]
+```
+
+```py
+# df.query를 이용한 Indexing
+> df.query['X1 == 1 and Sex = "male"']
+> df.query['X1 == 1 or Sex = "male"']
+
+# isin, in
+> df.query('X1.isin([3, 100, 200])')
+> df.query('X1 in [3, 100, 200]')
+
+# 변수에 리스트가 저장되어 있을 때
+> a = [3, 100, 200]
+> df.query('X1 in @a')
 ```
 
 <br>
@@ -246,3 +304,277 @@ typora-root-url: ../
 ```py
 > pd.to_datetime(data, astype(str), format = "%Y%m%d")
 ```
+
+<br>
+
+## ■ Index 변경
+ 인덱스 몇개를 바꿀 때
+데이터명.rename({인덱스:바꿀 인덱스, 인덱스:바꿀 인덱스, ...})
+인덱스 전체를 바꿀 때
+데이터명.index = 바꿀 인덱스 리스트
+
+df.rename({0:'row1'}) # 출력만 해주므로 변수할당필요
+
+.특정 열을 인덱스로 설정
+데이터명.set_index(컬럼명) # 출력만 해주므로 변수할당필요
+
+인덱스를 열로 변환
+인덱스를 열로 변환하고 그 열을 남기고 싶으면
+데이터명.reset_index()
+인덱스를 열로 변환하고 그 열을 삭제하고 싶으면
+데이터명.reset_index(drop = True)
+
+===========
+
+행의 추가/제거
+행의 추가
+pd.concat([기존 데이터명, 붙일 데이터명])
+df3 = df3.reset_index(drop=True)
+
+행의 제거
+데이터명.drop(인덱스명, axis=0)
+df3.drop([i for i in range(891, len(df3))])
+
+행 중복 제거
+데이터명.drop_duplicates()
+
+열의 추가/제거
+열의 추가
+데이터명[추가할 컬럼명] = 추가할 값
+열의 제거
+데이터명.drop(제거할 컬럼명, axis=1) # axis=1을 해줘야 열을 제거하는거임...
+
+df1 = df.copy()
+df1['age_simplified'] = df1['Age']//10 * 10
+
+##
+
+열 이름 변경
+#
+열 이름 하나를 바꿀 때
+데이터명.rename({열이름:바꿀이름, 열이름:바꿀이름, ...}, axis=1)
+df1.rename({'PassengerId':'Id'}, axis=1)
+
+#
+
+열 이름 전체를 바꿀 때
+데이터명.columns = 열 이름 리스트
+df1.columns = [i for i in range(12)]
+df1.head()
+
+##
+
+결측값 처리
+isna(): 결측값을 True로 반환합니다.
+notna(): 결측값을 False로 반환합니다.
+
+df.isna()
+df.isna().sum() # 결측값이 있는 행의 개수
+df[df['Age'].isna()]
+df[df['Embarked'].isna()]
+
+df.notna()
+df.notna().sum() # 결측값이 없낸 행의 개수
+df[df['Age'].notna()]
+df[df['Embarked'].notna()]
+
+#
+
+결측값 제거
+데이터명.dropna(axis=0, how='any', subset=None)
+
+axis : {0: index / 1: columns}
+how : {'any' : 존재하면 제거 / 'all' : 모두 결측치면 제거}
+subset : 행/열의 이름을 지정합니다.
+## 결측값 제거
+
+df.info()
+df.dropna()
+df.dropna(axis=1) # 결측치 있는 컬럼 모두 삭제
+df.dropna(how="all")
+df.dropna(how="any") # 하나라도 결측치가 있으면 삭제
+df.dropna(subset=['Cabin', 'Age']) # 특정 컬럼에 결측치가 있으면 삭제
+
+#
+
+결측값 대치
+데이터 전체의 결측값을 특정 값으로 변경
+데이터명.fillna(대치할값)
+특정 컬럼의 결측값을 특정 값으로 변경
+데이터명[컬럼명].fillna(대치할값)
+결측값을 바로 위의 값과 동일하게 변경
+데이터명.fillna(method='ffill')
+결측값을 바로 아래의 값과 동일하게 변경
+데이터명.fillna(method='bfill')
+
+df1 = df.copy()
+df.tail()
+df.fillna(-1).tail() # 모든 결측치를 -1로 대치
+
+df1['Age'] = df1['Age'].fillna(-1)
+df1.tail()
+
+df1['Age'].fillna(round(df1['Age'].mean())) # 결측치를 평균값으로 대체
+
+df.fillna(method='ffill').tail() # 바로 위 값으로 결측치 대치
+df.fillna(method='bfill').tail() # 바로 아래 값으로 결측치 대치
+
+##
+
+
+# 타입 변환
+
+[1] 타입 확인
+.dtypes는 열의 타입을 시리즈로 반환합니다
+
+특정 타입을 가진 컬럼만 추출
+데이터명.select_dtypes(타입)
+
+df.dtypes
+df.select_dtypes('int') # 원하는 타입의 데이터만 추출
+df.select_dtypes('object')
+
+
+[2] 타입 변환
+데이터명[컬럼명].astype(타입)
+
+df['PassengerId'] = df['PassengerId'].astype(str) # 문자열로 변경
+df.info()
+
+df['Age'] = df['Age'].fillna(-1).astype(int)
+df['Age'] = df['Age'].fillna(-1).astype(int).replace(-1, np.nam) # NA를 -1로 변환 후 다시 NA로 변경
+
+##
+
+문자형을 날짜형으로 변경
+날짜가 문자형으로 되어있다면 날짜형으로 변경해야 여러가지 날짜 계산을 할 수 있습니다.
+pd.to_datetime(컬럼, format='날짜 형식')
+형식	설명
+%Y	0을 채운 4자리 연도
+%y	0을 채운 2자리 연도
+%m	0을 채운 월
+%d	0을 채운 일
+%H	0을 채운 시간
+%M	0을 채운 분
+%S	0을 채운 초
+
+짜를 원하는 형식으로 변경
+데이터컬럼.dt.strftime(날짜형식)+
+
+df['Date1'] = pd.to_datetime(df['Date'], format = '%Y-%m-%d')
+df.info()
+
+# 날짜를 원하는 형식으로 변경
+# 데이터는 반드시 날짜형 데이터여야 함
+
+df['Date1'].dt.strftime('%Y.%m')
+df['Date1'].dt.strftime('%Y-%m')
+
+df['Date1'].dt.strftime('%Y-%m %H:%M:%S')
+
+##
+
+dt 연산자
+연산자	설명
+year	연도
+month	월
+day	일
+dayofweek	요일(0-월요일, 6-일요일)
+day_name()	요일을 문자열로
+
+# dt연산자
+
+df['Date1'].dt.year
+df['Date1'].dt.month
+df['Date1'].dt.day
+df['Date1'].dt.dayofweek # 요일을 숫자로 나타냄
+df['Date1'].dt.day_name() # 요일을 문자로 나타냄
+
+##
+
+날짜 계산
+day 연산: pd.Timedelta(day=숫자)
+month 연산: DateOffset(months=숫자)
+year 연산: DateOffset(years=숫자)
+
+# 날짜 계산
+## pd.Timedelta는 일 계산만 가능
+df['plus day1'] = df['Date1'] + pd.Timedelta(days=1)
+df.head()
+
+df['plus day7'] = df['Date1'] + pd.Timedelta(days=7)
+df.head()
+
+df['minus day7'] = df['Date1'] - pd.Timedelta(days=7)
+df.head()
+
+## 월단위로 계산하고 싶을때는 DateOffset 라이브러리 필요
+from pandas.tseries.offsets import DateOffset
+
+df['plus month1'] = df['Date1'] + DateOffset(months = 1)
+df.head()
+
+df['plus year2'] = df['Date1'] + DateOffset(years = 2)
+df.head()
+
+##
+
+날짜 구간 데이터 만들기
+pd.date_range(start=시작일자, end=종료일자, periods=기간수, freq=주기)
+
+형식	설명
+D	일별
+W	주별
+M	월별 말일
+MS	월별 시작일
+A	연도별 말일
+AS	연도별 시작일
+
+
+# 날짜 구간 데이터
+
+pd.date_range(start = '2020-01-01', periods=366, freq='D')
+
+pd.date_range(start = '2020-01-01', end = '2023-06;30', freq='MS') # 월초를 기준으로
+pd.date_range(start = '2020-01-01', end = '2023-06;30', freq='M') # 월말을 기준으로
+
+pd.date_range(start = '2020-01-01', end = '2023-06;30', freq='AS') # 연초를 기준으로
+pd.date_range(start = '2020-01-01', end = '2023-06;30', freq='A') # 연말을 기준으로
+
+
+##
+
+기간 이동 계산
+컬럼.rolling().집계함수
+
+rolling: 이동평균선
+이동하면서 직전 며칠의 평균을 구한ㄷ
+
+평균 외에 합계, 최솟값, 최댓값 등 다양한 연산이 가능합니다.
+df1['Temp'].rolling(7).sum()
+
+행 이동
+컬럼.shift(이동할 행의 수)
+
+df.head(10)
+df['ma30'] = df['Temp'].rolling(30).mean()
+df.head(30)
+
+df['Temp'].rolling(7).sum()
+df['Temp'].rolling(7).max()
+
+# shift
+
+df['Temp shift1'] = df['Temp'].shift(1) # 한 행씩 움직임
+df
+
+## 증감율 구하기
+df['Temp shift1'] = df['Temp'].shift(1)
+df['pct change'] = (df['Temp shift1'] - df['Temp'])/df['Temp']
+
+df['Temp shift-1'] = df['Temp'].shift(-1) # 음수도 가능 위로 올림
+df
+
+###########
+
+aply, map, 문자열 다루기
