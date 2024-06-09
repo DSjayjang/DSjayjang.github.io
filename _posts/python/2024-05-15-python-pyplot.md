@@ -66,6 +66,9 @@ typora-root-url: ../
 ```py
 > plt.legend()
 > plt.legend(loc = "best") # 가장 적절한 위치에 범례 추가
+> plt.legend(loc = "upper left") # 범례 좌상단
+> plt.legend(loc = "lower right") # 범례 우하단
+> ...
 ```
 
 <br>
@@ -78,6 +81,13 @@ typora-root-url: ../
 ```
 
 <br>
+
+- 축 글씨 각도 조정
+
+```py
+> plt.xticks(rotation = '각도')
+> plt.yticks(rotation = '각도')
+```
 
 ### □ Plot
 

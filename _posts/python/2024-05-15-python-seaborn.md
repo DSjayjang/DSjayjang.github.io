@@ -41,8 +41,23 @@ typora-root-url: ../
   - e.g. displot(kind="hist")
 
 ```py
-> sns.displot()
-> sns.displot(data, kind, x, hue, ...)
+> sns.displot(data, kind, x, hue, col, ...)
+```
+
+```py
+> sns.displot(data, x, kde=True) # 히스토그램 위에 밀도함수그래프 추가
+> sns.displot(data, x, kind='kde') # 밀도함수
+> sns.displot(data, x, kind='kde', hue) # 변수별로 따로 그리기
+> sns.displot(data, x, kind='kde', col) # 변수별로 plot 여러개
+```
+
+<br>
+
+### □ Box Plot
+
+```py
+> sns.boxplot(data, x)
+> sns.boxplot(data, x, y, hue,)
 ```
 
 <br>
@@ -50,20 +65,15 @@ typora-root-url: ../
 ### □ Bar Plot
 
 ```py
-> sns.barplot(data, x, …)
+> sns.countplot(data, x, hue) # x축의 범주별로 행의 개수를 카운트하여 시각화
+> sns.barplot(data, x, y, hue, …) # 막대그래프
+```
 
+```py
 # 정렬 후 출력
 > x = data.value_counts().index
 > y = data.value_counts().values
 > sns.barplot(x=x, y=y, order = x)
-```
-
-<br>
-
-### □ Countplot
-
-```py
-> sns.boxplot(data, x, y)
 ```
 
 <br>
@@ -76,24 +86,75 @@ typora-root-url: ../
 
 <br>
 
-### □ Lineplot
+### □ Line Plot
 
 ```py
 > sns.lineplot(data, x, y, ci)
-# point plot
-> sns.pointplot(data, x, y)
-# scatter plot
-> sns.scatterplot(data, x, y)
-# pair plot
+```
+
+<br>
+
+### □ Heat Map
+
+```py
+> sns.heatmap(data)
+```
+
+```py
+> sns.heatmap(data = corr, annot = True) # 상관계수 추가
+
+> sns.heatmap(data = corr, annot = True, fmt = '.2f') # 상관계수 추가 후 소수점 둘째 자리까지 표현
+
+> sns.heatmap(data = corr, cmap = 'YlOrBr') # 히트맵 컬러 지정 e.g. YlOrBr
+
+> sns.heatmap(data = pivot_table) # 피벗테이블을 히트맵으로 표현
+```
+
+<br>
+
+### □ Pair plot
+
+```py
 > sns.pairplot(data, hue, …)
-# heatmap
-> sns.heatmap(data = corr,square, cmap, annot, fmt …)
+```
+
+<br>
+
+### □ Scatter plot
+
+```py
+> sns.scatterplot(data, x, y, hue)
+> sns.lmplot(data, x, y, hue, col) # 산점도에 회귀선 추가
+```
+
+```py
+> sns.scatterplot(data, x, y, style) # 점의 모양
+> sns.scatterplot(data, x, y, style) # 점의 모양
+> sns.relplot(data, x, y, col, kind='scatter') # 산점도를 여러개의 plot으로 나눔, col에는 구분할 변수
 ```
 
 <br>
 
 ## ■ 기타
 
+### □ 스타일 설정
+
 ```py
-> sns.set.palette("")
+> sns.set_style(스타일)
+> sns.set.palette(팔레트)
+```
+
+```py
+> sns.set_style('darkgrid') # 배경이 darkgrid
+> sns.set_style('whitegrid')
+> sns.set_style('dark')
+> sns.set_style('white')
+...
+```
+
+```py
+> sns.set_palette('Set2')
+> sns.set_palette('flare')
+> sns.set_palette('crest')
+...
 ```
