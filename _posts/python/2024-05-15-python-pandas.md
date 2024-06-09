@@ -817,3 +817,7 @@ data = pd.DataFrame({'name':['a','b','c']
 data
 pd.melt(data, id_vars='name')
 pd.melt(data, id_vars='name', var_name='type', value_name='val') # 생성되는 key와 value명을 직접 지정
+
+
+========================================
+
