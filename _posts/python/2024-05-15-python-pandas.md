@@ -197,15 +197,17 @@ typora-root-url: ../
 
 ## ■ DataFrame 합치기
 ### □ merge()
-
+- suffixes: 조인 후, 컬럼명이 겹치는 경우 접미사를 지정함
+  - e.g. suffixes('_A', '_B')인 경우, 컬럼명_A, 컬럼명_B
 ```py
-> pd.merge(df1, df2, on, how = "inner") # default가 inner 조인
+> pd.merge(df1, df2, on, how = "inner", suffixes) # default가 inner 조인
 ```
 
 ```py
 # 예시
 > pd.merge(df1, df2, on="컬럼명", how="outer") # "컬럼명" 기준으로 outer 조인
 > pd.merge(df1, df2, on="컬럼명", how="left") # "컬럼명" 기준으로 left 조인
+> pd.merge(df1, df2, on="컬럼명", suffixes=('_A', '_B'))
 ```
 
 <br>
@@ -220,8 +222,8 @@ typora-root-url: ../
 > concat([df1, df2, df3])
 > concat([df1, df2, df3], axis=1) # 옆으로 이어 붙이기
 
-> concat(List]).reset_index() # 새로운 index를 0부터 생성
-> concat(List]).reset_index(drop = True) # 기존에 합쳐진 index 삭제 후, 새로운 index를 0부터 생성
+> concat([List]).reset_index() # 새로운 index를 0부터 생성
+> concat([List]).reset_index(drop = True) # 기존에 합쳐진 index 삭제 후, 새로운 index를 0부터 생성
 ```
 
 <br>
@@ -575,6 +577,243 @@ df['pct change'] = (df['Temp shift1'] - df['Temp'])/df['Temp']
 df['Temp shift-1'] = df['Temp'].shift(-1) # 음수도 가능 위로 올림
 df
 
-###########
+============================
 
 aply, map, 문자열 다루기
+
+# apply
+사용자 정의 함수를 데이터에 적용하고 싶을 때 사용합니다.
+.apply(함수, axis=0/1)
+
+# axis =0 행방향
+
+def pclass_sibsp(x):
+    if x['Pclass'] == 1 and x['SibSp'] == 1:
+        return 1
+    else:
+        return 0
+    
+df.apply(pclass_sibsp, axis=1)
+df.apply(lambda x:1 if x['Pclass'] == 1 and x['SibSp'] == 1 else 0, axis=1)
+
+
+def adult(x):
+    if x >= 19:
+        return 1
+    elif x < 19:
+        return 0
+    else:
+        return np.nan
+
+df['Age'].apply(adult)
+
+
+# map
+값을 특정 값으로 치환하고 싶을 때 사용합니다.
+데이터명[컬럼명].map(매핑 딕셔너리)
+
+gender_map = {'male' : '남자', 'female' : '여자'}
+gender_map
+
+df['Sex'].map(gender_map)
+
+
+# 문자열 다루기
+.str.contains(문자열)	문자열을 포함하고 있는지 유무
+.str.replace(기존문자열, 대치문자열)	문자열 대치
+.str.split(문자열, expand=True/False, n=개수)	특정 문자열을 기준으로 쪼개기
+.str.lower()	소문자로 바꾸기
+.str.upper()	대문자로 바꾸기
+
+## contains
+.str.contains(문자열)
+
+df['Name'].str.contains('Mrs') # 문자열을 포함하는지 T/F 반환
+df[df['Name'].str.contains('Mrs')]
+
+## replace
+.str.replace(기존문자열, 대치문자열)
+df['Name'].str.replace(',', '')
+
+## split
+.str.split(문자열, expand=True/False, n=개수)
+
+# 특정 문자를 기준으로 쪼갠다
+df['Name'].str.split(' ')
+df['Name'].str.split(' ', expand=True) # 문자열을 나눈 후 각각을 새로운 컬럼에 넣어줌
+df['Name'].str.split(' ', expand=True, n=1) # 문자열을 나눈 후 각각을 새로운 컬럼에 넣어줌, 1개의 열만 더 추가함
+
+df['Name'].str.upper()
+df['Name'].str.lower()
+
+==========================
+두 개의 데이터를 특정 컬럼을 기준으로 합칩니다
+pd.merge(데이터1, 데이터2, on=기준컬럼, how=결합방법)
+
+# merge
+## pd.merge(df1, df2, on='기준컬럼', how='결합방법')
+## pd.merge(df1, df2, left_on='df1의 기준컬럼', right_on='df2의 기준컬럼', how='결합방법')
+두 데이터의 기준 컬럼명이 다를 경우
+
+customer = pd.DataFrame({'id' : [i for i in range(1,7)],
+                    'name' : ['민준','서연','서준','도현','지윤','채원'],
+                    'age' : [15,30,40,20,23,31]})
+customer
+
+orders = pd.DataFrame({'id' : [1,1,2,3,3,4,5,7,7,7],
+                    'item' : ['사과','체리','바나나','사과','바나나','바나나','체리','사과','체리','바나나'],
+                    'quantity' : [1, 2, 1, 1, 3, 2, 2, 3, 2, 1]})
+orders
+
+pd.merge(customer, orders, on='id', how='inner')
+pd.merge(customer, orders, on='id', how='left')
+pd.merge(customer, orders, on='id', how='right')
+pd.merge(customer, orders, on='id', how='outer')
+
+==================
+
+# 분포와 통계량
+
+df.describe()
+
+메소드	설명
+min()	최솟값
+max()	최댓값
+mean()	평균
+median()	중간값
+std()	표준편차
+var()	분산
+quantile()	분위수
+
+
+df.min(numeric_only=True)
+df.max(numeric_only=True)
+df.mean(numeric_only=True)
+df.median(numeric_only=True)
+df.std(numeric_only=True)
+df.var(numeric_only=True)
+df.quantile(0.5, numeric_only=True) # 50%에 해당하는 값
+
+# 상관관계
+df.corr(numeric_only=True)
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.heatmap(df.corr(numeric_only=True), annot=True)
+plt.show()
+
+
+=======================
+
+group by
+같은 값을 한 그룹으로 묶어서 여러 가지 연산 및 통계를 구할 수 있습니다.
+데이터.groupby(컬럼명).연산및통계함수
+
+# 단일그룹
+함수	설명
+size() 각 그룹의 전체 행의 개수
+count()	각 그룹의 각 열에서 NaN이 아닌 데이터의 수
+nunique()	행의 유니크한 갯수
+sum()	합
+mean()	평균
+min()	최솟값
+max()	최댓값
+std()	표준편차
+var()	분산
+
+df.groupby('Pclass').count()
+df.groupby('Pclass').nunique() # 유니크한 개수
+df.groupby('Pclass').sum(numeric_only=True)
+df.groupby('Pclass').mean(numeric_only=True)
+df.groupby('Pclass').max(numeric_only=True)
+df.groupby('Pclass').min(numeric_only=True)
+
+df.groupby('Pclass')['Survived'].mean() # 특정 컬럼만 보고싶을 때
+df.groupby('Pclass')[['Survived', 'Age']].mean() # 특정 컬럼만 보고싶을 때
+
+# 다중 그룹
+df.groupby(['Sex', 'Pclass']).mean(numeric_only=True)
+
+import numpy as np
+df.groupby(['Sex', 'Pclass'])[['Survived', 'Age', 'SibSp']].aggregate([np.mean, np.min, np.max])
+
+=======================
+
+크로스탭
+범주형 데이터를 비교분석할 때 유용합니다.
+pd.crosstab(index=행, columns=열, margins=True/False, normalize=True/False)
+
+# 범주형 개수 구하기
+pd.crosstab(행, 열)
+
+pd.crosstab(df['Sex'], df['Survived'])
+pd.crosstab(df['Pclass'], df['Survived'])
+
+# 범주별 비율 구하기
+normalize = 'all': 전체 합이 100%
+normalize = 'index': 행별 합이 100%
+normalize = 'columns': 열별 합이 100%
+
+pd.crosstab(df['Sex'], df['Survived'], normalize = 'all') # 전체를 100%로 볼 때
+pd.crosstab(df['Sex'], df['Survived'], normalize = 'index') # 한 행을 100%로 볼 때
+pd.crosstab(df['Sex'], df['Survived'], normalize = 'columns') # 한 열을 100%로 볼 때
+
+pd.crosstab(df['Sex'], df['Survived'], normalize = 'all', margins=True) # 전체를 100%로 볼 때
+pd.crosstab(df['Sex'], df['Survived'], normalize = 'index', margins=True) # 한 행을 100%로 볼 때
+pd.crosstab(df['Sex'], df['Survived'], normalize = 'columns', margins=True) # 한 열을 100%로 볼 때
+
+# 다중 인덱스, 다중 컬럼의 범주표
+pd.crosstab(index=[df['Sex'], df['Pclass']], columns=df['Survived'])
+pd.crosstab(index=[df['Sex'], df['Pclass']], columns=df['Survived'], normalize='all')
+pd.crosstab(index=[df['Sex'], df['Pclass']], columns=df['Survived'], normalize='all', margins=True)
+
+pd.crosstab(index=[df['Sex'], df['Pclass']], columns=[df['Survived'], df['Embarked']])
+pd.crosstab(index=[df['Sex'], df['Pclass']], columns=[df['Survived'], df['Embarked']], normalize='all')
+
+
+======================
+
+피벗테이블
+엑셀의 피벗테이블처럼 인덱스별 컬럼별 값의 연산을 할 수 있습니다
+
+# 단일 컬럼, 단일 인덱스, 단일 값
+pd.pivot_table(df, index='Sex', columns='Pclass', values='Survived', aggfunc='mean')
+pd.pivot_table(df, index='Sex', columns='Survived', values='Age', aggfunc='mean')
+pd.pivot_table(df, index='Sex', columns='Survived', values='Age', aggfunc=['mean', 'max', 'min'])
+pd.pivot_table(df, index='Sex', columns='Survived', values='Age', aggfunc='mean', margins=True)
+
+margins 옵션을 통해 행과 열 전체의 값도 구할 수 있습니다.
+
+# 다중 인덱스, 다중 컬럼, 다중 값
+pd.pivot_table(df, index=['Sex', 'Pclass'], columns='Survived', values = 'Age', aggfunc='mean')
+pd.pivot_table(df, index='Survived', columns=['Sex','Pclass'], values = 'Age', aggfunc='mean')
+pd.pivot_table(df, index=['Sex','Pclass'], columns=['Survived', 'Embarked'], values = 'Age', aggfunc='mean')
+
+
+==========================
+
+stack, unstack
+stack : 컬럼 레벨에서 인덱스 레벨로 데이터프레임을 변경합니다.
+unstack : 인덱스 레벨에서 컬럼 레벨로 데이터프레임을 변경합니다.
+stack의 반대입니다.
+
+pivot = pd.pivot_table(df, index=['Sex','Pclass'], values=['Survived', 'Fare'], aggfunc=['mean', 'max', 'min'])
+pivot
+
+pivot.stack(0) # 컬럼의 첫번째 레벨을 인덱스로 내림
+pivot.stack(1) # 컬럼의 두번째 레벨을 인덱스로 내림
+
+pivot.unstack(0) # 인덱스의 첫번째 레벨을 컬럼으로 올림
+pivot.unstack(1) # 인덱스의 첫번째 레벨을 컬럼으로 올림
+
+# melt
+# untidy to tidy data
+# pd.melt(df, id_vars='기준컬럼')
+
+data = pd.DataFrame({'name':['a','b','c']
+                    , 'order_count':[3,4,10]
+                    , 'amount':[10000,25000,300000]})
+data
+pd.melt(data, id_vars='name')
+pd.melt(data, id_vars='name', var_name='type', value_name='val') # 생성되는 key와 value명을 직접 지정
