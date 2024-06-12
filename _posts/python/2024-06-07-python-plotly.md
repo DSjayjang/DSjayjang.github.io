@@ -35,32 +35,36 @@ typora-root-url: ../
 ## ■ 스타일 설정
 
 ```py
-templete = 템플릿명
-color_discrete_sequence = 컬러맵명 # 범주형 데이터
-color_continuous_scale = 컬러맵명 # 연속형 데이터
+> templete = 템플릿명
+> color_discrete_sequence = 컬러맵명 # 범주형 데이터
+> color_continuous_scale = 컬러맵명 # 연속형 데이터
 ``` 
-템플릿 적용
+
+- 템플릿 적용
 
 ```py
 
-for temp in ['ggplot2', 'seaborn', 'simple_white', 'plotly', 'plotly_white', 'plotly_dark']:
-    fig = px.bar(data_frame=df_groupby1, x='island', y='body_mass_g', color='sex', barmode='group', text_auto='.0d', width=700, height=500, title=f'템플릿: {temp}', labels=dict(body_mass_g='몸무게(g)', island='', sex='성별'), template=temp)
-    fig.show()
+> for temp in ['ggplot2', 'seaborn', 'simple_white', 'plotly', 'plotly_white', 'plotly_dark']:
+    fig = px.bar(data_frame=df_groupby1, x='island',
+    y='body_mass_g', color='sex', barmode='group',
+    text_auto='.0d', width=700, height=500,
+    title=f'템플릿: {temp}', labels=dict(body_mass_g='몸무게(g)', island='', sex='성별'), template=temp)
+> fig.show()
 ```
 
-컬러맵 적용
+- 컬러맵 적용
 ```py
 # 컬러맵 확인
-# 연속형 컬허
-fig = px.colors.sequential.swatches_continuous()
-fig.show()
+# 연속형 컬러
+> fig = px.colors.sequential.swatches_continuous()
+> fig.show()
 
 # 컬러맵 확인
 # 단색
-fig = px.colors.qualitative.swatches()
-fig.show()
+> fig = px.colors.qualitative.swatches()
+> fig.show()
 
-for color_map in [px.colors.qualitative.Pastel1, px.colors.qualitative.Safe, px.colors.qualitative.Antique]:
+> for color_map in [px.colors.qualitative.Pastel1, px.colors.qualitative.Safe, px.colors.qualitative.Antique]:
     fig = px.bar(data_frame=df_groupby1, x='sex', y='body_mass_g', color='island', barmode='group', text_auto='.0d', width=700, height=500, color_discrete_sequence=color_map)
     fig.show()
 for color_map in [px.colors.sequential.Burg, px.colors.sequential.Mint, px.colors.sequential.PuBuGn]:
@@ -68,13 +72,19 @@ for color_map in [px.colors.sequential.Burg, px.colors.sequential.Mint, px.color
     fig.show()
 ```
 
-html로 저장히기
+<br>
 
-fig.write_html(파일경로 및 파일명)
+## ■ HTML로 저장히기
 
-fig = px.scatter(data_frame=df, x='bill_length_mm', y='bill_depth_mm', color='flipper_length_mm', width=700, height=500, color_continuous_scale=px.colors.sequential.PuBuGn, template='plotly_white')
-fig.show()
-fig.write_html('test.html')
+```py
+> fig.write_html(파일경로 및 파일명)
+```
+
+```py
+> fig = px.scatter(data_frame=df, x='colA', y='’colB’', color='’colC’', width=700, height=500, color_continuous_scale=px.colors.sequential.PuBuGn, template=’plotly_white’)
+> fig.show()
+> fig.write_html(‘test.html’)
+```
 
 <br>
 
@@ -82,131 +92,174 @@ fig.write_html('test.html')
 
 ### □ Scatter Plot
 
-px.scatter(data_frame=데이터, x=X축 컬럼, y=Y축 컬럼, color=색, trendline='ols') #trendline은 추세선 추가
-
 ```py
-
+# 기본 구조
+> px.scatter(data_frame, x, y, color, trendline = ’ols’, ...) #trendline은 추세선 추가
 ```
 
-# 산점도
-fig = px.scatter(data_frame=df, x = 'bill_length_mm', y = 'bill_depth_mm')
-fig.show()
+```py
+# 사용 예시 1
+> fig = px.scatter(data_frame = df, x = 'colA', y = 'colB', color_discrete_sequence = px.colors.qualitative.Set2, template = 'plotly_white')
+> fig.show()
 
-## 테마 변경
-fig = px.scatter(data_frame=df, x = 'bill_length_mm', y = 'bill_depth_mm', color_discrete_sequence=px.colors.qualitative.Set2)
-fig.show()
+# 사용 예시 2
+# 변수별 점 색깔 다르게 + 점 모양 변경
+> fig = px.scatter(data_frame = df, x = 'colA', y = 'colB', color = 'colC', symbol = 'island')
+> fig.show()
 
-## 배경색
-fig = px.scatter(data_frame=df, x = 'bill_length_mm', y = 'bill_depth_mm', color_discrete_sequence=px.colors.qualitative.Set2, template= 'plotly_white')
-fig.show()
+# 사용 예시 3
+# 특정 컬럼의 변수마다 차트 따로 만들기
+> fig = px.scatter(data_frame = df, x = 'colA', y = 'colB', facet_col = 'colC')
+> fig.show()
 
-## 점마다 색깔 다르게
-fig = px.scatter(data_frame=df, x = 'bill_length_mm', y = 'bill_depth_mm', color='sex', template= 'plotly_white')
-fig.show()
+# 사용 예시 3
+# 추세선(회귀선) 추가
+> fig = px.scatter(data_frame = df, x = 'colA', y = 'colB', trendline = 'ols')
+> fig.show()
+```
 
-## 스타일 다르게
-fig = px.scatter(data_frame=df, x = 'bill_length_mm', y = 'bill_depth_mm', color='sex', template= 'plotly_white', symbol='island')
-fig.show()
+<br>
 
-## 각 변수마다 차트 따로 그리기
-fig = px.scatter(data_frame=df, x = 'bill_length_mm', y = 'bill_depth_mm', color='sex', template= 'plotly_white', facet_col='island')
-fig.show()
+### □ Histogram
 
-## 추세선(회귀선) 추가
-fig = px.scatter(data_frame=df, x = 'bill_length_mm', y = 'bill_depth_mm', color='sex', template= 'plotly_white', facet_col='island', trendline='ols')
-fig.show()
+```py
+# 기본구조
+> px.histogram(data_frame, x, color, …)
+```
 
-# 분포
-px.histogram(data_frame=데이터, x=X축 컬럼, color=색) #히스토그램
-px.box(data_frame=데이터, x=X축 컬럼, y=Y축 컬럼, color=색) #상자그림
+```py
+# 사용 예시1
+> fig = px.histogram(data_frame = df, x = 'colA')
+> fig.show()
 
-# 히스토그램
-fig = px.histogram(data_frame=df, x ='flipper_length_mm', color_discrete_sequence = px.colors.qualitative.Set2)
-fig.show()
+# 사용 예시2
+> fig = px.histogram(data_frame = df, x = 'colA', color_discrete_sequence = px.colors.qualitative.Set2)
+> fig.show()
+```
 
-# 상자그림
-fig = px.box(data_frame=df, x ='body_mass_g', color_discrete_sequence = px.colors.qualitative.Set2)
-fig.show()
+<br>
 
-fig = px.box(data_frame=df, x ='body_mass_g', color_discrete_sequence = px.colors.qualitative.Set2, color='sex') # 색깔 나누기
-fig.show()
+### □ Box Plot
 
-fig = px.box(data_frame=df, x ='body_mass_g', color_discrete_sequence = px.colors.qualitative.Set2, y='species') # y축 종으로 나누기
-fig.show()
+```py
+# 기본 구조
+> px.box(data_frame, x, y, color, …)
+```
 
-fig = px.box(data_frame=df, x ='body_mass_g', color_discrete_sequence = px.colors.qualitative.Set2, y='species', color='sex') # y축 종으로 나누기
-fig.show()
+```py
+# 사용 예시1
+> fig = px.box(data_frame = df, x = 'colA', color_discrete_sequence = px.colors.qualitative.Set2)
+> fig.show()
 
-# 막대그래프
-px.bar(data_frame=데이터, x=X축 컬럼, y=Y축 컬럼, color=색, barmode='group') #쌓아서 올리지 않으면 barmode = 'group'을 추가한다
+# 사용 예시2
+# 색깔 나누기
+> fig = px.box(data_frame = df, x = 'colA', color_discrete_sequence = px.colors.qualitative.Set2, color = 'colB')
+> fig.show()
 
-titanic = sns.load_dataset('titanic')
-titanic
+# 사용 예시3
+# 컬럼 변수별로 y축 나누기
+> fig = px.box(data_frame = df, x = 'colA', y = 'colB')
+> fig.show()
+```
 
-titanic_groupby = titanic.groupby(['sex', 'class'])['survived'].mean().reset_index()
-titanic_groupby
+<br>
 
-fig = px.bar(data_frame=titanic_groupby, x='class', y='survived', color = 'sex') # 막대가 쌓임
-fig.show()
+### □ Bar Plot
 
-fig = px.bar(data_frame=titanic_groupby, x='class', y='survived', color = 'sex', barmode = 'group') # 막대가 옆으로
-fig.show()
+```py
+# 기본 구조
+> px.bar(data_frame, x, y, color, barmode, …)
+```
 
-fig = px.bar(data_frame=titanic_groupby, x='class', y='survived', color = 'sex', barmode = 'group', text_auto='.2f') # 데이터 라벨을 써줌
-fig.show()
+```py
+# 사용 예시1
+> fig = px.bar(data_frame = df, x = 'colA', y = 'colB', color = 'colC')
+> fig.show()
 
+# 사용 예시2
+# 막대 옆으로 펼치기
+> fig = px.bar(data_frame = df, x = 'colA', y = 'colB', color = 'colC', barmode = 'group')
+> fig.show()
 
-titanic_groupby1 = titanic.groupby(['sex', 'class', 'alone'])['survived'].mean().reset_index()
-titanic_groupby1
+# 사용 예시3
+# 데이터 레이블 출력
+> fig = px.bar(data_frame = df, x = 'colA', y = 'colB', color = 'colC', barmode = 'group', text_auto = '.2f')
+> fig.show()
 
-fig = px.bar(data_frame = titanic_groupby1, x = 'class', y = 'survived', color ='sex', barmode='group', facet_col='alone') # 차트를 alone 변수로 나누어줌
-fig.show()
+# 사용 예시4
+# 특정 컬럼의 변수별로 차트 나누기
+> fig = px.bar(data_frame = df, x = 'colA', y = 'colB', color = 'colC', barmode = 'group', facet_col = 'colD')
+> fig.show()
+```
 
+<br>
 
-# 선그래프
-px.line(data_frame=데이터, x=X축 컬럼, y=Y축 컬럼, color=색)
+### □ Line Chart
 
-flights = sns.load_dataset('flights')
+```py
+# 기본 구조
+> px.line(data_frame, x, y, color, …)
+```
 
-may_flights = flights[flights['month'] == 'May']
-may_flights
+```py
+# 사용 예시1
+> fig = px.line(data_frame = df, x = 'colA', y = 'colB')
 
-fig = px.line(data_frame=may_flights, x ='year', y = 'passengers', color_discrete_sequence=px.colors.qualitative.Set2, template = 'plotly_white')
-fig.show()
+# 사용 예시2
+# 색깔 주기
+> fig = px.line(data_frame = df, x = 'colA', y = 'colB', color_discrete_sequence = px.colors.qualitative.Set2, template = 'plotly_white')
+> fig.show()
 
-fig = px.line(data_frame=flights, x ='year', y = 'passengers', color_discrete_sequence=px.colors.qualitative.Set2, template = 'plotly_white', color='month')
-fig.show()
+# 사용 예시3
+# 특정 컬럼의 변수별 그리기
+> fig = px.line(data_frame = df, x = 'colA', y = 'colB', color = 'colC')
+> fig.show()
+```
 
-# 히트맵
-px.imshow(데이터, text_auto=텍스트포맷, color_continuous_scale=컬러맵)
+<br>
 
+### □ Heat Map
 
-titanic_corr = titanic[['survived', 'age', 'fare', 'sibsp', 'pclass']].corr()
-titanic_corr
+```py
+# 기본 구조
+> px.imshow(data, text_auto, color_continuous_scale, …)
+```
 
-fig = px.imshow(titanic_corr)
-fig.show()
+```py
+# 사용 예시1
+> df_corr = df[['colA', 'colB', …]].corr()
+> fig = px.imshow(df_corr)
+> fig.show()
 
-fig = px.imshow(titanic_corr, text_auto='.2f')
-fig.show()
+# 사용 예시2
+# 레이블 추가
+> fig = px.imshow(df_corr, text_auto = '.2f')
+> fig.show()
 
-fig = px.imshow(titanic_corr, text_auto='.2f', color_continuous_scale='YlOrBr')
-fig.show()
+# 사용 예시3
+# 컬러 변경
+> fig = px.imshow(df_corr, color_continuous_scale = 'YlOrBr')
+> fig.show()
 
-titanic_pivot = pd.pivot_table(titanic, index = 'sex', columns='class', values='survived', aggfunc='mean')
-titanic_pivot
+# 사용 예시4
+# 피봇테이블로 히트맵 만들기
+> df_pivot = pd.pivot_table(df, index = 'colA', columns = 'colB', values = 'colC', aggfunc = 'mean')
+> fig = px.imshow(df_pivot)
+> fig.show()
+```
 
-fig = px.imshow(titanic_pivot)
-fig.show()
+<br>
 
-# 파이차트
-px.pie(data_frame=데이터, values=값, names=라벨)
+### □ Pie Chart
 
-df = px.data.tips()
-df
+```py
+# 기본 구조
+> px.pie(data_frame, values, names, …)
+```
 
-fig = px.pie(df, values='tip', names = 'day')
-fig.show()
-
-fig = px.pie(df, values='tip', names = 'day', color_discrete_sequence = px.colors.qualitative.Pastel)
-fig.show()
+```py
+# 사용 예시
+> df = px.data.tips()
+> fig = px.pie(df, values = 'tip', names = 'day', color_discrete_sequence = px.colors.qualitative.Pastel)
+> fig.show()
+```

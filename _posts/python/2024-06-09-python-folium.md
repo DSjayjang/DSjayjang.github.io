@@ -11,9 +11,7 @@ typora-root-url: ../
 ---
 
 # **※ folium**
-특정 장소의 지도 시각화하기
-네이버 지도에서 원하는 위치를 검색하고 공유 버튼을 통해 URL을 복사하세요.
-[링크](https://xn--yq5bk9r.com/blog/map-coordinates)에 복사한 url을 붙여넣고 위도와 경도를 확인하세요.
+- 지도 시각화 라이브러리
 
 <br>
 
@@ -22,129 +20,124 @@ typora-root-url: ../
 ```py
 > import folium
 ```
-지도 크기
-f = folium.Figure(width=가로길이, height=세로길이)
-지도 만들기
-m = folium.Map(location=[위도, 경도], zoom_start=줌할정도얼마나확대할건지).add_to(f)
-m.save('test.html') #지도 저장
 
+<br>
 
+## ■ folium method
+
+### □ 기초 method
+
+1. 지도 크기 지정
+2. 지도 만들기
+3. 지도 출력
+4. 파일로 저장
+
+```py
+> f = folium.Figure(width = 가로, height = 세로) # 지도 크기 지정
+> m = folium.Map(location = [위도, 경도], zoom_start = 얼마나 확대할건지).add_to(f) # 지도 만들기
+
+> m # 출력
+> m.save('file_name.html') # 파일로 저장
+```
+
+<br>
+
+### □ 마커 추가
+
+- tooltip : 마우스 오버 시 나타남
+- popup : 클릭 시 나타남
+- icon : 아이콘 커스텀
+- color : 아이콘 색 지정
+- icon : 아이콘 모양 지정 e.g. star
+- radius : 원형 크기 지정
+
+```py
 # 장소 표시 마커
-folium.Marker([위도, 경도]
-                , tooltip=마우스 오버시 나타남
-                , popup=클릭시 나타남
-                , icon=folium.Icon(color=색, icon=모양)).add_to(지도)
+> folium.Marker([위도, 경도], tooltip = "", popup = "", icon = folium.Icon(color = 색, icon = 모양)).add_to(m)
 
-# 원 형태 마커
-folium.CircleMarker([위도, 경도]
-                , radius=범위
-                , color=색).add_to(지도)
+# 원형 마커
+> folium.CircleMarker([위도, 경도], radius = 크기, color = 색).add_to(m)
+```
 
-f = folium.Figure(width=700, height = 500)
-m = folium.Map(location=[37.510781008592716, 127.09607026177875], zoom_start=16).add_to(f)
-m
-m.save('test.html') #지도 저장
+<br>
 
-# 마커 추가
-folium.Marker([37.510781008592716, 127.09607026177875], tooltip='롯데').add_to(m) # 마커 추가
-m.save('test.html') #지도 저장
+## ■ folium 사용 예시
 
-folium.Marker([37.510781008592716, 127.09607026177875], tooltip='롯데', icon=folium.Icon(color='red', icon='star')).add_to(m) # 마커 추가
-m.save('test.html') #지도 저장
+```py
+> f = folium.Figure(width = 700, height = 500)
+> m = folium.Map(location = [37.51, 127.09], zoom_start = 16).add_to(f)
 
-folium.Marker([37.510781008592716, 127.09607026177875], tooltip='롯데', icon=folium.Icon(color='red', icon='star'), popup='<iframe src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Lotte_World_Theme_Park.jpg/440px-Lotte_World_Theme_Park.jpg"></iframe>').add_to(m) # 사진추가
-m.save('test.html') #지도 저장
+# 장소표시 마커 추가
+> folium.Marker([37.51, 127.09], 
+    tooltip = '롯데', # 툴팁 추가
+    icon = folium.Icon(color = 'red', icon = 'star'),
+    popup=’<iframe src="https://~~~.jpg"></iframe>’).add_to(m)
 
-folium.CircleMarker([37.510781008592716, 127.09607026177875], color='red', radius=50).add_to(m) # 원형 마커 추가
-m.save('test.html') #지도 저장
+# 원형 마커 추가
+> folium.CircleMarker([37.49, 127.12], color=’red’,
+    radius=50,
+    tooltip = '경복궁',
+    icon = folium.Icon(color = 'green', icon = 'star')).add_to(m)
 
+> m # 출력
+> m.save('test.html') # 저장
+```
 
-================================
+<br>
 
-geo_json = json.load(open(file_path+'seoul_municipalities_geo_simple.json', encoding='utf-8'))
-geo_json
+### □ json 파일을 활용한 folium 사용 예시
+- geo_data : 지리데이터
+- data : 시각화할 data frame
+- columns : data frame에서 사용할 컬럼 이름
+- key on : geo_data에서 데이터를 매핑할 key 컬럼
+- fill_color : 지도의 색상 팔레트
+- fill_opacity : 채우기 투명도
+- line_opacity : 경계산 투명도
+- legend_name : 범례
 
-df = pd.read_csv(file_path + '소상공인시장진흥공단_상가(상권)정보_서울_202306.csv')
-df.head()
-df.info()
-df.describe()
+```py
+> folium.Choropleth(geo_data, data, columns, key_on, fill_color, fill_opacity, line_opacity, legend_name, …)
+```
 
-cafe = df[df['상권업종소분류명'] == '카페'].reset_index()
-cafe.head()
-cafe.info()
+```py
+# json 파일 load
+> geo_json = json.load(open("경로", encoding = 'utf-8'))
 
-ediya = cafe.loc[cafe['상호명'].str.contains('이디야'), ]
-twosome = cafe.loc[cafe['상호명'].str.contains('투썸플레이스'), ]
+> f = folium.Figure(width = 700, height = 500)
+> m = folium.Map(location = [15, 120], zoom_start = 11).add_to(f)
 
-ediya_count = ediya.groupby('시군구명').size().to_frame().reset_index().rename({0:'count'}, axis=1).sort_values('count', ascending=False)
-ediya_count
+# json 지역 경계데이터를 지도에 표시 후 data 추가
+> folium.Choropleth(geo_data = geo_json,
+    data = df,
+    columns = ['지역명', '개수'],
+    key on = 'properties.name',
+    fill_color = 'YlGn',
+    fill_opacity = 0.7,
+    line_opacity = 0.7,
+    legend_name = '서울시 지역별 매장수').add_to(m)
 
-twosome_count = twosome.groupby('시군구명').size().to_frame().reset_index().rename({0:'count'}, axis=1).sort_values('count', ascending=False)
-twosome_count
+> m
+> m.save('test.html')
+```
 
-fig = px.bar(data_frame=ediya_count, x='시군구명', y = 'count', text_auto='.2d', color_discrete_sequence = px.colors.qualitative.Set2)
-fig.show()
+```py
+# df : data frame
+> f = folium.Figure(width=700, height=500)
+> m = folium.Map(location=[37.5, 126.9], zoom_start=11).add_to(f)
 
-fig = px.bar(data_frame=twosome_count, x='시군구명', y = 'count', text_auto='.2d', color_discrete_sequence = px.colors.qualitative.Set2)
-fig.show()
+> for idx in df.index:
+    lat = df.loc[idx, '위도'],
+    long = df.loc[idx, '경도'],
+    title = df.loc[idx, '상호명']
 
-f = folium.Figure(width=700, height = 500)
-m = folium.Map(location=[37.566535, 126.9779692], zoom_start=11).add_to(f)
-m.save('test1.html')
-
-folium.Choropleth(geo_data = geo_json, fill_color = 'gray').add_to(m) # 경계데이터를 회색으로 칠함
-m.save('test1.html')
-
-folium.Choropleth(geo_data = geo_json, data=ediya_count, columns=['시군구명','count'], key_on='properties.name', fill_color='YlGn',fill_opacity=0.7, line_opacity=0.7,lengend_name='서울시 구별 이디야 매장수').add_to(m) # 경계데이터를 회색으로 칠함
-m.save('test3.html')
-
-f = folium.Figure(width=700, height = 500)
-m = folium.Map(location=[37.566535, 126.9779692], zoom_start=11).add_to(f)
-folium.Choropleth(geo_data = geo_json, data=twosome_count, columns=['시군구명','count'], key_on='properties.name', fill_color='YlGn',fill_opacity=0.7, line_opacity=0.7,lengend_name='서울시 구별 이디야 매장수').add_to(m) # 경계데이터를 회색으로 칠함
-m.save('test4.html')
-
-ediya_twosome = ediya_count.merge(twosome_count, on='시군구명', suffixes=('_이디야', '_투썸'))
-
-ediya_twosome = pd.merge(ediya_count, twosome_count, on = '시군구명',suffixes=('_이디야', '_투썸'))
-
-ediya_twosome['이디야_ratio'] = ediya_twosome['count_이디야'] / ediya_twosome['count_이디야'].sum()
-ediya_twosome['투썸_ratio'] = ediya_twosome['count_투썸'] / ediya_twosome['count_투썸'].sum()
-ediya_twosome['투썸 상대적 비율'] = ediya_twosome['투썸_ratio'] / ediya_twosome['이디야_ratio']
-ediya_twosome
-
-f = folium.Figure(width=700, height = 500)
-m = folium.Map(location=[37.566535, 126.9779692], zoom_start=11).add_to(f)
-folium.Choropleth(geo_data = geo_json, data=ediya_twosome, columns=['시군구명','투썸 상대적 비율'], key_on='properties.name', fill_color='YlGn',fill_opacity=0.7, line_opacity=0.7,lengend_name='서울시 구별 이디야 매장수').add_to(m) # 경계데이터를 회색으로 칠함
-m.save('test5.html')
-
-ediya_df = ediya[['상호명','경도', '위도']].copy()
-ediya_df['kind'] = '이디야'
-ediya_df
-
-twosome_df = twosome[['상호명','경도', '위도']].copy()
-twosome_df['kind'] = '투썸'
-twosome_df
-
-dff = pd.concat([ediya_df, twosome_df])
-dff
-dff.loc[7,:]
-dff.iloc[0,:]
-
-from _plotly_utils.basevalidators import TitleValidator
-f = folium.Figure(width=700, height=500)
-m = folium.Map(location=[37.566535, 126.9779692], zoom_start=11).add_to(f)
-
-for idx in dff.index:
-    lat = dff.loc[idx, '위도']
-    long = dff.loc[idx, '경도']
-    title = dff.loc[idx, '상호명']
-
-    if dff.loc[idx, 'kind'] == "이디야":
-        color = '#1d326c'
+    if df.loc[idx, 'kind'] == 'A':
+        color = 'black'
     else:
-        color = '#D70035'
-    folium.CircleMarker([lat, long]
-                        , radius=3
-                        , color = color
-                        , tooltip = title).add_to(m)
-m.save('tt1.html')
+        color = 'red'
+    folium.CircleMarker([lat, long],
+        radius = 3,
+        color = color,
+        tooltip = title).add_to(m)
+
+> m.save('tt1.html')
+```
