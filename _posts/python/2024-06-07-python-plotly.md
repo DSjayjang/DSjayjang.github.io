@@ -53,6 +53,7 @@ typora-root-url: ../
 ```
 
 - 컬러맵 적용
+
 ```py
 # 컬러맵 확인
 # 연속형 컬러
@@ -66,10 +67,11 @@ typora-root-url: ../
 
 > for color_map in [px.colors.qualitative.Pastel1, px.colors.qualitative.Safe, px.colors.qualitative.Antique]:
     fig = px.bar(data_frame=df_groupby1, x='sex', y='body_mass_g', color='island', barmode='group', text_auto='.0d', width=700, height=500, color_discrete_sequence=color_map)
-    fig.show()
-for color_map in [px.colors.sequential.Burg, px.colors.sequential.Mint, px.colors.sequential.PuBuGn]:
+> fig.show()
+
+> for color_map in [px.colors.sequential.Burg, px.colors.sequential.Mint, px.colors.sequential.PuBuGn]:
     fig = px.scatter(data_frame=df, x='bill_length_mm', y='bill_depth_mm', color='flipper_length_mm', width=700, height=500, color_continuous_scale=color_map, template='simple_white')
-    fig.show()
+> fig.show()
 ```
 
 <br>
