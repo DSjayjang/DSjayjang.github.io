@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Data sorting using Pandas in Python"
+title: "[Python] Data sorting using Pandas"
 categories: Python
 tag: [python, pandas, sort]
 toc: true # 목차 보여주기
