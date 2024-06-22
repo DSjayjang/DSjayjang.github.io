@@ -30,10 +30,11 @@ typora-root-url: ../
 - axis : {0 : index / 1 : columns}
 - how : {'any' : 존재하면 제거 / 'all' : 모두 결측값일 때 제거}
 - subset : 행/열의 이름을 지정
+- inplace : {True : 원본데이터를 직접 수정 / False : NA 제거 후 출력만}
 
 ```py
 # 기본 구조
-> df.dropna(axis = 0, how = 'any', subset = None)
+> df.dropna(axis = 0, how = 'any', subset = None, inplace = False)
 ```
 
 <br>

@@ -265,3 +265,12 @@ typora-root-url: ../
 > fig = px.pie(df, values = 'tip', names = 'day', color_discrete_sequence = px.colors.qualitative.Pastel)
 > fig.show()
 ```
+
+<br>
+
+### □ Funnel Chart
+
+```py
+# 기본 구조
+> px.funnel(data_frame, x, y, …)
+```

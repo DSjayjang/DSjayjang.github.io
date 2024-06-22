@@ -37,13 +37,13 @@ typora-root-url: ../
 ## ■ concat()
 
 ```py
-> concat([df1, df2, …]) # default가 아래로 이어 붙임
+> pd.concat([df1, df2, …]) # default가 아래로 이어 붙임
 ```
 
 ```py
-> concat([df1, df2, df3])
-> concat([df1, df2, df3], axis=1) # 옆으로 이어 붙이기
+> pd.concat([df1, df2, df3])
+> pd.concat([df1, df2, df3], axis=1) # 옆으로 이어 붙이기
 
-> concat([List]).reset_index() # 새로운 index를 0부터 생성
-> concat([List]).reset_index(drop = True) # 기존에 합쳐진 index 삭제 후, 새로운 index를 0부터 생성
+> pd.concat([List]).reset_index() # 새로운 index를 0부터 생성
+> pd.concat([List]).reset_index(drop = True) # 기존에 합쳐진 index 삭제 후, 새로운 index를 0부터 생성
 ```

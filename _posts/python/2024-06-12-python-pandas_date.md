@@ -47,14 +47,14 @@ typora-root-url: ../
 - year : 연도
 - month : 월
 - day : 일
-- dayofweek : (0 - 월요일, 6 - 일요일)
+- day_of_week : (0 - 월요일, 6 - 일요일)
 - day_name() : 요일을 문자열로
 
 ```py
 > df['date'].dt.year
 > df['date'].dt.month
 > df['date'].dt.day
-> df['date'].dt.dayofweek # 요일을 숫자로 나타냄
+> df['date'].dt.day_of_week # 요일을 숫자로 나타냄
 > df['date'].dt.day_name() # 요일을 문자로 나타냄
 ```
 

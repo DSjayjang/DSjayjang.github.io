@@ -61,6 +61,17 @@ typora-root-url: ../
 
 <br>
 
+### □ Heat Map
+
+```py
+> from folium import plugins
+
+> m = folium.Map(location, zoom_start)
+> plugins.HeatMap(위도, 경도, 가중치).add_to(m)
+```
+
+<br>
+
 ## ■ folium 사용 예시
 
 ```py
@@ -140,4 +151,45 @@ typora-root-url: ../
         tooltip = title).add_to(m)
 
 > m.save('tt1.html')
+```
+
+<br>
+
+# ※ haversine
+- 위도 / 경도의 거리를 잴 수 있는 라이브러리
+
+<br>
+
+## ■ 라이브러리 호출
+
+```py
+> from haversine import haversine
+```
+
+<br>
+
+## ■ haversine method
+
+```py
+# 기본 구조
+# unit = 'm' : 거리단위 m
+> haversine(위도, 경도, unit = 'm')
+```
+
+<br>
+
+```py
+# e.g. 위도,경도를 이용하여 지하철역까지의 거리계산 함수 만들기
+> def distance(station_name, lat, long):
+    station_lat = df.query(f'지하철역 == "{station_name}"')['위도'].values[0]
+    station_long = df.query(f'지하철역 == "{station_name}"')['경도'].values[0]
+
+    distance = haversine((station_lat, station_long), (lat, long), unit = 'm')
+
+    return distance
+
+> distance('강남역', 37, 126) # 9999m
+
+> for s in station_list:
+    data[s] = data.apply(lambda x: distance(s, x['위도'], x['경도']), axis = 1)
 ```
