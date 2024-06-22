@@ -76,3 +76,31 @@ typora-root-url: ../
 > content = [idx.text for idx in soup.find_all('a', class_ = 'dsc_link')]
 > df.DataFrame({'title' : title, 'date' : date, 'content' : content})
 ```
+
+<br>
+
+```py
+> from user_agent import generate_user_agent, generate_navigator
+> from tqdm.notebook import tqdm
+> import time
+
+> article_list = []
+> for i in tqdm(range(1, 101)):
+    try:
+        url = f'https://m.land.naver.com/~pages={i}'
+
+        user_agent = generate_user_agent()
+        headers = {'User-Agent' : user_agent}
+
+        res = requests.get(url, headers = headers)
+        time.sleep(1)
+
+        article_json = res.json()
+        article_body = article_json['body']
+        article_list.append(article_body)
+    except:
+        break
+
+> article_list[0][0]
+> article_list1 = [j for i in article_list for j in i]
+```
