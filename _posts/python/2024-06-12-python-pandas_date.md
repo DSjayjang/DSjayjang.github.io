@@ -36,9 +36,9 @@ typora-root-url: ../
 
 ```py
 # e.g. df['date'] : 날짜형 데이터
-> df['date'].dt.strftime('%Y.%m') # e.g. 2024.06
-> df['date'].dt.strftime('%Y-%m') # e.g. 2024-06
-> df['date'].dt.strftime('%Y-%m %H:%M:%S') # e.g. 2024-06 18:15:30
+> df['date'].strftime('%Y.%m') # e.g. 2024.06
+> df['date'].strftime('%Y-%m') # e.g. 2024-06
+> df['date'].strftime('%Y-%m %H:%M:%S') # e.g. 2024-06 18:15:30
 ```
 
 <br>
@@ -81,7 +81,7 @@ typora-root-url: ../
 <br>
 
 ## ■ 날짜 구간 데이터 만들기
-- 형식
+- 주기 (freq)
   - D : 일별
   - W : 주별
   - M : 월별 말일

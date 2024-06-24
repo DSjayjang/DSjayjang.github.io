@@ -49,8 +49,8 @@ typora-root-url: ../
 
 ```py
 # 사용 예시
-> import requests from bs4
-> import BeautifulSoup as bs
+> import requests
+> from bs4 import BeautifulSoup as bs
 
 > keyword = '제주도'
 > url = f'https://…query={keyword}'
