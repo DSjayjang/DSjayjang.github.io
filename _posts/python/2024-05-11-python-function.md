@@ -124,7 +124,7 @@ KIM
 ## ■ 함수의 parameter 개수를 모를 때
 ### □ 함수의 parameter 개수가 정해지지 않았을 때
 - parameter앞에 *(asterisk)를 붙여줌 (argument)
-- 여러 개의 parameter를 받아서 tuple로 변환해 줌
+- 여러 개의 parameter를 받아서 `tuple로 변환`해 줌
 
 ```py
 # 기본 구조
