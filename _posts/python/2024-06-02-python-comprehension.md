@@ -13,6 +13,27 @@ typora-root-url: ../
 # ※ Comprehension
 
 ## ■ List Comprehension
+- 리스트를 생성하는 방법 중의 하나
+- [] 안에 for문 또는 if문을 사용
+
+```py
+# 기본 구조
+> [output for iterator in iterable_object if 조건]
+```
+
+<br>
+
+```py
+# 일반적인 리스트 생성 방법
+> L = []
+> for x in range(1,4):
+    L.append(x+2)
+> L # [3, 4, 5]
+
+# Comprehension을 이용한 코드
+> L = [x+2 for x in range(1,4)]
+> L # [3, 4, 5]
+```
 
 ```py
 # 1부터 1000까지 5의 배수의 합 구하기
@@ -48,6 +69,11 @@ typora-root-url: ../
 <br>
 
 ## ■ Dictionary Comprehension
+
+```py
+# 기본 구조
+> {key:value for key, val in iterable_object if 조건}
+```
 
 ```py
 # 딕셔너리의 key와 value를 바꾸어 출력하기

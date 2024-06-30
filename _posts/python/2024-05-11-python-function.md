@@ -136,6 +136,7 @@ KIM
 ```py
 # 예시
 > def add(*args):
+    print(type(args)) # tuple!
     total = 0
     for arg in args:
         total += arg

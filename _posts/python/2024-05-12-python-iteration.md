@@ -119,6 +119,41 @@ source: <https://www.codingem.com/flowchart-loop/>
     print(value1, value2)
 ```
 
+```py
+# e.g.
+> for a, b, c in zip(range(3), range(3), range(3)):
+    print(a, b, c)
+0 0 0
+1 1 1
+2 2 2
+```
+
+<br>
+
+### □ itertools 라이브러리를 이용한 for문
+- itertools.product(*L)
+  - 순회가능한 여러 개의 객체를 순서대로 순회하는 이터레이터 생성
+- itertools.combinations(p, r)
+  - 이터레이터 객체 p에서 크기 r의 가능한 모든 조합을 갖는 이터레이터 생성
+- itertools.permutations(p, r)
+  - 이터레이터 객체 p에서 크기 r의 가능한 모든 순열을 갖는 이터레이터 생성
+
+```py
+> import itertools
+```
+
+```py
+# itertools.product
+> for a, b, c in itertools.product(range(3), range(3), range(3)):
+    print(a, b, c)
+
+# 아래 중첩 for문과 같은 코드
+> for a in range(3):
+    for b in range(3):
+        for c in range(3):
+            print(a, b, c)
+```
+
 <br>
 
 ### □ 딕셔너리 / 튜플에서의 for문 사용

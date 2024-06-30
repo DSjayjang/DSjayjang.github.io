@@ -210,3 +210,21 @@ finally:
   print("종료")
 # division by zero
 # 종료
+```
+
+<br>
+
+### tqdm
+- 반복작업의 진행 상황을 시각적으로 보여주는 라이브러리
+
+```py
+> from tqdm.notebook import tqdm
+```
+
+```py
+# e.g.
+> for dt in tqdm(date_list):
+    dt1 = [dt[0].replace('.','')]
+    print(dt, dt1)
+# 0%|          | 0/8 [00:00<?, ?it/s]...
+```
