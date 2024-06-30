@@ -11,6 +11,7 @@ typora-root-url: ../
 ---
 
 # ※ Pivot Table
+- 데이터를 조건에 따른 변수들의 통계량을 요약한 테이블
 - 엑셀의 피벗테이블처럼 인덱스별, 컬럼별 값의 연산 가능
 - pivot table 계산 시, 비어있는 값은 fill_value=0을 통해 가능
 
