@@ -55,7 +55,7 @@ typora-root-url: ../
 ```py
 # 생성 예시
 > np.array([1, 2, 3, 4, 5])
-> np.array(list(range(10))) # 0~10까지의 array 생성
+> np.array(list(range(10))) # 0~9까지의 array 생성
 > np.arange(10,100) # 10~99까지의 array 생성
 ```
 
@@ -67,6 +67,7 @@ typora-root-url: ../
 - arr.shape()를 통하여 현재의 dimension 확인 가능함
 
 ```py
+# 기본 구조
 > arr = np.array(list)
 > arr.reshape(nrow, ncol)
 ```

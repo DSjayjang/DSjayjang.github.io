@@ -16,12 +16,12 @@ typora-root-url: ../
 
 ```py
 # Column Indexing
-> df["컬럼명"]
+> df['컬럼명'] # series 형식으로 출력
 > df.컬럼명
 
 ## 데이터프레임 형식으로 출력
 > df.컬럼명.to_frame()
-> df[["컬럼명"]]
+> df[['컬럼명']]
 
 # Slicing
 ## 기본적으로 row 단위로 slicing 됨.
@@ -62,7 +62,6 @@ typora-root-url: ../
 ### □ iloc()
 - integer-location based indexing
 - 위치인덱스를 사용하여 출력
-- 
 - loc와 다르게 끝자리 값은 제외됨
 - 몇 번째인지를 index로 정의
 
@@ -89,7 +88,7 @@ typora-root-url: ../
 ```py
 # 예시
 > df["X3"] > 20 # True / False 출력
-> df[df["X3"] > 20 # 컬럼 X3의 value가 20 초과인 값들의 dataframe 전체 출력
+> df[df["X3"]] > 20 # 컬럼 X3의 value가 20 초과인 값들의 dataframe 전체 출력
 > df[df["X3"] % 3 == 0] # 컬럼 X3의 value가 3의 배수인 값들의 dataframe 전체 출력
 
 > df[df["X1"] == 1 & df["X3"] >= 30] # and 조건

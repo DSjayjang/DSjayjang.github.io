@@ -28,6 +28,7 @@ typora-root-url: ../
 
 ## ■ Pandas DataFrame
 - pandas 라이브러리가 사용하는 기본 자료구조
+- 하나 이상의 series로 구성된 자료구조
 - 2차원 테이블 구조를 의미함
 - index, columns, values라는 객체 변수를 가짐
 - 하나의 column을 기준으로, 모든 원소의 data type이 동일함
