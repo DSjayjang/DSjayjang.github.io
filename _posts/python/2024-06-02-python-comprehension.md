@@ -65,7 +65,7 @@ typora-root-url: ../
         L1.append(j)
 
 # Comprehension을 이용한 코드
-[j for i in L for j in i]
+> [j for i in L for j in i]
 ```
 
 <br>
