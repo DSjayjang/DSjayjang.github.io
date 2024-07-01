@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "example of comprehension in Python"
+title: "[Python] Comprehension"
 categories: Python
 tag: [python, list, tuple, set, dictionary, comprehension]
 toc: true # 목차 보여주기
@@ -24,7 +24,9 @@ typora-root-url: ../
 <br>
 
 ```py
-# 일반적인 리스트 생성 방법
+# e.g. 리스트 생성하기
+
+# 일반적인 코드
 > L = []
 > for x in range(1,4):
     L.append(x+2)
@@ -36,7 +38,7 @@ typora-root-url: ../
 ```
 
 ```py
-# 1부터 1000까지 5의 배수의 합 구하기
+# e.g. 1부터 1000까지 5의 배수의 합 구하기
 
 # 일반적인 코드
 > L = []
@@ -51,7 +53,7 @@ typora-root-url: ../
 ```
 
 ```py
-# 리스트 안의 리스트를 하나의 리스트로 만들기
+# e.g. 리스트 안의 리스트를 하나의 리스트로 만들기
 > L = [[100, 110, 70, 100],
         [200, 210, 180, 190],
         [300, 310, 300, 310]]
@@ -75,8 +77,10 @@ typora-root-url: ../
 > {key:value for key, val in iterable_object if 조건}
 ```
 
+<br>
+
 ```py
-# 딕셔너리의 key와 value를 바꾸어 출력하기
+# e.g. 딕셔너리의 key와 value를 바꾸어 출력하기
 > id_name = {1: 'A', 2: 'B', 3: 'C'}
 
 # 일반적인 코드
@@ -86,11 +90,12 @@ typora-root-url: ../
 
 # Comprehension을 이용한 코드
 > {v:k for k,v in id_name.items()}
+
 # {'A': 1, 'B': 2, 'C': 3}
 ```
 
 ```py
-# 리스트 원소의 빈도값을 딕셔너리로 출력하기
+# e.g. 리스트 원소의 빈도값을 딕셔너리로 출력하기
 > x = ['a','a','b','b','b','c','c','c','c']
 
 # 일반적인 코드
@@ -101,5 +106,22 @@ typora-root-url: ../
 
 # Comprehension을 이용한 코드
 > {k:x.count(k) for k in set(x)}
+
 # {'b': 3, 'a': 2, 'c': 4}
+```
+
+```py
+# e.g. 딕셔너리의 NaN값 제거하기
+> dic = {1:'NaN', 2:2, 3:4, 4:'NaN'}
+
+# 일반적인 코드
+> dic1 = dict()
+> for x, y in dic.items():
+    if y != 'NaN':
+        dic1[x] = y
+> di1 # {2: 2, 3: 4}
+
+# Comprehension을 이용한 코드
+> dic2 = {x:y for x,y in dic.items() if y != 'NaN'}
+> dic2 # {2: 2, 3: 4}
 ```

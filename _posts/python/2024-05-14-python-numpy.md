@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Numpy in Python"
+title: "[Python] Numpy Library"
 categories: Python
 tag: [python, numpy]
 toc: true # 목차 보여주기
@@ -125,7 +125,7 @@ typora-root-url: ../
 - 행렬곱 연산할 때 편리함
 
 ```py
-# 예시
+# e.g.
 > arr1 = np.array([1, 2, 3])
 > arr2 = np.array([[-1, -1, -1], [1, 1, 1]])
 
@@ -133,6 +133,29 @@ typora-root-url: ../
 ([0, 1, 2], [2, 3, 4])
 > arr1 * arr2
 ([-1, -2, -3], [1, 2, 3])
+```
+
+```py
+# e.g.
+> np.arange(5) + 5 # array([5, 6, 7, 8, 9])
+
+> np.ones((3,3)) + np.arange(3)
+array([[1., 2., 3.],
+       [1., 2., 3.],
+       [1., 2., 3.]])
+
+> np.ones((3,3)) + np.arange(3).reshape(3,1)
+array([[1., 1., 1.],
+       [2., 2., 2.],
+       [3., 3., 3.]])
+```
+
+```py
+# e.g. 표준화 하기
+> X = np.random.random((10,3)) # (10x3)
+> X_mean = X.mean(axis = 0) # 열별 평균 (1x3)
+> X__std = X.std(axis = 0) # 열별 표준편차 (1x3)
+> Z = (X - X_mean) / X_std # (10x3)
 ```
 
 <br>
@@ -173,25 +196,30 @@ typora-root-url: ../
 <br>
 
 ### □ Math Function
-- 표준정규분포에서 random sampling 하기
 
 ```py
-> np.random.randn()
+> np.random.randn() # 표준정규분포에서 random sampling
+> np.random.random() # 0과 1사이의 난수 생성
+> np.random.random((m,n)) # 0과 1사이의 m*n 행렬의 난수 생성
+> np.random.normal(mu, s, (m,n)) # 평균이 mu, 표준편차가 s의 정규분포에서 m*n 행렬의 난수 생성
+> np.random.randint(a, b, (m,n)) # [0, b) 구간의 임의의 정수를 뽑아 m*n 행렬 생성
 ```
 
 ```py
 # 사용 예시
 > np.random.randn(5, 3) # 표준정규분포에서 random sampling한 5x3 행렬
+> np.zeros(10) # array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
+> np.zeros(10, dtype=int) #array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+> np.linspace(0, 1, 5) # array([0. , 0.25, 0.5 , 0.75, 1. ]) 
 ```
 
 - 기타 수식
 
 ```py
-> mat1 = np.random.randn(5, )
-
 > np.abs # 절대값
 > np.square # 제곱
 > np.sqrt() # 제곱근
+> np.linspace(start, stop, num) # start부터 stop까지 num 개수의 요소를 가지는 등간격의 1차원 배열 반환
 ```
 
 <br>
@@ -200,8 +228,11 @@ typora-root-url: ../
 
 ```py
 > np.linalg.norm() # 벡터의 크기 norm
-
 > np.linalg.eig() # eigen value, eigen vector
+> np.eye(n, dtype = int) # 크기가 n인 단위 행렬 생성
+> np.zeros((m,n), dtype = int) # m*n의 영행렬 생성
+> np.ones((m,n), dtype = int) # m*n의 1로 채운 행렬 생성
+> np.full((m,n), num) # num로 채운 m*n 행렬 생성
 ```
 
 <br>

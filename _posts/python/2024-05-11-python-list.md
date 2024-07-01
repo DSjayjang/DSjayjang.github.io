@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "List / Tuple / Set / Dictionary in Python"
+title: "[Python] List / Tuple / Set / Dictionary"
 categories: Python
 tag: [python, list, tuple, set, dictionary]
 toc: true # 목차 보여주기

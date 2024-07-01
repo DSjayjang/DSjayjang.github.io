@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Iteration in Python"
+title: "[Python] Iteration (반복문)"
 categories: Python
 tag: [python, iteration]
 toc: true # 목차 보여주기
@@ -147,11 +147,35 @@ source: <https://www.codingem.com/flowchart-loop/>
 > for a, b, c in itertools.product(range(3), range(3), range(3)):
     print(a, b, c)
 
+
 # 아래 중첩 for문과 같은 코드
 > for a in range(3):
     for b in range(3):
         for c in range(3):
             print(a, b, c)
+```
+
+```py
+# itertools.combinations
+# e.g. 4개의 요소 중 2개를 뽑아 가능한 모든 조합 출력
+> L = ['a', 'b', 'c', 'd']
+> for comb in itertools.combinations(L, 2):
+    print(comb)
+
+# e.g. 리스트 안에 있는 모든 요소들로 가능한 모든 조합 출력
+> L = ['a', 'b', 'c', 'd']
+> for r in range(1, len(L)+1):
+    for comb in itertools.combinations(L, r):
+        print(comb)
+```
+
+```py
+# itertools.permutations
+# e.g. 리스트 안에 있는 모든 요소들로 가능한 모든 순열 출력
+> L = ['a', 'b', 'c', 'd']
+> for r in range(1, len(L)+1):
+    for comb in itertools.permutations(L, r):
+        print(comb)
 ```
 
 <br>

@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Conditional Statement in Python"
+title: "[Python] Conditional Statement (조건문)"
 categories: Python
 tag: [python, conditional-statement]
 toc: true # 목차 보여주기

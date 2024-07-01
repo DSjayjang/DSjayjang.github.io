@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Merging dataframes using Pandas in Python"
+title: "[Python] Merging Data Frames using Pandas"
 categories: Python
 tag: [python, pandas, merging]
 toc: true # 목차 보여주기

@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Scikit-Learn in Python"
+title: "[Python] Scikit-Learn Library"
 categories: Python
 tag: [python, scikit-learn, machine-learning]
 toc: true # 목차 보여주기

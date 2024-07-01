@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Seaborn in Python"
+title: "[Python] Seaborn Library"
 categories: Python
 tag: [python, seaborn]
 toc: true # 목차 보여주기

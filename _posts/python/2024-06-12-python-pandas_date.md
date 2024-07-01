@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Datetime using Pandas in Python"
+title: "[Python] Handling Datetime-Data using Pandas"
 categories: Python
 tag: [python, pandas, datetime]
 toc: true # 목차 보여주기

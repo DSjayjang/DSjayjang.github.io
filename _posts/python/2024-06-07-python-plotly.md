@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Plotly in Python"
+title: "[Python] Plotly Library"
 categories: Python
 tag: [python, plotly]
 toc: true # 목차 보여주기

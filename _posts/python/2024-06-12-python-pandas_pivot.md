@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Making Pivot-Table using Pandas in Python"
+title: "[Python] Making Pivot-Table using Pandas"
 categories: Python
 tag: [python, pandas, pivot-table]
 toc: true # 목차 보여주기

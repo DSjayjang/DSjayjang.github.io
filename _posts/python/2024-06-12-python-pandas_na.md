@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Handling missing data using Pandas in Python"
+title: "[Python] Handling Missing-Data using Pandas"
 categories: Python
 tag: [python, pandas, na]
 toc: true # 목차 보여주기

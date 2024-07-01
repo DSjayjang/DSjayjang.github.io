@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Loading files using Pandas in Python"
+title: "[Python] Loading files using Pandas"
 categories: Python
 tag: [python, pandas]
 toc: true # 목차 보여주기

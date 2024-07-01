@@ -10,7 +10,7 @@ author_profile: false   # 프로필 제거
 typora-root-url: ../
 ---
 
-## .explode()
+## ■ .explode()
 - 특정 컬럼(리스트 타입인 컬럼)을 여러 행으로 분리시킴
 
 ```py
@@ -19,12 +19,12 @@ typora-root-url: ../
 
 <br>
 
-## .drop_duplicates()
+## ■ .drop_duplicates()
 - 중복값이 있는 컬럼값들의 행 제거
 
 <br>
 
-## .rank(method = '')
+## ■ .rank(method = '')
 - 컬럼의 값들에 순위를 부여함
 
 ```py
@@ -35,7 +35,7 @@ typora-root-url: ../
 
 <br>
 
-## pd.qcut()
+## ■ pd.qcut()
 - 데이터 분포에 따라 균등하게 나누어 줌
 - label을 통해 나눈 구간에 라벨을 지정
 
@@ -63,4 +63,25 @@ typora-root-url: ../
 > gender_map = {'male' : '남자', 'female' : '여자'}
 
 > df['sex'].map(gender_map)
+```
+
+<br>
+
+## ■ set_option()
+- 데이터프레임을 출력할 때 표시할 최대 행/열을 지정
+
+### 출력할 행 개수 지정
+
+```py
+> pd.set_option('display.max_rows', num) # num 만큼 행 출력
+> pd.set_option('display.max_rows', None) # 모든 행 출력
+```
+
+<br>
+
+### 출력할 열 개수 지정
+
+```py
+> pd.set_option('display.max_columns', num) # num 만큼 열 출력
+> pd.set_option('display.max_columns', None) # 모든 열 출력
 ```

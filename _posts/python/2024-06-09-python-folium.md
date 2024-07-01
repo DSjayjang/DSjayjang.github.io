@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Folium in Python"
+title: "[Python] Folium Library"
 categories: Python
 tag: [python, folium]
 toc: true # 목차 보여주기

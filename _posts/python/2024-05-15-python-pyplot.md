@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Pyplot in Python"
+title: "[Python] Matplotlib.pyplot Library"
 categories: Python
 tag: [python, matplotlib, pyplot]
 toc: true # 목차 보여주기

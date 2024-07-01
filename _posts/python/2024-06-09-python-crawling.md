@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Web Crawling in Python"
+title: "[Python] Web Crawling (웹크롤링)"
 categories: Python
 tag: [python, crawling, pandas, beautifulsoup]
 toc: true # 목차 보여주기

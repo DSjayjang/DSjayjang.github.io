@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Class in Python"
+title: "[Python] Class (클래스)"
 categories: Python
 tag: [python, class]
 toc: true # 목차 보여주기
