@@ -10,9 +10,7 @@ author_profile: false   # 프로필 제거
 typora-root-url: ../
 ---
 
-<h1 color='red'>
-※ Fancy Indexing
-</h1>
+# ※ Fancy Indexing
 
 ```py
 # Column Indexing
