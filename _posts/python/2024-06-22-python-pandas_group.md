@@ -43,10 +43,25 @@ typora-root-url: ../
 > df.groupby('class')['Survived'].mean() # 특정 컬럼만 보고싶을 때
 > df.groupby('class')[['Survived', 'Age']].mean()
 
+
 # 다중 그룹
 > df.groupby(['sex', 'class']).mean(numeric_only = True)
 
-> import numpy as np
+
+# 데이터프레임 형태로 출력
+# as_index = False
+> df.groupby('class', as_index = False)['Survived'].mean() # 'class'컬럼이 인덱스에서 컬럼으로 올라옴
+
+
+# 사용자정의 함수 사용하기
+# agg() 또는 aggregate()로 사용자정의 함수 사용가능
+
+# e.g.
+> def my_function(value):
+    return (max(value)-min(value))
+> df.groupby(['sex', 'class'])[['Survived', 'Age']].agg(my_function)
+
+# e.g.
 > df.groupby(['sex', 'class'])[['Survived', 'Age']].aggregate([np.mean, np.min, np.max])
 ```
 

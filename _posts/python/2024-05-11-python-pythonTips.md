@@ -228,3 +228,48 @@ finally:
     print(dt, dt1)
 # 0%|          | 0/8 [00:00<?, ?it/s]...
 ```
+
+# map() 함수
+> map(function, iterable, ...)
+반복가능한 객체에 function을 적용
+
+```py
+# e.g.
+> print(sum(map(int,input().split())))
+# e.g. 3 4 2 >> 9
+```
+
+
+## ■ Unpacking Operation *
+
+```py
+# e.g.1
+> a = [1, 2, 3]
+> print(*a) # 1 2 3
+> b = '456'
+> print(*b) # 4 5 6
+
+# e.g.2
+> A = 'Hello World'
+> A.replace(' ', '-') # 'Hello-World'
+> A.replace(*' -') # Hello_World'
+
+# e.g.3
+> eval(input().replace(*' +'))
+# (입력) 3 4 5 (출력) 12
+# 3+4+5 실행, 12 출력
+
+# e.g.4
+> a = 3
+> b = '456'
+> print(*[a*int(p) for p in b][::-1]) # 18 15 12
+```
+
+## ■ eval()
+- 문자열로 표현된 코드를 실행하고 계산함
+
+```py
+> expression = '3 + 4 + 5'
+> result = eval(expression)
+> print(result) # 12
+```

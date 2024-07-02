@@ -97,3 +97,65 @@ print('FFFFFFDCBAA'[int(input())//10])
 # short coding
 > '3421'[int(input()) > 0::2][int(input()) > 0]
 ```
+
+<br>
+<br>
+
+```
+# e.g.
+# 시간, 분을 입력받아 45분 전의 시간 출력
+# 시간은 00:00~23:59
+# (입력) 5 25 (출력) 4 40
+```
+
+```py
+# 방법 1.
+> h, m = map(int, input().split())
+> if m >=45: print(h, m-45)
+  else: print(h-1 if h !=0 else 23, 60+m-45)
+
+# 방법 2.
+> h, m = map(int, input().split())
+> print((h-(m<45))%24, (m-45)%60)
+```
+
+<br>
+<br>
+
+```
+# e.g.
+# 현재 시간과 분을 입력받고, 걸린 시간(분)을 입력받음
+# 현재 시간 + 걸린 시간을 출력
+```
+
+```py
+# 방법 1.
+> h, m = map(int, input().split())
+> t = int(input())
+> print((h+((m+t)//60))%24, (m+t)%60)
+```
+
+<br>
+<br>
+
+```
+# e.g.
+# 주사위 값 3개를 입력받음
+# 1. 같은 값이 3개일 때, 10,000원+(같은 눈)×1,000원을 출력
+# 2. 같은 값이 2개일 때, 1,000원+(같은 눈)×100원을 출력
+# 3. 모두 다른 값일 때, (그 중 가장 큰 값)×100원을 출력
+```
+
+```py
+# 일반적인 coding
+> a, b, c = map(int, input().split())
+> if a==b==c: print(10000 + a*1000)
+  elif (a==b and a != c): print(1000 + a*100)
+  elif (a==c and a != b): print(1000 + a*100)
+  elif (b==c and a != b): print(1000 + b*100)
+  else: print(max([a, b, c]) * 100)
+
+# short coding
+> a, b, c = sorted(input().split())
+> print(['1'+b,c][a<b<c]+'000'[a<c:])
+```
