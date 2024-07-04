@@ -174,24 +174,50 @@ typora-root-url: ../
 <br>
 
 ### □ sort() / sorted()
-- sort() : 리스트 원소 정렬
-- sorted() : 정렬된 리스트를 출력만 함 (리스트 변경 X)
-- 기본 default는 오름차순
-- 내림차순은 reverse = True 추가
+
+#### .sort() : 리스트 원소 정렬
+- return 값이 없음 / pandas에서 inplace=True로 설정한 것과 같음
+- 매개변수
+  - reverse : 내림차순을 할 경우에는 True로 설정
 
 ```py
+# e.g.
 > L = [4, 3, 16]
-# "오름차순" 정렬
-> L.sort()
+> L.sort() # 출력은 없고, 리스트 자체가 수정됨
 > L # [3, 4, 16]
 
-# "내림차순" 정렬
-> L.sort(reverse = True)
+> L.sort(reverse = True) # 내림차순 정렬
 > L # [16, 4, 3]
 
-> L = [1, 20, 23, 2]
-> sorted(L) # [1, 2, 20, 23]
-> sorted(L, reverse = True) # [23, 20, 2, 1]
+# e.g.
+> T = [(11, 2), (3, 1), (4, 5), (10, 4)]
+> T.sort() # 리스트 안의 튜플의 첫번째 원소를 기준으로 정렬
+> T # [(3, 1), (4, 5), (10, 4), (11, 2)]
+```
+
+<br>
+
+#### sorted()
+- 매개변수
+  - reverse : 내림차순을 할 경우에는 True로 설정
+  - key: 정렬 기준 함수 (주로 lambda 함수를 사용)
+
+```py
+# e.g.
+> L = [1, 4, 3, 5, 2, 5]
+> sorted(L, key = lambda x:abs(x)) # 절대값을 기준으로 오름차순 정렬
+# [1, 2, 3, 4, 5, 5]
+
+> sorted(L, key = lambda x:abs(x-3)) # |x-3|을 기준으로 오름차순 정렬
+# [3, 4, 2, 1, 5, 5]
+
+> T = [(11, 2), (3, 1), (4, 5), (10, 4)]
+> sorted(T,key = lambda x:x[1]) # 리스트 안의 튜플의 두번째 원소를 기준으로 정렬
+# [(3, 1), (11, 2), (10, 4), (4, 5)]
+
+> L = ['We', 'Use', 'Python', 'For', 'Data Preprocessing']
+> sorted(L, key = lambda x:len(x), reverse = True) # 길이를 기준으로 내림차순 정렬
+# ['Data Preprocessing', 'Python', 'Use', 'For', 'We']
 ```
 
 <br>

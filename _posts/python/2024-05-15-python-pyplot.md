@@ -11,6 +11,7 @@ typora-root-url: ../
 ---
 
 # **※ matplolib.pyplot**
+- 차트나 플랏으로 데이터를 시각화하기 위한 모듈
 
 ## ■ 라이브러리 호출
 
@@ -66,6 +67,7 @@ typora-root-url: ../
 ```py
 > plt.legend()
 > plt.legend(loc = "best") # 가장 적절한 위치에 범례 추가
+> plt.legend(loc = 'center')
 > plt.legend(loc = "upper left") # 범례 좌상단
 > plt.legend(loc = "lower right") # 범례 우하단
 > ...
@@ -76,18 +78,31 @@ typora-root-url: ../
 - 축 범위 조정
 
 ```py
-> plt.xlim() # x축 범위 지정
-> plt.ylim() # y축 범위 지정
+> plt.xlim(left, right) # x축 범위 지정
+> plt.ylim(bottom, top) # y축 범위 지정
 ```
 
 <br>
 
-- 축 글씨 각도 조정
+- tick 설정
+  - 눈금을 의미함
 
 ```py
+# ticks(위치)에 labels를 입력
+> plt.xticks(ticks, labels)
+> plt.yticks(ticks, labels)
+
+# 축 글씨 각도 조정
 > plt.xticks(rotation = '각도')
 > plt.yticks(rotation = '각도')
 ```
+
+```py
+# 사용 예시
+> plt.xticks([1,2,3,4,5], ['a','b','c','d','e'])
+```
+
+<br>
 
 ### □ Plot
 
