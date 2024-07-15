@@ -16,9 +16,9 @@ typora-root-url: ../
   - Setting 또는 Set연산의 의미를 가짐
 
 ```py
-# Assignment의 예시
 > df = pd.DataFrame()
 
+# Assignment의 예시
 > df['Group'] = ['A', 'A', 'B', 'B', 'C'] # 컬럼에 배열 할당
 > df['Value'] = [1, 5, 2, 7, 0] # 컬럼에 배열 할당
 > df.loc[0, 'Value'] = 100 # 특정 셀에 값 할당
@@ -56,7 +56,11 @@ typora-root-url: ../
 2     B      2
 3     B      7
 4     C      0
+```
 
+<br>
+
+```py
 # e.g. Chained Assignment
 > df[df['Group'] == 'A']['Value'] = 100
 # SettingWithCopyWarning 발생
@@ -71,9 +75,8 @@ typora-root-url: ../
 2     B      2
 3     B      7
 4     C      0
-```
 
-```py
+
 # e.g. Chained Assignment
 > df.loc[df['Group']=='A', 'Value'][0] = 99
 # SettingWithCopyWarning 발생하지는 않으나
@@ -107,7 +110,11 @@ typora-root-url: ../
 2     B      2
 3     B      7
 4     C      0
+```
 
+<br>
+
+```py
 # e.g. Hidden Chaining
 > temp = df[df['Group'] == 'A'] # 필터링 결과를 새 변수에 할당하여 숨김
 > temp
@@ -139,8 +146,6 @@ typora-root-url: ../
 - 작성자의 의도를 모르거나 결과물 예측이 불가능할 경우
 - Access의 Get연산과 Assignment의 Set연산이 동시에 발생되어, 그 결과가 복사본(copy)인지 원래 데이터의 일부를 나타낸 것(view) 중 어떤 것이 나올지 예측이 불가능함
 
-<br>
-
 ### □ 경고창 끄는 방법
 
 ```py
@@ -159,6 +164,7 @@ typora-root-url: ../
 pd.set_option('mode.chained_assignment', 'raise')
 ```
 
+<br>
 <br>
 
 # ※ View vs. Copy

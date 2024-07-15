@@ -99,7 +99,8 @@ typora-root-url: ../
 
 ```py
 # 사용 예시
-> plt.xticks([1,2,3,4,5], ['a','b','c','d','e'])
+> plt.xticks(range(12), [str(i+1)+'월' for i in range(12)])
+> plt.yticks([1,2,3,4,5, ..., 12], ['a','b','c','d','e', ...])
 ```
 
 <br>

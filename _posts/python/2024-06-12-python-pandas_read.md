@@ -93,6 +93,19 @@ typora-root-url: ../
 <br>
 
 ```py
+# 활용 예시
+> sheet_name = [str(i) + '월' for i in range(1,13)]
+> sheet_name # ['1월', '2월', ..., '12월']
+
+> merged_df = pd.DataFrame()
+> for sn in sheet_name:
+    df = pd.read_excel('data.xlsx', sheet_name = sn, skiprows = range(6)).iloc[:,1:]
+    merged_df = pd.concat([merged_df, df], axis = 0,ignore_index = True)
+```
+
+<br>
+
+```py
 # 저장하기
 > df.to_excel("저장할 파일명.excel", sheet_name="시트이름")
 

@@ -24,6 +24,7 @@ typora-root-url: ../
   - min() : 최솟값
   - std() : 표준편차
   - var() : 분산
+  - apply(list) : 값들을 리스트 형태로 변환
 
 ```py
 # 기본 구조

@@ -82,6 +82,8 @@ array([7, 4, 8, 9, 1, 5, 3, 0, 6, 2])
   - normalize: 빈도 대신 비율을 출력할 것인지 여부
 
 ```py
+> S = pd.Series(np.random.randint(0, 10, 100))
+
 # e.g.
 > S.value_counts()
 2    15
@@ -119,6 +121,16 @@ array([7, 4, 8, 9, 1, 5, 3, 0, 6, 2])
 > df['colA'].rank(method = 'first')
 ```
 
+
+<br>
+
+## ■ .add_suffix('')
+- 모든 컬럼명에 문자열을 추가
+
+```py
+# e.g.
+> df.add_suffix('_개수')
+```
 
 <br>
 
