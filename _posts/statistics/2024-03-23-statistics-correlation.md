@@ -63,13 +63,18 @@ where $s_{x}=\sqrt{\cfrac{\sum(x_{i}-\bar x)^{2}}{n-1}} ,~s_{y}=\sqrt{\cfrac{\su
 <br>
 
 $$
-Corr(X, Y) = \cfrac{1}{n-1} \sum \cfrac{\sum (x_{i}-\bar x)}{s_{x}} \cfrac{(y_{i}-\bar y)}{s_{y}} = Cov(Z_{x},Z_{y}) \\
-= \cfrac{1}{s_{x}s_{y}} \times \cfrac{\sum (x_{i}-\bar x)(y_{i}-\bar y)}{n-1} \\
-= \cfrac{Cov(X,Y)}{s_{x}s_{y}} \\
+\begin{align*}
+
+Corr(X, Y) &= \cfrac{1}{n-1} \sum \cfrac{\sum (x_{i}-\bar x)}{s_{x}} \cfrac{(y_{i}-\bar y)}{s_{y}} \\
+&= Cov(Z_{x},Z_{y}) \\
+&= \cfrac{1}{s_{x}s_{y}} \times \cfrac{\sum (x_{i}-\bar x)(y_{i}-\bar y)}{n-1} \\
+&= \cfrac{Cov(X,Y)}{s_{x}s_{y}} \\
 \\
-= \cfrac{\sum (x_{i}-\bar x)(y_{i}-\bar y)}{\sqrt{\sum (x_{i}-\bar x)^{2}}\sqrt{\sum(y_{i}-\bar y)^{2}}} \\
-=\cfrac{S_{xy}}{\sqrt{S_{xx}}\sqrt{S_{yy}}} \\
-= \rho
+\\
+&= \cfrac{\sum (x_{i}-\bar x)(y_{i}-\bar y)}{\sqrt{\sum (x_{i}-\bar x)^{2}}\sqrt{\sum(y_{i}-\bar y)^{2}}} \\
+&=\cfrac{S_{xy}}{\sqrt{S_{xx}}\sqrt{S_{yy}}} \\
+&= \rho
+\end{align*}
 $$
 
 <br>
