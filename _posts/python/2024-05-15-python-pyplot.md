@@ -107,16 +107,88 @@ typora-root-url: ../
 
 ### □ Plot
 
-```py
-# 막대그래프
-> plt.bar()
-> plt.bar(x, y, color, label)
-```
+#### ◎ Line Chart
+- 매개변수
+  - x, y: iterable한 객체, x[i], y[i]의 길이가 같아야 함
+  - linewidth: 선 두께
+  - marker: 마커 종류
+  - markersize: 마커 크기
+  - color: 선 색상
+  - linestyle: 선 스타일
+  - label: 범례
 
 ```py
-# 산점도
-> plt.scatter()
-> plt.scatter(x, y, color, marker, s, alpha, ...)
+# 기본 구조
+> plt.plot(x, y, linewidth, marker, markersize, color, linestyle, label, …)
+```
+
+<br>
+
+<br>
+
+#### ◎ Scatter Plot
+- 매개변수
+  - x, y: iterable한 객체, x[i], y[i]의 길이가 같아야 함
+  - marker: 마커 종류
+  - markersize: 마커 크기
+  - color: 선 색상
+  - label: 범례
+  - alpha: 투명도
+
+```py
+# 기본 구조
+> plt.scatter(x, y, marker, markersize, color, label, …)
+```
+
+<br>
+
+#### ◎ Bar Chart
+- 매개변수
+  - x: 막대의 위치
+  - height: 막대의 높이
+  - width: 막대의 너비
+  - align: 막대 정렬
+
+```py
+# 기본 구조
+> plt.bar(x, height, width, align, color, label, …)
+```
+
+<br>
+
+#### ◎ Pie Chart
+- 매개변수
+  - x: 각 pie의 크기
+  - labels: 각 pie에 부탁되는 라벨
+  - labeldistance: 라벨간 거리
+  - normalize: 비율을 나타낼 것인지 여부
+  - autopct: 위에 표시될 글자 형태 (ex: '%.1.1f%%', '%1d%%')
+  - colors: 배열로 설정해서 각 파트의 색상을 설정 가능
+
+```py
+# 기본 구조
+> plt.pie(x, labels, labeldistance, normalize, autopct, colors, …)
+```
+
+<br>
+
+#### ◎ Box Plot
+- 매개변수
+  - x: boxplot을 그리기 위한 데이터
+
+```py
+# 기본 구조
+> plt.boxplot(x, …)
+```
+
+<br>
+
+#### ◎ Heat Map
+
+```py
+# 기본 구조
+> plt.pcolor(pivot_table, edgecolors, 츠메, …)
+> plt.colorbar() # 히트맵 옆에 색상들의 수준을 나타냄
 ```
 
 <br>
