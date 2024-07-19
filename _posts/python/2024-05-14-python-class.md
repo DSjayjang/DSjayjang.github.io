@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] Class (클래스)"
 categories: Python
-tag: [python, class]
+tag: [python, class, constructor, inheritence, __init__, overriding]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
