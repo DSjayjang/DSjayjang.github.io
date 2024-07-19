@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Built-in Function in Python"
+title: "[Python] Built-in Function"
 categories: Python
 tag: [python, function, exec(), .T, .replace(), .to_dict()]
 toc: true # 목차 보여주기

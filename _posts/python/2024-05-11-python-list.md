@@ -1,8 +1,8 @@
 ---
 layout: single
-title: "[Python] List / Tuple / Set / Dictionary"
+title: "[Python] List (리스트)"
 categories: Python
-tag: [python, list, tuple, set, dictionary]
+tag: [python, list, in-operater, .append(), .extend(), .insert(), .sort(), sorted(), .reverse(), .remove(), .pop(), .count(), .index(), .join(), .split(), range()]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -17,11 +17,11 @@ typora-root-url: ../
 <br>
 
 ## ■ 리스트 생성방법
-- []를 사용
+- [ ]를 사용
 
 ```py
 > L = [1, 2, 3]
-> L = [1, [2,3], 4]
+> L = [1, [2, 3], 4]
 
 # emplty list
 > L1 = []
@@ -99,7 +99,7 @@ typora-root-url: ../
 
 <br>
 
-## ■ 리스트에 관련 함수
+## ■ 리스트 관련 함수
 ### □ len()
 - 리스트 길이 반환
 
@@ -122,7 +122,7 @@ typora-root-url: ../
 
 <br>
 
-### □ in operater
+### □ in operator
 - in 이라는 operator는 모든 연속형 데이터 타입에 사용할 수 있음
 - 사전의 경우에는 key값을 대상으로 하고, 리스트, 튜플, 집합, 문자열에 대해서는 해당 원소가 존재하는지 찾아서 True / False 반환
 
@@ -294,268 +294,4 @@ typora-root-url: ../
 > list(range(0, 10)) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 > list(range(0, 10, 2)) # [0, 2, 4, 6, 8]
 > list(range(5, -11, -3)) # [5, 2, -1, -4, -7, -10]
-```
-
-<br>
-<br>
-
-# ※ 튜플 (Tuple)
-- list와 거의 비슷
-- ***`생성 후 변경이 불가능함 (immutable)`***
-  - 프로그램 실행 중 변하지 않거나 변해서는 안되는 값들이 있을 때 튜플로 저장하면 좋음
-  - 리스트에서 사용한 append() / insert() / extend() / remove() / pop() / sort() / ... 등의 함수는 사용할 수 없음
-  - sorted()는 사용가능 함 but 리스트로 변환되어 출력됨
-- list보다 순회속도가 조금 더 빠름
-  - 요소를 변경할 필요가 없고, 연산 결과만 필요한 경우에는 리스트보다 튜플이 적합함
-  - 데이터가 큰 경우에는 리스트로 작업 후, 튜플로 타입을 변경 후 순회를 하기도 함
-- 딕셔너리의 key로 사용이 가능함 (리스트는 불가)
-
-<br>
-
-## ■ 튜플 생성방법
-- () 사용
-
-```py
-> t = (3,) # 원소가 하나일 때는 끝에 , 사용
-> t = (1, 2)
-> t2 = ('a', 'b', ('c', 'd'))
-> t3 = (1, "a", (3, 3.14), ["apple", 3])
-```
-
-<br>
-
-## ■ 튜플 연산
-```py
-> t = (1, 2)
-> t2 = (3, 4)
-
-> t + t2
-(1, 2, 3, 4)
-```
-
-<br>
-
-## ■ 튜플 여러 함수
-
-```py
-> t = (1,2,3,4,5)
-> len(t) # 5
-> sum(t) # 15
-> min(t) # 1
-> max(t) # 5
-> t.count(2) # 1
-> t.index(2) # 1
-> print(1 in t) # True
-
-> t = ("1","2","3","4","5")
-> print("/".join(t)) # 1/2/3/4/5
-```
-
-<br>
-
-### □ 함수 심화
-- max(튜플, key = lambda x:x[인덱스]) : 다중 튜플의 경우 정렬 기준을 정의하여 튜플 내 최대값 탐색
-- min(튜플, key = lambda x:x[인덱스]) : 다중 튜플의 경우 정렬 기준을 정의하여 튜플 내 최소값 탐색
- 
-```py
-> t = (('a', 1), ('b',7), ('c', 3), ('d', -5), ('e', -9))
-
-> print(max(t, key = lambda x:x[0])) # ('e', -9)
-> print(max(t, key = lambda x:x[1])) # ('b', 7)
-
-> print(max(t, key = lambda x:abs(x[1]))) # ('e', -9)
-> print(min(t, key = lambda x:abs(x[1]))) # ('a', 1)
-```
-
-<br>
-<br>
-
-# ※ 집합 (Set)
-- 교집합, 합집합, 차집합 지원
-- 원소의 중복을 허용하지 않음 > 원소의 종류를 나타내기 좋음
-- 원소의 순서가 존재하지 않음 > index가 없음
-
-## ■ 집합 생성방법
-- {} 사용
-- 공집합 생성 시 set() 사용
-
-```py
-> s = {1, 2, 3}
-> s1 = set() # 공집합 생성
-```
-
-<br>
-
-## ■ 집합의 연산
-
-```py
-> s1 = {1, 2, 3, 4, 5}
-> s2 = {3, 4, 5, 6, 7}
-
-# 교집합
-> s1 & s2
-> s1.intersection(s2)
-> s2.intersection(s1)
- {3, 4, 5}
-
-# 합집합 
-> s1 | s2
-> s1.union(s2)
-> s2.union(s1)
-{1, 2, 3, 4, 5, 6, 7}
-
-# 차집합
-> s1 - s2
-> s1.difference(s2)
-{1, 2}
-
-> s2 - s1
-> s2.difference(s1)
-{6, 7}
-```
-
-```py
-# 원소의 uniqueness를 활용하는 경우
-> L = [1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 6, 1, 1, 5]
-
-> set(L)
-{1, 2, 3, 4, 5, 6}
-
-# 리스트 L에 있는 서로 다른 원소의 개수
-> len(set(L)) # type conversion
-6
-```
-
-<br>
-
-## ■ 집합 관련 함수
-### □ add() / remove()
-- add(): 집합에 원소 하나 추가 하기
-- remove(): 집합의 원소 제거
-
-```py
-> s = set()
-> s.add(2)
-> s # {2}
-
-> s.remove(지울 원소)
-```
-
-<br>
-
-### □ update()
-- 집합에 원소 여러개 추가 하기
-
-```py
-> s = {1, 2, 3}
-> s.update({4,5})
-> s
-{1, 2, 3, 4, 5}
-```
-
-<br>
-<br>
-
-# ※ 사전 (.Dictionary)
-- key : value 방법을 통해 저장
-- key값을 통해 value에 access함
-- key는 중복될 수 없음
-- 리스트는 key가 될 수 없으나 튜플은 key가 될 수 있음
-- 위치로 인덱싱이 되지 않음
-- 순서가 아닌 의미가 있는 값을 통해서 데이터 접근이 가능
-- {} 이용하여 표현, 반드시 :가 들어가야 함
-
-<br>
-
-## ■ 딕셔너리 생성방법
-- {} 와 :를 이용
-
-```py
-> D = {"major" : "math", "name" : "apple"}
-```
-
-<br>
-
-## ■ 원소 추가, 삭제
-- 추가: 딕셔너리명[추가할 key] = value
-- 삭제: del 딕셔너리명[삭제할 key]
-
-```py
-> D["name"] = ["a", "b"]
-
-> del D["name"]
-```
-
-<br>
-
-## ■ Indexing
-
-```py
-> D = {"major" : "math", "name" : "apple"}
-> D["major"] # math
-
-# 원소 추가
-> D["a"] = 6
-```
-
-<br>
-
-## ■ 딕셔너리 관련 함수
-### □ keys() / values() / items()
-- keys(): 딕셔너리의 모든 key값들 보기
-- values(): 사전의 모든 value값들 보기
-- items(): 사전의 모든 key, value 쌍 보기
-- 출력 결과물들의 type이 dict_... 이기 때문에 편하게 사용하고 싶으면 list로 변환
-
-```py
-> D = {"major" : "math", "name" : "apple"}
-
-> D.keys() # dict_keys(['major', 'name'])
-> D.values() # dict_values(['math', 'apple'])
-> D.items() # dict_items([('major', 'math'), ('name', 'apple')])
-```
-
-<br>
-
-### □ get()
-- 사전의 원소 가져오기
-- **`없는 값들에 대해서는 default값을 지정할 수 있음`**
-
-```py
-> D = {"major" : "math", "name" : "apple"}
-
-> D.get("major") # math
-
-# 아래와 같음
-> D["major"] # math
-
-# default 지정
-> D.get("minor", "CSE") # CSE
-```
-
-<br>
-
-### □ update()
-- 딕셔너리에 새로운 딕셔너리 추가
-
-```py
-> D = {"major" : "math", "name" : "apple"}
-> D1 = {"minor" : "CSE"}
-
-> D.update(D1)
-> D
-{'major': 'math', 'name': 'apple', 'minor': 'CSE'}
-```
-
-<br>
-
-### □ zip()
-- 튜플 / 리스트를 딕셔너리로 변환해주는 함수
-- 원소 각각을 매핑함
-
-```py
-> key = ("A", "B")
-> values = (1, 2)
-> result = dict(zip(key, values))
-> result # {'A': 1, 'B': 2}
 ```

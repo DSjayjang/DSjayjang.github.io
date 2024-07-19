@@ -1,8 +1,8 @@
 ---
 layout: single
-title: "Function in Python"
+title: "[Python] Function (함수)"
 categories: Python
-tag: [python, function]
+tag: [python, function, lambda, global-variable, local-variable, keyword-arguments]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
