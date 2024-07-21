@@ -2,14 +2,13 @@
 layout: single
 title: "공분산과 상관계수"
 categories: Statistics
-tag: [statistics, covariance, correlation]
+tag: [statistics, covariance, correlation-coefficient, correlation-analysis, pearson-correlation-coefficient]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
 #     nav: "counts"
 typora-root-url: ../
 ---
-<br><br>
 
 # ※ Covariance (공분산)
 - 두 개의 확률변수 $X$, $Y$가 상호 어떤 관계를 가지며 변화하는가를 나타내주는 척도
@@ -92,3 +91,15 @@ $$
 > $Corr(X,Y)$ 수치값 해석전에 산점도를 살펴보는 것이 좋다.<br>
 > 그러나 $Corr(X,Y)$로 한 변수로 다른 변수를 예측할 순 없다.<br>
 > → ***회귀분석 이용***
+
+
+<br>
+<br>
+
+# ※ Correlation Analysis (상관 분석)
+
+## ■ 상관 분석의 목적
+- 두 연속형 변수간에 어떠한 선형 관계를 있는지를 파악하기 위함
+- 귀무가설: 두 변수간 유의미한 상관성이 존재하지 않는다.
+- 대립가설: 두 변수간 유의미한 상관성이 존재한다.
+- 시각화 방법: 산점도

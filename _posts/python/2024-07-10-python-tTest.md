@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] t-Test"
 categories: Python
-tag: [python, statistics, t-test, t-distribution]
+tag: [python, statistics, t-test, t-distribution, scipy.stats, kstest(), ttest_1samp(), ttest_ind(), levene(), ttest_rel()]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -17,8 +17,12 @@ typora-root-url: ../
 ```py
 # 기본 사용법
 > from scipy.stats import *
+
+> kstest(data, 'norm') # 정규성 검정
 > ttest_1samp(data, mu)
 ```
+
+<br>
 
 ```py
 # 사용 예시

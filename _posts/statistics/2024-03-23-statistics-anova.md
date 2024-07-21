@@ -151,12 +151,24 @@ $$
   - 각 집단(처리)의 측정치의 분산은 같음
 
 
-### □ 사후 검정
+### □ Post hoc (사후 검정)
 - 귀무가설 기각 시, 어느 처리간 차이가 있는지 알아보는 것
   - 던칸의 MRT 방법
   - 피셔의 최소유의차(LSD) 방법
-  - 튜키의 HSD
   - SCheffe의 방법
+  - Tukey HSD Test
+  
+#### ***Tukey HSD Test***
+  - HSD: Honestly Significant Difference
+
+$$
+HSD_{a,b} = \cfrac{\max(\mu_{a},\mu_{b})-\min(\mu_{a},\mu_{b})}{SE}
+$$
+
+- $\mu_{a}$ : 그룹 a의 평균
+- $\mu_{b}$ : 그룹 b의 평균
+- $SE$ : 그룹 a, b의 표준오차
+- $HSD_{a,b}$가 유의수준보다 크면 두 차이가 유의하다가 간주함
 
 <br>
 <br>
