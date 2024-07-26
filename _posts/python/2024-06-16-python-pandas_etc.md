@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] etc... in Pandas"
 categories: Python
-tag: [python, pandas, explode, drop_duplicates, unique, value_counts, rank, qcut, set_option, map]
+tag: [python, pandas, .explode(), .drop_duplicates(), .unique(), .value_counts(), .rank(), .add_suffix(), pd.qcut(), .map(), pd.set_option(), pd.get_dummies()]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -149,7 +149,7 @@ array([7, 4, 8, 9, 1, 5, 3, 0, 6, 2])
 
 <br>
 
-## ■ map
+## ■ .map()
 - 값을 특정 값으로 치환하고 싶을 때 사용
 
 ```py
@@ -166,7 +166,7 @@ array([7, 4, 8, 9, 1, 5, 3, 0, 6, 2])
 
 <br>
 
-## ■ set_option()
+## ■ pd.set_option()
 - 데이터프레임을 출력할 때 표시할 최대 행/열을 지정
 
 ### 출력할 행 개수 지정
@@ -183,4 +183,57 @@ array([7, 4, 8, 9, 1, 5, 3, 0, 6, 2])
 ```py
 > pd.set_option('display.max_columns', num) # num 만큼 열 출력
 > pd.set_option('display.max_columns', None) # 모든 열 출력
+```
+
+<br>
+
+## ■ pd.get_dummies()
+- 범주형 데이터를 이진(one-hot) 인코딩 형태로 변환하는 데 사용
+- parameter
+  - drop_first: 첫 번째 범주를 버림. 더미 변수 간 다중 공선성을 피할 수 있음 {True/False}
+  - columns: 특정 변수만 더미 변수로 만들고 싶을 때 지정
+
+```py
+# 기본 구조
+> pd.get_dummies(df,columns, first_drop, ...)
+```
+
+```py
+# 사용 예시
+> df = pd.DataFrame({
+    'Color': ['Red', 'Blue', 'Green', 'Red', 'Blue'],
+    'Size': ['S', 'M', 'L', 'M', 'L'],
+    'Price': [10, 20, 15, 10, 20]
+})
+> df
+   Color Size  Price
+0    Red    S     10
+1   Blue    M     20
+2  Green    L     15
+3    Red    M     10
+4   Blue    L     20
+
+> pd.get_dummies(df)
+   Price  Color_Blue  Color_Green  Color_Red  Size_L  Size_M  Size_S
+0     10       False        False       True   False   False    True
+1     20        True        False      False   False    True   False
+2     15       False         True      False    True   False   False
+3     10       False        False       True   False    True   False
+4     20        True        False      False    True   False   False
+
+> pd.get_dummies(df, drop_first = True)
+   Price  Color_Green  Color_Red  Size_M  Size_S
+0     10        False       True   False    True
+1     20        False      False    True   False
+2     15         True      False   False   False
+3     10        False       True    True   False
+4     20        False      False   False   False
+
+> pd.get_dummies(df, columns = ['Color'], drop_first = True)
+  Size  Price  Color_Green  Color_Red
+0    S     10        False       True
+1    M     20        False      False
+2    L     15         True      False
+3    M     10        False       True
+4    L     20        False      False
 ```
