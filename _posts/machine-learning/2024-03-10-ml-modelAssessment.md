@@ -2,7 +2,7 @@
 layout: single
 title: "Model Assessment (모형평가)"
 categories: Machine-Learning
-tag: [datamining, machine-learning, roc, cross-validation, k-fold-CV]
+tag: [datamining, machine-learning, roc, cross-validation, k-fold-CV, confusion-matrix, accuracy, error-rate, sensitivity, precision, specificity, false-positive-rate, f1-score]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -28,11 +28,17 @@ typora-root-url: ../
 - 반응률
 - Profit / ROI
 
-## **■ Confusion Matrix (정오분류 행렬)**
+## **■ Confusion Matrix (정오분류 행렬 / 혼동행렬)**
 - 범주형 종속변수 모형 평가
 - 모형의 정확도 판정을 위해 사용되는 방법
+- Positive class: 분석의 관심 대상 (보통 1로 설정)
+- Negative class: 분석 관심 대상 외 (보통 0이나 -1로 설정)
+
 
 <br>
+
+### □ 이진 분류 모델 평가
+- 각 지표의 한계 때문에, 가능한 여러 지표를 사용하여 모델을 평가해야 함
 
 | **-**  | **-** | **예측**                  |                     |
 |:---:|:---:|:-------------------:|:-------------------:|
@@ -40,7 +46,9 @@ typora-root-url: ../
 | **실제** | **0** | True Negative (**TN**)  | False Positive (**FP**) (**Type I Error**) |
 |    | **1** | False Negative (**FN**) (**Type II Error**) | True Positive (**TP**)  |
 
-- **Accuracy (정확도)**<br>
+- **Accuracy (정확도 $Acc$)**
+  - 모든 샘플 가운데 정확히 분류한 샘플의 비율
+  - 클래스 불균형 문제가 있는 데이터에 대해 매우 취약함<br>
   = $\cfrac{TN+TP}{TN+FP+FN+TP}$ = $\cfrac{정답~데이터}{전체~데이터}$
 
 <br>
@@ -50,14 +58,19 @@ typora-root-url: ../
 
 <br>
 
-- **Sensitivity (민감도, Recall)**<br>
+- **Sensitivity (민감도, Recall / $Rec$)**
   - 실제 positive 중에서 예측 모델이 맞은 비율
+  - 실제 긍정 샘플 가운데, 긍정이라고 분류한 샘플의 비율로, 검출력과 관련이 있음
+  - 모든 샘플을 긍정이라고 분류하면 재현율이 높아짐<br>
   = $\cfrac{TP}{TP+FN}$ = $\cfrac{양성~정답}{실제~양성}$
 
 <br>
 
-- **Precision (정밀도)**<br>
+- **Precision (정밀도 $Pre$)**
   - 예측 모델이 positive로 예측한 것 중 실제로 맞은 비율
+  - 긍정이라고 분류한 샘플 가운데, 실제 긍정인 샘플의 비율
+  - 정밀도가 높을수록 사람의 공수가 줄어드는 경향이 있음
+  - 긍정이라고 분류하는 샘플 수가 작으면 작을수록 정밀도가 높아짐<br>
   = $\cfrac{TP}{TP+FP}$ = $\cfrac{양성~정답}{예측~양성}$
 
 <br>
@@ -80,6 +93,12 @@ typora-root-url: ../
 <br>
 
 ![3]({{site.url}}/images/2024-03-10-ml-modelAssessment/3.jpg)
+
+<br>
+
+### □ 다중 분류 모델 평가
+- 다중 분류: 클래스 변수의 상태 공간이 크기가 3이상인 분류
+- 각 클래스를 긍정으로 간주하여 평가 지표를 계산한 뒤, 이들의 산술평균이나 가중평균으로 평가
 
 <br>
 
