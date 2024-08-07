@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] Set (집합)"
 categories: Python
-tag: [python, set, .intersection(), .union(), .difference(), .add(), .remove(), .update()]
+tag: [python, set, .intersection(), .union(), .difference(), .add(), .remove(), .update(), ^]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -93,4 +93,13 @@ typora-root-url: ../
 > s.update({4,5})
 > s
 {1, 2, 3, 4, 5}
+```
+
+### □ ^ (대칭차집합)
+- 서로 겹치지 않는 원소 출력
+
+```py
+# e.g.
+> {1,2,3,6}^{1,2,3,4,5}
+{4, 5, 6} 출력
 ```

@@ -207,6 +207,15 @@ source: <https://www.codingem.com/flowchart-loop/>
 
 <br>
 
+### □ 반복문에서 변수값을 무시하고자 할 때
+- _ (underscore) 사용
+
+```py
+# e.g.
+> for _ in L:
+  <statement>
+```
+
 ### □ 기타
 
 ```py

@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] Built-in Function"
 categories: Python
-tag: [python, function, exec(), .T, .replace(), .to_dict()]
+tag: [python, function, exec(), .T, .replace(), .to_dict(), eval(), map()]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -132,4 +132,31 @@ A B C 0 1 4 7 1 2 5 8 2 3 6 9
 > new_series = series.replace(replace_dict)
 > print(new_series)
 0 orange 1 kiwi 2 mango 3 date dtype: object
+```
+
+<br>
+
+## ■ eval()
+- 문자열로 표현된 코드를 실행하고 계산함
+
+```py
+> expression = '3 + 4 + 5'
+> result = eval(expression)
+> print(result) # 12
+```
+
+<br>
+
+## ■ map()
+- 반복가능한 객체에 동일한 function을 적용
+
+```py
+# 기본 구조
+> map(function, iterable)
+```
+
+```py
+# e.g.
+> print(sum(map(int,input().split())))
+# e.g. 3 4 2 >> 9
 ```

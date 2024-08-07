@@ -14,6 +14,8 @@ typora-root-url: ../
 
 ## ■ group by
 - 같은 값을 한 그룹으로 묶어서 여러 가지 연산을 하는 함수.
+- parameter
+  - as_index: 그룹으로 묶을 컬럼을 인덱스로 해서 시리즈형태로 출력할건지 / 데이터프레임으로 출력할건지 {True / False}
 - 함수
   - size() : 각 그룹의 전체 행의 개수
   - count() : 각 그룹의 각 열에서 NaN이 아닌 데이터의 수
@@ -45,13 +47,15 @@ typora-root-url: ../
 > df.groupby('class')[['Survived', 'Age']].mean()
 
 
+
 # 다중 그룹
 > df.groupby(['sex', 'class']).mean(numeric_only = True)
 
 
-# 데이터프레임 형태로 출력
-# as_index = False
-> df.groupby('class', as_index = False)['Survived'].mean() # 'class'컬럼이 인덱스에서 컬럼으로 올라옴
+# as_index
+> df.groupby('class', as_index = True)['Survived'].mean() # class 컬럼을 인덱스로내려서 시리즈로 출력
+> df.groupby('class', as_index = False)['Survived'].mean() # 'class'컬럼이 인덱스에서 컬럼으로 올려서 데이터프레임으로 출력
+
 
 
 # 사용자정의 함수 사용하기

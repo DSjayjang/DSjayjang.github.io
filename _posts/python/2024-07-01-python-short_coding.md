@@ -868,6 +868,9 @@ Case #2: 6 + 4 = 10
 > print(input()[int(input())-1])
 ```
 
+<br>
+<br>
+
 ```
 # 알파벳으로만 이루어진 단어를 입력받아, 그 길이를 출력
 # e.g.
@@ -889,3 +892,95 @@ Case #2: 6 + 4 = 10
 
 <br>
 <br>
+
+```
+# 입력횟수를 입력받음
+# 문자열을 입력으로 주면 문자열의 첫 글자와 마지막 글자를 출력
+# e.g.
+# 입력
+# 3
+# ACDKJFOWIEGHE
+# O
+# AB
+# 출력
+# AE
+# OO
+# AB
+# 종료
+```
+
+```py
+# my coding
+> n = int(input())
+> L = [input() for _ in range(n)]
+
+> for i in range(len(L)):
+    print(L[i][0]+L[i][-1])
+
+# short coding
+> for i in[*open(0)][1:]:print(i[0]+i[-2])
+```
+
+<br>
+<br>
+
+```
+# 입력받은 문자에 대해
+# 아스키 코드를 출력
+# e.g.
+# 입력
+A
+# 출력
+65
+# 종료
+```
+
+```py
+# my coding
+> print(ord(input()))
+```
+
+<br>
+<br>
+
+```
+# N개의 숫자를 공백없이 입력
+# 그 숫자를 모두 합한 값 출력
+# e.g.
+# 입력
+5
+12345
+# 출력
+15
+# 종료
+```
+
+```py
+# my coding
+> N = int(input())
+> number = input()
+
+> L = [idx for idx in number]
+
+> sum = 0
+> for idx in range(len(L)):
+    sum += int(L[idx])
+> print(sum)
+
+# other's
+> N = int(input())
+> L = list(input())
+
+> sum = 0
+> for idx in range(len(L)):
+    sum += int(L[idx])
+> print(sum)
+
+# other's
+n = int(input())
+print(sum([int(f) for f in input()]))
+
+# short coding
+> input()
+> print(sum(map(int,input()))) ???
+```
