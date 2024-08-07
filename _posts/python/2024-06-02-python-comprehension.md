@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] Comprehension"
 categories: Python
-tag: [python, list, tuple, set, dictionary, comprehension]
+tag: [python, list, dictionary, comprehension, list-comprehension, dictionary-comprehension]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기

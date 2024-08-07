@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] List (리스트)"
 categories: Python
-tag: [python, list, in-operater, .append(), .extend(), .insert(), .sort(), sorted(), .reverse(), .remove(), .pop(), .count(), .index(), .join(), .split(), range()]
+tag: [python, list, in-operater, .append(), .extend(), .insert(), .sort(), sorted(), .reverse(), .remove(), .pop(), .count(), .index(), .join(), .split(), range(), del]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -169,6 +169,17 @@ typora-root-url: ../
 > L = [1, 2, 3, 4]
 > L.insert(3,100)
 > L # [1, 2, 3, 100, 4]
+```
+
+<br>
+
+### □ del
+- 리스트의 원소 제거
+
+```py
+> L = [1, 2, 3, 4]
+> del L[0]
+> L # [2, 3, 4]
 ```
 
 <br>

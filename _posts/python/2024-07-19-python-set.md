@@ -57,6 +57,7 @@ typora-root-url: ../
 ```
 
 ```py
+# e.g. 집합 활용
 # 원소의 uniqueness를 활용하는 경우
 > L = [1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 5, 6, 1, 1, 5]
 
@@ -71,9 +72,9 @@ typora-root-url: ../
 <br>
 
 ## ■ 집합 관련 함수
-### □ add() / remove()
-- add(): 집합에 원소 하나 추가 하기
-- remove(): 집합의 원소 제거
+### □ .add() / .remove()
+- .add(): 집합에 원소 하나 추가
+- .remove(): 집합의 원소 제거
 
 ```py
 > s = set()
@@ -85,7 +86,7 @@ typora-root-url: ../
 
 <br>
 
-### □ update()
+### □ .update()
 - 집합에 원소 여러개 추가 하기
 
 ```py

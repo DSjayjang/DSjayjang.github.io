@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] Built-in Function"
 categories: Python
-tag: [python, function, exec(), .T, .replace(), .to_dict(), eval(), map()]
+tag: [python, function, exec(), .T, .replace(), .to_dict(), eval(), map(), zip()]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -159,4 +159,16 @@ A B C 0 1 4 7 1 2 5 8 2 3 6 9
 # e.g.
 > print(sum(map(int,input().split())))
 # e.g. 3 4 2 >> 9
+```
+
+<br>
+
+## ■ zip()
+- 원소 각각을 1:1로 매핑함
+
+```py
+> key = ("A", "B")
+> values = (1, 2)
+> result = dict(zip(key, values))
+> result # {'A': 1, 'B': 2}
 ```

@@ -30,6 +30,70 @@ typora-root-url: ../
 ```
 
 <br>
+<br>
+
+## ■ 문자열 관련 함수
+- **`변수를 변경하는 것이 아니라 출력하는 역할만 함`**
+- len(): 문자열의 길이 출력
+- .upper() : 대문자로 출력
+- .lower() : 소문자로 출력
+- .strip() : 문자열 좌우 공백제거
+- .lstrip() / .rstrip() : 문자열 왼/오 공백 제거
+
+```py
+# e.g. 문자열 길이 출력
+> s = 'abcde'
+> len(a) # 5
+
+# 대/소문자 출력
+> s1 = 'abcde'
+> s1.upper() # 'ABCDE'
+
+> s2 = 'ABCDE'
+> s2.lower() # 'abcde'
+
+# 공백 제거
+> s3 = '  abcd  '
+> s3.strip() # 'abcd'
+> s3.lstrip() # 'abcd  '
+> s3.rstrip() # '  abcd'
+```
+
+<br>
+
+- .count() : 특정 문자가 변수 안에서 몇번 나왔는지
+- .find() : 특정문자가 처음으로 나온 index 번호
+  - 찾는 문자가 없는 경우 -1 출력
+- .index() : 특정문자가 처음으로 나온 index
+  - 찾는 문자가 없는 경우 에러
+- '삽입할문자'.join('문자열')
+- s.split('구분자') : 괄호안에 아무것도 안쓰면 공백을 기준으로 잘라줌
+- s.replace('변경전 문자', '변경후 문자')
+- .startswith() / .endswith() : '문자'로 시작/끝나는지를 T/F 출력
+
+```py
+> s = 'apple'
+
+> s.count('p') # 2
+
+> s.find('p') # 1
+> s.find('z') # -1 # 찾는 문자가 없는 경우
+
+> s.index('p') # 1
+> s.index('z') # 에러 발생
+
+> '-'.join(s) # 'a-p-p-l-e'
+
+> s.split('l') # ['app', 'e']
+
+> s.replace('p','z') # 'azzle'
+
+> s.startswith('a') # True
+> s.endswith('a') # False
+```
+
+<br>
+<br>
 
 ## ■ 문자열 포맷팅
 - 문자열 안에 값을 삽입하는 방법
@@ -201,67 +265,4 @@ print('{:10.2f}' .format(f4)) #       7.12
 > print(f'Hi {"Bye":=>10}') # Hi =======Bye
 > print(f'Hi {"Bye":=<10}') # Hi Bye=======
 > print(f'Hi {"Bye":=^10}') # Hi ===Bye====
-```
-
-<br>
-<br>
-
-## ■ 문자열 관련 함수
-- **`변수를 변경하는 것이 아니라 출력하는 역할만 함`**
-- len(): 문자열의 길이 출력
-- .upper() : 대문자로 출력
-- .lower() : 소문자로 출력
-- .strip() : 문자열 좌우 공백제거
-- .lstrip() / .rstrip() : 문자열 왼/오 공백 제거
-
-```py
-# e.g. 문자열 길이 출력
-> s = 'abcde'
-> len(a) # 5
-
-# 대/소문자 출력
-> s1 = 'abcde'
-> s1.upper() # 'ABCDE'
-
-> s2 = 'ABCDE'
-> s2.lower() # 'abcde'
-
-# 공백 제거
-> s3 = '  abcd  '
-> s3.strip() # 'abcd'
-> s3.lstrip() # 'abcd  '
-> s3.rstrip() # '  abcd'
-```
-
-<br>
-
-- .count() : 특정 문자가 변수 안에서 몇번 나왔는지
-- .find() : 특정문자가 처음으로 나온 index 번호
-  - 찾는 문자가 없는 경우 -1 출력
-- .index() : 특정문자가 처음으로 나온 index
-  - 찾는 문자가 없는 경우 에러
-- '삽입할문자'.join('문자열')
-- s.split('구분자') : 괄호안에 아무것도 안쓰면 공백을 기준으로 잘라줌
-- s.replace('변경전 문자', '변경후 문자')
-- .startswith() / .endswith() : '문자'로 시작/끝나는지를 T/F 출력
-
-```py
-> s = 'apple'
-
-> s.count('p') # 2
-
-> s.find('p') # 1
-> s.find('z') # -1 # 찾는 문자가 없는 경우
-
-> s.index('p') # 1
-> s.index('z') # 에러 발생
-
-> '-'.join(s) # 'a-p-p-l-e'
-
-> s.split('l') # ['app', 'e']
-
-> s.replace('p','z') # 'azzle'
-
-> s.startswith('a') # True
-> s.endswith('a') # False
 ```
