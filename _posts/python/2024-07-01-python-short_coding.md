@@ -984,3 +984,74 @@ print(sum([int(f) for f in input()]))
 > input()
 > print(sum(map(int,input()))) ???
 ```
+
+<br>
+<br>
+
+```
+# 문자열이 주어졌을 때,
+# a~z 알파벳에 대해서, 문자열에 포함되어 있는 경우에는 처음 등장하는 위치를 반환,
+# 포함되어 있지 않은 경우에는 -1을 출력
+# e.g.
+# 입력
+abcde
+# 출력
+0 1 2 3 4 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+# 종료
+```
+
+```py
+# my coding
+> s = input()
+> for idx in alphabet:
+    print(s.find(idx), end =' ')
+
+# short coding
+# 유니코드 이용
+# 97: a, 122: z
+> print(*map(input().find, map(chr,range(97,123))))
+```
+
+<br>
+<br>
+
+```
+# 테스트 케이스를 입력받고, 각 문자에 대한 반복 횟수와 문자열을 입력받아
+# 아래와 같이 출력하는 코드를 작성
+# e.g.
+# 입력
+2
+3 ABC
+5 QWERT
+# 출력
+AAABBBCCC
+QQQQQWWWWWEEEEERRRRRTTTTT
+# 종료
+```
+
+```py
+# my coding
+> T = int(input())
+
+> for _ in range(T):
+    R, P = input().split()
+    for idx in range(len(P)):
+      print(P[idx]*int(R), end = '')
+    print()
+
+# my coding 2
+# 입력받은 값 전부 리스트에 저장 후 한번에 출력
+> T = int(input())
+> L1 = []
+> L2 = []
+
+> for _ in range(T):
+    R, P = input().split()
+    L1.append(int(R))
+    L2.append(P)
+
+> for i in range(len(L1)):
+    for j in range(len(L2[i])):
+      print(L2[i][j]*L1[i], end='')
+    print()
+```
