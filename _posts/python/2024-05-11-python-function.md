@@ -203,7 +203,7 @@ KIM
 
 # function call
 > func(name = 'Jay', age = 30) # 안녕, Jay님은 30살입니다.
-> func(name = 'Alice') # 안녕, [name의 Default 값]님은 100살입니다.
+> func(name = 'Alice') # 안녕, Alice님은 [age의 Default 값]살입니다.
 > func(age = 100) # 안녕, [name의 Default 값]님은 100살입니다.
 ```
 

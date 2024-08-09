@@ -43,31 +43,6 @@ hello   world
 
 <br>
 
-### □ print
-- parameter
-  - sep: 구분자
-  - end: default 값은 '\n'인데, 줄 바꿈 없이 출력하고자할 때 주로 사용
-
-```py
-# 기본 구조
-> print(..., sep, end, ...)
-```
-
-
-```py
-# e.g.
-> a = 'python'
-> print("hello", a, 10/100, sep = "-")
-hello-python-0.1> a = 'python'
-
-> print("hello", end =", ")
-> print(a, end =", ")
-> print(10/100)
-hello, python, 0.1
-```
-
-<br>
-
 ### □ 아스키 코드
 
 ```py
