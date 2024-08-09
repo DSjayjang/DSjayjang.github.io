@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] Function (함수)"
 categories: Python
-tag: [python, function, lambda, global-variable, local-variable, keyword-arguments]
+tag: [python, function, lambda, global-variable, local-variable, keyword-arguments, parameter, arguments, lambda-function]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -23,6 +23,8 @@ source: <https://ko.wikipedia.org/wiki/%ED%95%A8%EC%88%98#>
 <br>
 
 ## ■ 기본 구조
+- parameter (매개변수): 함수에 입력으로 전달된 값을 받는 변수
+- arguments (인수): 함수를 호출할 때 전달하는 입력값
 
 ```py
 # function definition
@@ -34,7 +36,7 @@ source: <https://ko.wikipedia.org/wiki/%ED%95%A8%EC%88%98#>
     return something # 함수 종료
 
 # fucntion call
-> function_name(3, 5)
+> function_name(<arguments1>, <arguments2>, ...)
 ```
 
 <br>
@@ -70,18 +72,15 @@ KIM
 > def function_name():
     <statement>
     ...
-    return
+    return something
 ```
 
 ```py
 # 예시
-> def save_file():
-    save_flag = False
-    with open("a.txt") as f:
-        f.write(data)
-        save_flag = True
+> def say():
+    return 'Hello World'
     
-    return save_flag
+> say() # 'Hello World'
 ```
 
 <br>
@@ -97,9 +96,14 @@ KIM
 
 ```py
 # 예시
-> def save_file(file_path):
-    with open(file_path) as f:
-        f.write(data)
+> def def add(a, b):
+   print(f'a와 b의 합은 {a+b} 이다')
+  
+> add(100, 200) # 300
+
+# 위 함수의 return값이 없는 이유
+> a = add(100, 200)
+> print(a) # None이 출력됨
 ```
 
 <br>
@@ -115,8 +119,9 @@ KIM
 
 ```py
 # 예시
-> def say_hi():
-    print("Hi")
+> def say():
+    print('Hello World')
+> say() # Hello World
 ```
 
 <br>
@@ -124,7 +129,7 @@ KIM
 ## ■ 함수의 parameter 개수를 모를 때
 ### □ 함수의 parameter 개수가 정해지지 않았을 때
 - parameter앞에 *(asterisk)를 붙여줌 (argument)
-- 여러 개의 parameter를 받아서 `tuple로 변환`해 줌
+- 여러 개의 parameter를 받아서 ```tuple로 변환```해 줌
 
 ```py
 # 기본 구조
@@ -134,7 +139,7 @@ KIM
 ```
 
 ```py
-# 예시
+# e.g.1
 > def add(*args):
     print(type(args)) # tuple!
     total = 0
@@ -146,13 +151,31 @@ KIM
 > add(1, 2, 3) # 6
 > add(1, 2, 3, 4, 5) # 15
 > add(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) # 55
+
+
+# e.g.2
+> def func(choice, *args):
+    total = 0
+    if choice == 'plus':
+        for arg in args:
+            total += arg    
+    elif choice == 'minus':
+        for arg in args:
+            total -= arg
+
+    return total
+
+# function call
+> func('plus', 1,2,3,4,5) # 15
+> func('minus', 1,2,3,4,5) # -15
 ```
 
 <br>
 
 ### □ 함수의 parameter 개수가 너무 많아 일부만 넣고 싶을 때
+- keyword arguments (키워드 매개변수)
 - parameter앞에 **(asterisk)를 붙여줌
-- 여러 개의 parameter를 받아서 dictionary로 변환해 줌
+- 여러 개의 parameter를 받아서 ```dictionary로 변환```해 줌
 - default 값을 지정해 놓으면 함수호출 시 parameter를 지정하지 않아도 default값이 사용됨
 
  ```py
@@ -160,17 +183,28 @@ KIM
 > def function_name(**kwargs):
     <statement>
     …
+
 ```
 
 ```py
-# 예시
-> def age(**kwargs):
-    name = kwargs.get('name', 'default 값')
-    age = kwargs.get('age', 'default 값')
-    print(f"안녕, {name}님은 {age}살입니다.")
+# e.g.1
+> def func(**kwargs):
+   print(kwargs)
+
+> func(name = 'Jay', age = 30) # {'name': 'Jay', 'age': 30}
+# dictionary로 변환되는 것을 확인할 수 있음
+
+
+# e.g.2
+> def func(**kwargs):
+    name = kwargs.get('name', '[name의 Default 값]')
+    age = kwargs.get('age', '[age의 Default 값]')
+    print(f'안녕, {name}님은 {age}살입니다.')
 
 # function call
-> age(name="Jay", age=30) # 안녕, Jay님은 30살입니다.
+> func(name = 'Jay', age = 30) # 안녕, Jay님은 30살입니다.
+> func(name = 'Alice') # 안녕, [name의 Default 값]님은 100살입니다.
+> func(age = 100) # 안녕, [name의 Default 값]님은 100살입니다.
 ```
 
 #### **◎ keyword parameter**
@@ -183,6 +217,8 @@ def __init__(self, penalty='12', *, dual=False, tol=1e-4, max_iter=100, ...):
     ...
 ```
 
+<br>
+
 ## ■ 함수 안에서 정의한 변수의 효력 범위와 수명
 - Global variable : 코드 블럭 외부 변수 
 - Local variable : 코드 블럭 내부 변수
@@ -191,23 +227,40 @@ def __init__(self, penalty='12', *, dual=False, tol=1e-4, max_iter=100, ...):
 
 ```py
 # 예시
-> a=1 # global variable (전역 변수)
+> a = 1 # global variable (전역 변수)
 > def test(a):
-    a = a+1 # local variable (지역 변수)
+    a = a + 1 # local variable (지역 변수)
     return a
-> print(test(a)) # 2
+
+> test(a) # 2
 > print(a) # 1
 ```
 
 <br>
 
+### □ global 명령어 사용하기
+
+```py
+# 예시
+> a = 1 # global variable
+> def test():
+    global a # global variable 호출
+    a = a + 1
+
+> test() # function call
+> print(a) # 2
+# global variable이 변경되었다.
+```
+
+<br>
+
 ## ■ Lambda 함수
-- inline 함수 (코드 한줄짜리 함수)
+- inline 함수
 - lambda 함수와 반복문을 이용하면 함수의 정의없이 다양하게 활용가능함
 
 ```py
 # 기본 구조
-> funcion name = lambda <parameter>, <parameter>, … : <statement>
+> funcion name = lambda <parameter1>, <parameter2>, … : <statement>
 ```
 
 ```py
@@ -215,15 +268,15 @@ def __init__(self, penalty='12', *, dual=False, tol=1e-4, max_iter=100, ...):
 # 일반적인 함수 사용 시
 > def add(a,b):
     return a+b
-> print(add(3,4)) # 7
+> add(3, 4) # 7
 
 # lambda 함수 사용 시
-> add = lambda a, b : a+b
-> add(3,4) # 7
+> add = lambda a, b : a + b
+> add(3, 4) # 7
 ```
 
 ```py
-# 예시
+# 활용 예시
 > strings = ['yoon', 'kim', 'jessica', 'jeong']
 
 # 사전순서 정렬 (alphabetical order)
