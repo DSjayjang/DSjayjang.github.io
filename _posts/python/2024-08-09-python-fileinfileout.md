@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] file I/O (파일 입출력)"
 categories: Python
-tag: [python, filein, fileout, .read(), .readline(), .readlines(), os, os.getcwd(), os.chdir(), os.listdir(), pickle]
+tag: [python, filein, fileout, open(), .readline(), .readlines(), .read(), pickle, .write()]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -13,142 +13,172 @@ typora-root-url: ../
 # ※ filein / fileout
 - storage와 프로그램 사이의 I/O를 file I/O라고 함
 - 스토리지로부터 파일을 불러오는 것은 input, 결과를 스토리지에 저장하는 것은 output
-- with open() 함수를 통해서 텍스트 파일을 불러올 수 있음
-- ‘r’, ‘w’, ‘a’ 등의 mode를 바꿔서 파일을 다른 옵션으로 열 수 있다. (read, write, append 순)
 - 다른 타입의 파일을 열기 위해선 다른 라이브러리가 필요
   - e.g. csv, excel 파일을 열기 위해, pandas, csv, openpyxl 라이브러리 사용
   - e.g. png, jpg 파일을 열기 위해, PIL, opencv 라이브러리 사용
   - e.g. pk, pkl 파일을 열기 위해, pickle 라이브러리를 사용 (파일 타입이 binary라서, ‘rb’를 써야함)
 - I/O가 데이터 처리를 할 때 가장 느린 파트이기 때문에 신경써줘야 함 (performance bottleneck)
 
+<br>
+
+## ■ 파일 모드
+- w (쓰기 모드): 파일에 내용을 쓸 때 사용
+- r (읽기 모드): 파일을 읽기만 할 때 사용
+- a (추가 모드): 파일의 마지막에 새로운 내용을 추가할 때 사용
+
+<br>
+
+### □ 파일 쓰기 (write)
+
 ```py
-# 파일 불러오기 예시
-> with open("a.txt", 'r') as f:
-    data = f.realines()
+# 기본 구조
+> f = open('저장경로/file_name.txt', 'w')
+> f.close()
+
+# with문을 사용하면 close()를 사용하지 않아도 된다.
+> with open('저장경로/file_name.txt', 'w') as f
+    f.write('something')
+```
+
+```py
+# e.g. 파일 쓰기로 열고 내용 작성하기
+> f = open('~.txt', 'w')
+> for i in range(10):
+    data = f'{i+1} 번째 줄이다.\n'
+    f.write(data)
+> f.close()
+
+# with문을 사용하면 close()를 사용하지 않아도 된다.
+> with open('~.txt', 'w') as f:
+    for i in range(10):
+        data = f'{i+1} 번째 줄이다.\n'
+        f.write(data)
 ```
 
 <br>
-
-### □ txt 파일을 불러오는 방법
-- 텍스트 파일을 여는 방법은 read(), readline(), readlines(), for문 등을 이용
-
 <br>
 
-#### **◎ read**()를 이용한 방법
-- 파일에 있는 모든 내용을 불러옴
-- 파일은 반드시 'r'이나 'rb'로 불러와야 함
+### □ txt 파일 읽기 (read)
+1. readline()
+2. readlines()
+3. read()
+4. for문 등을 이용
+- 파일은 반드시 'r'이나 'rb'로 불러와야 함 'w'로 불러올 경우 파일의 내용이 사라질 수 있음
+
+
+
+#### 1. readline()
+- 파일에 있는 한 줄(\n 기준 및 포함)을 불러옴 (파일의 첫 번째 한줄만 읽어들임)
 
 ```py
-> file_path = "~.txt"
-
-> with open(file_path, 'r') as f:
-    data = f.read()
-
-> data
-# 엔터값들이 \n함수로 이어짐
+# 기본 구조
+> f = open('저장경로/file_name.txt', 'r')
+> data = f.readline()
+> f.close()
 ```
 
-<br>
-
-#### **◎ readline**()를 이용한 방법
-- 파일에 있는 한 줄(\n 기준 및 포함)을 불러옴
-- 파일은 반드시 'r'이나 'rb'로 불러와야 함
-
 ```py
-> file_path = "~.txt"
+# e.g. 파일 읽기로 열고 내용 출력하기
+> f = open('~.txt', 'r')
+> data = f.readline()
+> print(data)
+> f.close()
+# 1 번째 줄이다.
 
-> with open(file_path, 'r') as f:
+
+# e.g. 모든 데이터 출력하기
+> f = open('~.txt', 'r')
+> while data:
     data = f.readline()
-> data # 첫줄 한줄만 읽어들임
+    print(data)
+> f.close()
+# 1 번째 줄이다.
+
+# 2 번째 줄이다.
+
+# ...
+# 10 번째 줄이다.
 ```
 
 ```py
-# e.g.
-> file_path = "~.txt"
-> f = open(file_path, 'r')
+# e.g.1 모든 데이터 리스트 형태로 만들기
+> f = open('~.txt', 'r')
 > header = f.readline() # 첫 번째 row
 > data = []
 
 > line = f.readline() # 두 번째 row
 > while line: # line이 빈 문자열이 될 때까지
-    data.append(list(map(float, line.split(','))))
+    data.append(line.strip()) # '\n' 제거
     line = f.readline()
+> f.close()
+
+# e.g.2 모든 데이터 리스트 형태로 만들기
+> with open('~.txt', 'r') as f:
+    header = f.readline().strip() # '\n' 제거
+    data = [line.strip() for line in f]
+> print(data)
+```
+
+<br>
+
+#### 2. readlines()
+- 모든 데이터를 '\n' 기준으로 잘라서 ```리스트```로 저장함
+
+```py
+# 기본 구조
+> f = open('저장경로/file_name.txt', 'r')
+> data = f.readlines()
 > f.close()
 ```
 
-<br>
-
-#### **◎ readlines**()를 이용한 방법
-
 ```py
-> file_path = "~.txt"
-
-> with open(file_path, 'r') as f:
+# e.g.
+> with open('~.txt', 'r') as f:
     data = f.readlines()
-
-> data
-# 모든 데이터를 엔터 기준으로 잘라서 리스트로 가져옴
+> type(data) # <class 'list'>
+> data # ['1 번째 줄이다.\n', '2 번째 줄이다.\n', ... , '10 번째 줄이다.\n']
 ```
 
 <br>
 
-#### **◎ for**()문을 이용한 방법
+#### 3. read()
+- 파일에 있는 모든 내용을 문자열로 불러옴
 
 ```py
-> file_path = "~.txt"
+# 기본 구조
+> f = open('저장경로/file_name.txt', 'r')
+> data = f.read()
+> f.close()
+```
 
-> L = [] with open(file_path, 'r') as f:
+```py
+# e.g.
+> with open('~txt', 'r') as f:
+    data = f.read()
+> type(data) # <class 'str'>
+> data
+# 1 번째 줄이다.
+# 2 번째 줄이다.
+# ...
+# 10 번째 줄이다.
+```
+
+<br>
+
+#### 4. for문 이용
+
+```py
+# e.g.
+> L = []
+> with open('~txt', 'r') as f:
     for line in f:
-      L.append(line)
-
-> L
-# readlines와 같음
+        L.append(line.strip())
+> L # ['1 번째 줄이다.', '2 번째 줄이다.', ..., '10 번째 줄이다.']
 ```
 
 <br>
 
 #### ◎ txt 불러오기 활용
-- os library 사용하기
-
-```py
-# 라이브러리 호출
-> import os
-
-# os method
-# 현재 워킹디렉토리 확인
-> os.getcwd() # 경로가 출력됨
-
-# 워킹디렉토리 변경
-> os.chdir('변경할 경로')
-
-# e.g. 경로 안에 있는 모든 파일명을 리스트로 반환
-> os.listdir('경로')
-
-# e.g. 워킹디렉토리 안에 있는 모든 파일명을 리스트로 반환
-> os.listdir(os.getcwd())
-```
-
-<br>
-
-- txt파일에서 한글자 짜리를 다 지우고 다시 저장하기
-
-```py
-> output = []
-> with open(file_path, 'r') as f:
-    data = f.readlines()
-> print(data)
-
-# 한글자 이상인 텍스트만 output list에 저장
-> for word in data:
-    word = word.strip() # 공백제거 (\n도 공백으로 취급)
-    if len(word) > 1:
-      output.append(word)
-
-> print(output)
-```
-
-<br>
-
 - pickle 라이브러리를 이용하여 파이썬 object 자체를 저장하기
 
 ```py
@@ -157,9 +187,27 @@ typora-root-url: ../
 
 > with open("result.pk", 'wb') as f: # write as binary
     pickle.dump(output, f)
-
 > with open("result.pk", 'rb') as f: # read as binary
     output2 = pickle.load(f)
-
 > output2
+```
+
+<br>
+<br>
+
+### □ 파일에 내용 추가하기 (append)
+- 'a' 사용
+
+```py
+> with open('file_name.txt', 'a') as f:
+   for line in range(10,20):
+      data = f'{line+1} 번째 줄이다.\n'
+      f.write(data)
+> data
+# 1 번째 줄이다.
+# ...
+# 10 번째 줄이다.
+# 11 번째 줄이다.
+# ...
+# 20 번째 줄이다.
 ```

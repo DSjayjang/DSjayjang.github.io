@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] etc..."
 categories: Python
-tag: [python, .copy(), exception-handling, try-except, tqdm, unpacking-operation]
+tag: [python, .copy(), exception-handling, try-except, tqdm, unpacking-operation, os]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -118,7 +118,7 @@ typora-root-url: ../
 
 <br>
 
-## ■ tqdm
+## ■ tqdm Library
 - 반복작업의 진행 상황을 시각적으로 보여주는 라이브러리
 
 ```py
@@ -162,4 +162,26 @@ typora-root-url: ../
 # e.g.5 리스트 생성
 > L = list(range(10)) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 > *L, = range(10) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+<br>
+
+## ■ os Library
+
+```py
+# 라이브러리 호출
+> import os
+
+# os method
+# 현재 워킹디렉토리 확인
+> os.getcwd() # 경로가 출력됨
+
+# 워킹디렉토리 변경
+> os.chdir('변경할 경로')
+
+# e.g. 경로 안에 있는 모든 파일명을 리스트로 반환
+> os.listdir('경로')
+
+# e.g. 워킹디렉토리 안에 있는 모든 파일명을 리스트로 반환
+> os.listdir(os.getcwd())
 ```
