@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "[Python] sklearn"
+title: "[Python] sklearn.cluster"
 categories: Python
 tag: [python, scikit-learn, machine-learning]
 toc: true # 목차 보여주기

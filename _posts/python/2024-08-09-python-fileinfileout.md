@@ -28,7 +28,7 @@ typora-root-url: ../
 
 <br>
 
-### □ 파일 쓰기 (write)
+### □ txt 파일 쓰기 (write)
 
 ```py
 # 기본 구조
@@ -195,7 +195,7 @@ typora-root-url: ../
 <br>
 <br>
 
-### □ 파일에 내용 추가하기 (append)
+### □ txt 파일에 내용 추가하기 (append)
 - 'a' 사용
 
 ```py

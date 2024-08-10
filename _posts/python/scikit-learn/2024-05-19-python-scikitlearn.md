@@ -14,10 +14,16 @@ typora-root-url: ../
 - 머신러닝에 특화된 라이브러리
 
 ```py
+# e.g.
 # sklearn을 사용하여 분류 모델을 학습, 평가하는 예시
+
 # 모델 불러오기
 > from sklearn.ensemble import RandomForestClassifier
 > from sklearn.metrics import accuracy_score
+
+# 데이터 분할
+> from sklearn.model_selection import train_test_split
+> X_train, X_test, y_train, y_test = train_test_split(X, y)
 
 # 모델 객체 선언
 > model = RandomForestClassifier()

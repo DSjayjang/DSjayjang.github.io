@@ -94,7 +94,9 @@ Transposed DataFrame: 0 1 2 A 1 2 3 B 4 5 6 C 7 8 9
 # e.g. 시리즈를 딕셔너리로
 > series = pd.Series([1, 2, 3], index=['a', 'b', 'c'])
 > print(series)
-a 1 b 2 c 3
+a    1
+b    2
+c    3
 
 > series_to_dict = series.to_dict()
 > print(series_to_dict)
@@ -108,11 +110,25 @@ a 1 b 2 c 3
 })
 
 > print(df)
-A B C 0 1 4 7 1 2 5 8 2 3 6 9
+   A  B  C
+0  1  4  7
+1  2  5  8
+2  3  6  9
 
 > df_to_dict = df.to_dict()
 > print(df_to_dict)
 {'A': {0: 1, 1: 2, 2: 3}, 'B': {0: 4, 1: 5, 2: 6}, 'C': {0: 7, 1: 8, 2: 9}}
+```
+
+```py
+# to_dict() 함수 활용하기
+# refer_df를 딕셔너리로 변환
+refer_dict = refer_df.set_index(['변경전'])['변경후'].to_dict() # 인덱스 설정 및 시리즈로 변환
+> refer_dict
+# {'A시': 'AA시', 'B시': 'BB시'}
+
+# refer_dict를 이용하여 df의 키, 변수 값을 변경전에서 변경후로 변환
+df['이름'] = df['이름'].replace(refer_dict)
 ```
 
 <br>

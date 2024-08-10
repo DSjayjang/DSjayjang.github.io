@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] Merging Data Frames using Pandas"
 categories: Python
-tag: [python, pandas, merging]
+tag: [python, pandas, merging, .merge(), .concat()]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -13,8 +13,14 @@ typora-root-url: ../
 # ※ DataFrame 합치기
 ## ■ merge()
 - 두 개의 데이터를 특정 컬럼을 기준으로 합침
-- suffixes: 조인 후, 컬럼명이 겹치는 경우 접미사를 지정함
-  - e.g. suffixes('_A', '_B')인 경우, 컬럼명_A, 컬럼명_B
+- parameter
+  - on: 통합의 기준이 될 key 변수
+  - left_on: df1의 key 변수
+  - right_on: df2의 key 변수
+  - left_index: {True / False} df1의 인덱스를 key 변수로 사용할 것인지
+  - right_index: {True / False} df2의 인덱스를 key 변수로 사용할 것인지
+  - suffixes: 조인 후, 컬럼명이 겹치는 경우 접미사를 지정함
+    - e.g. suffixes('_A', '_B')인 경우, 컬럼명_A, 컬럼명_B
 
 ```py
 # 기본 사용법
@@ -37,6 +43,7 @@ typora-root-url: ../
 <br>
 
 ## ■ concat()
+- 둘 이상의 데이터 프레임을 이어 붙임
 
 ```py
 > pd.concat([df1, df2, …]) # default가 아래로 이어 붙임
