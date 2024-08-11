@@ -43,13 +43,13 @@ typora-root-url: ../
 3  4.0  8.0  12
 
 # 행 방향 NA 제거
-> dff.dropna(axis = 0)
+> df.dropna(axis = 0)
      A    B   C
 0  1.0  5.0   9
 3  4.0  8.0  12
 
 # 열 방향 NA 제거
-> dff.dropna(axis = 1)
+> df.dropna(axis = 1)
     C
 0   9
 1  10

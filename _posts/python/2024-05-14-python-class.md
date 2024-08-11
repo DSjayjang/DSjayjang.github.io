@@ -86,7 +86,7 @@ typora-root-url: ../
 > a.add() # 30
 > a.mul() # 200
 > a.sub() #-10
-> a.div() #0.5
+> a.div() # 0.5
 ```
 
 <br>
@@ -169,3 +169,4 @@ typora-root-url: ../
 
 > a = name()
 > a.last_name # '이'
+```

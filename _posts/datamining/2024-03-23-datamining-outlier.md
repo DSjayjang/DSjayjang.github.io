@@ -27,6 +27,7 @@ typora-root-url: ../
   - IQR 활용
     - 1사분위수 - 1.5 * IQR 미만인 값
     - 3사분위수 + 1.5 * IQR 초과인 값
+    - 사용이 간편하지만, 이상치를 단일 변수만으로 판단하기 어려운 경우도 있음
 - Scatter plot
 - Principal component
 - Clustering

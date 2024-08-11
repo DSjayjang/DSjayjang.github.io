@@ -1,8 +1,8 @@
 ---
 layout: single
-title: "[Python] sklearn.model_selection / train_test_split (데이터 분할)"
+title: "[Python] sklearn.model_selection"
 categories: Python
-tag: [python, scikit-learn, machine-learning, sklearn.model_selection, train_test_split]
+tag: [python, scikit-learn, machine-learning, sklearn.model_selection, train_test_split, cross_val_score]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -12,12 +12,12 @@ typora-root-url: ../
 
 # ※ model_selection
 
-## ■ train_test_split
+## ■ train_test_split (데이터 분할)
 - 학습에 사용할 데이터와, 평가를 할 때 사용할 데이터로 나누기 위한 라이브러리 (train data / test data)
 
 <br>
 
-## ■ 라이브러리 호출
+### □ 라이브러리 호출
 
 ```py
 > from sklearn.model_selection import train_test_split
@@ -32,11 +32,11 @@ typora-root-url: ../
   - train_size:  나눌 학습용 데이터의 비율
   - random_state: 시드
   - shuffle: 데이터를 나누기 전 데이터를 섞을 것인지
-  - stratify
+  - ...
 
 ```py
 # 기본 구조
-> train_test_split(*arrays, test_size=None, train_size=None, random_state=None, shuffle=True, stratify=None)
+> train_test_split(*arrays, test_size=None, train_size=None, random_state=None, shuffle=True, ...)
 ```
 
 <br>
@@ -64,4 +64,48 @@ typora-root-url: ../
 > y = df['Class'] # series 타입
 
 > X_train, X_test, y_train, y_test = train_test_split(X, y)
+```
+
+<br>
+<br>
+
+## ■ cross_val_score (교차 검증)
+- 모델의 성능을 교차 검증(cross-validation) 방법을 사용해 평가하기 위한 라이브러리
+
+<br>
+
+### □ 라이브러리 호출
+
+```py
+> from sklearn.model_selection import cross_val_score
+```
+
+<br>
+
+### □ Cross Validation
+- parameter
+  - estimator: 사용할 머신러닝 모델 지정
+    - e.g. SVC(), LR() 등의 scikit learn의 모델객체
+  - X: feature data
+  - y: target data
+  - scoring: 모델 성능 평가 지표
+    - e.g. 'accuracy', 'neg_mean_absolute_error', 'r2', ...
+  - cv: 분할 수 / default는 5
+
+```py
+# 기본 구조
+> cross_val_score(estimator, X, y = None, scoring = None, cv = None, ...)
+```
+
+<br>
+
+```py
+# e.g.
+> from sklearn.linear_model import LinearRegression as LR
+> model = LR()
+
+> scores = cross_val_score(model, X, y, cv = 5, scoring = 'neg_mean_absolute_error')
+> scores # array([-3.58..., -3.75..., -3.58..., -3.65..., -3.56...])
+
+> scores.mean() # -3.62...
 ```
