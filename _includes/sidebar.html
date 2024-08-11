@@ -10,13 +10,12 @@
       {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
       {% if s.text %}{{ s.text | markdownify }}{% endif %}
       {% if s.nav %}{% include nav_list nav=s.nav %}{% endif %}
+      <div style="text-align: center;">
+        <a href="https://hits.seeyoufarm.com">
+          <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fgjbae1212%2Fhit-counter&count_bg=%23A2A1FF&title_bg=%23A2A1FF&icon=codeforces.svg&icon_color=%2300D1FF&title=Today&edge_flat=false"/></a>
+  </div>
     {% endfor %}
-    <div style="text-align: center;">
-      <a href="http://hits.dwyl.com/khw11044.github.io" target="_blank">
-        <img
-          src="http://hits.dwyl.com/khw11044githubio.svg">
-      </a>
-</div>
+    
     {% if page.sidebar.nav %}
       {% include nav_list nav=page.sidebar.nav %}
     {% endif %}
