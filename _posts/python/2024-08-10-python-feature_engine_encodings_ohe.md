@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] feature_engine.encoding / OneHotEncoder (범주형 변수의 더미화)"
 categories: Python
-tag: [python, feature-engine, machine-learning, feature-engine-encoding, one-hot-encoder]
+tag: [python, feature-engine, machine-learning, feature_engine.encoding, one-hot-encoder]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
