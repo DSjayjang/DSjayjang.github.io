@@ -26,7 +26,7 @@ typora-root-url: ../
 
 <br>
 
-## ■ 라이브러리 호출
+### □ 라이브러리 호출
 
 ```py
 > from sklearn.impute import SimpleImputer
