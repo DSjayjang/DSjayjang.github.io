@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] sklearn.decomposition / PCA (주성분 분석)"
 categories: Python
-tag: [python, scikit-learn, machine-learning, sklearn.sklearn.decomposition, pca, .transform(), .components_ .explained_variance_ratio_]
+tag: [python, scikit-learn, machine-learning, sklearn.decomposition, pca, .transform(), .components_ .explained_variance_ratio_]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
