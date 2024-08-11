@@ -102,9 +102,9 @@ typora-root-url: ../
 ```py
 # e.g.
 > from sklearn.linear_model import LinearRegression as LR
-> model = LR()
+> LR_model = LR()
 
-> scores = cross_val_score(model, X, y, cv = 5, scoring = 'neg_mean_absolute_error')
+> scores = cross_val_score(LR_model, X, y, cv = 5, scoring = 'neg_mean_absolute_error')
 > scores # array([-3.58..., -3.75..., -3.58..., -3.65..., -3.56...])
 
 > scores.mean() # -3.62...

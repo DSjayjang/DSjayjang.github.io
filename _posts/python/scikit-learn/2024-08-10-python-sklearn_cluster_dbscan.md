@@ -39,10 +39,10 @@ typora-root-url: ../
 ```py
 # 기본 구조
 # 인스턴스화
-> model = DBSCAN(eps = 0.5, min_samples = 5, metric = 'euclidean', ...)
+> DBSCAN_model = DBSCAN(eps = 0.5, min_samples = 5, metric = 'euclidean', ...)
 
 # 모델 학습
-> model.fit(X_train)
+> DBSCAN_model.fit(X_train)
 ```
 
 ```py
@@ -57,11 +57,11 @@ typora-root-url: ../
 
 
 > from sklearn.cluster import DBSCAN
-> model = DBSCAN(eps = 0.67, min_samples = 3) # 인스턴스화
-> model.fit(Train_X) # 모델 학습
+> DBSCAN_model = DBSCAN(eps = 0.67, min_samples = 3) # 인스턴스화
+> DBSCAN_model.fit(Train_X) # 모델 학습
 
-> model.labels_
-> model.labels_ == -1 # -1이 되는 값이 이상치
+> DBSCAN_model.labels_
+> DBSCAN_model.labels_ == -1 # -1이 되는 값이 이상치
 
-> X_train = X_train[model.labels_ != -1] # 이상치를 제거하고 새롭게 학습용 데이터 정의
+> X_train = X_train[DBSCAN_model.labels_ != -1] # 이상치를 제거하고 새롭게 학습용 데이터 정의
 ```
