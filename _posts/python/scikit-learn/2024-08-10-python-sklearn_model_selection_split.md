@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] sklearn.model_selection"
 categories: Python
-tag: [python, scikit-learn, machine-learning, sklearn.model_selection, train_test_split, cross_val_score]
+tag: [python, scikit-learn, machine-learning, sklearn.model_selection, train_test_split, cross_val_score, grid-search-cv, parameter-grid]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -108,4 +108,91 @@ typora-root-url: ../
 > scores # array([-3.58..., -3.75..., -3.58..., -3.65..., -3.56...])
 
 > scores.mean() # -3.62...
+```
+
+<br>
+<br>
+
+## ■ GridSearchCV (그리드 서치)
+- 하이퍼 파라미터 그리드에 속한 모든 파라미터 조합을 비교 평가하는 방법
+- 하이퍼 파라미터 그리드는 한 모델의 하이퍼 파라미터 조합을 나타냄
+- e.g. k_최근접 이웃의 파라미터 그리드
+
+|       |      | **n_neighbors** | **n_neighbors** | **n_neighbors** |
+|:----------:|:---------:|:---------------:|:---------------:|:---------------:|
+|       |          | 3               | 5               | 7               |
+| **metric** | Manhattan | (Manhattan, 3)  | (Manhattan, 5)  | (Manhattan, 7)  |
+| **metric** | Euclidean | (Euclidean, 3)  | (Euclidean, 5)  | (Euclidean, 7)  |
+
+> 총 6개의 하이퍼 파라미터 조합에 대한 성능을 평가하여, 그 중 가장 우수한 하이퍼 파라미터를 선택
+
+<br>
+
+### □ 라이브러리 호출
+
+```py
+> from sklearn.model_selection import GridSearchCV
+```
+
+<br>
+
+### □ Grid Search
+- sklearn을 활용하여 그리드 서치를 구현하려면 사전 형태로 하이퍼 파라미터 그리드를 정의해야 함
+  - Key: 하이퍼 파라미터명 (str)
+  - Value: 해당 파라미터의 범위 (list)
+  - e.g. {'n_neighbors' : [3, 5, 7], 'metric' : ['Manhattan', 'Euclidean']}
+- parameter
+  - estimator: 모델(sklearn 인스턴스)
+  - param_grid: 파라미터 그리드 (사전)
+  - cv: k겹 교차 검증에서의 k (2이상의 자연수)
+  - scoring_func: 평가 함수 (sklearn 평가 함수)
+- 사용이 편하다는 장점이 있지만, k-겹 교차 검증을 사용하기에 늴고, 성능 향상을 위한 전ㅊ러리를 적용할 수 없는 단점
+
+
+<br>
+
+```py
+# 기본 구조
+# 인스턴스화
+> GSCV = GridSearchCV(estimator, param_grid, cv, scoring_function...)
+
+# 모델 학습
+> GSCV.fit(X, Y)
+
+# 가장 우수한 파라미터 반환
+> GSCV.get_parma()
+```
+
+<br>
+<br>
+
+## ■ ParameterGrid (파라미터 그리드)
+- GridSearchCV에 비해 사용이 어렵다
+- 성능 향상을 위한 전처리 기법을 적용하는데 문제가 없어서 실무에서 자주 사용됨
+
+### □ 라이브러리 호출
+
+```py
+> from sklearn.model_selection import ParameterGrid
+```
+
+<br>
+
+### □ ParameterGrid 사용 전 알아야할 문법
+- 파이썬 함수의 입력으로 사전 자료형을 사용하는 경우에는 **를 사전 앞에 붙여야 함
+- e.g. 
+
+```py
+> def func(a, b):
+    pass
+
+> func(**{'a':1, 'b':2})
+```
+
+- ParameterGrid 인스턴스를 순회하면서 성능이 가장 우수한 값을 찾으려면 최대값(최소값)을 찾는 알고리즘을 알아야 함
+  - 내장 함수인 max나 min 함수를 사용해도 되지만, 평가해야 하는 하이퍼 파라미터 개수가 많으면 불필요한 메모리 낭비로 이어질 수 있으며, 모델도 같이 추가해야 하므로 메모리 에러로 이어지기 쉬움
+
+```py
+# 기본 구조
+>
 ```

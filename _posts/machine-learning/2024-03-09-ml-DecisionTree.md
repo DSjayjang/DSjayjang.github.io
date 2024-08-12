@@ -20,7 +20,10 @@ source: <https://scikit-learn.org/stable/auto_examples/tree/plot_iris_dtc.html>
 - 발견된 변수의 규칙 혹은 조건문을 토대로 나무 구조로 도표화하여 **분류**와 **예측** 을 수행하는 방법
 - 대상이 되는 집단을 몇개의 소집단으로 구분하는 ***Segmentation 모델링 기법***
 - 대표적인 non-parametric 모델 (비모수적 모델)
-- 대표적인 white-box 모델 (explainable, interpretable )
+- 대표적인 white-box 모델 (explainable, interpretable)
+- 주요 parameter
+  - max_depth: 최대 깊이. 그 크기가 클수록 모델이 복잡해짐
+  - min_samples_leaf: 잎 노드에 있어야 하는 최소 샘플 수. 그 크기가 작을수록 모델이 복잡해짐
 
 <br>
 
