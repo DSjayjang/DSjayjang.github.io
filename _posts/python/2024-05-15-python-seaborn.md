@@ -107,6 +107,7 @@ typora-root-url: ../
 
 > sns.heatmap(data = corr, cmap = 'YlOrBr') # 히트맵 컬러 지정 e.g. YlOrBr
 
+
 > sns.heatmap(data = pivot_table) # 피벗테이블을 히트맵으로 표현
 ```
 
@@ -131,6 +132,14 @@ typora-root-url: ../
 > sns.scatterplot(data, x, y, style) # 점의 모양
 > sns.scatterplot(data, x, y, style) # 점의 모양
 > sns.relplot(data, x, y, col, kind='scatter') # 산점도를 여러개의 plot으로 나눔, col에는 구분할 변수
+```
+
+<br>
+
+### □ Categorical plot
+
+```py
+> sns.catplot(data, x, kind)
 ```
 
 <br>

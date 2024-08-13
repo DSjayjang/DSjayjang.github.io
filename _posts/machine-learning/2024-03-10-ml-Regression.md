@@ -9,12 +9,19 @@ author_profile: false   # 프로필 제거
 #     nav: "counts"
 typora-root-url: ../
 ---
-<br><br>
 
 # **※ Regression**
 - 주어진 데이터(X)와 찾고자 하는 값(y) 사이의 관계를 찾는 방법
 - 주어진 input data와 관심 있는 target value 사이의 관계를 모델링하는 것
 - input data는 일반적으로 벡터(feature vector), target value는 일반적으로 실수값(real value)
+- Metric(평가 기준)
+  - MSE (Mean Squared Error, 평균 제곱 오차)
+    - 예측값과 실제값 사이의 차이를 제곱하여 평균한 값
+    - 모델의 예측 정확도를 측정함
+    - MSE가 작을수록 모델의 예측이 더 정확하다고 판단함
+  - $R^{2}$ (R-squred)
+    - 종속 변수의 총 변동성 중 모델이 설명할 수 있는 변동성의 비율을 나타냄
+    - 1에 가까울수록 모델이 데이터를 잘 설명한다고 판단함 
 
 ![re]({{site.url}}/images/ml/2024-03-10-ml-Regression/1.png)
 

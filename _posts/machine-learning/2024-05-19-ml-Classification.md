@@ -15,6 +15,12 @@ typora-root-url: ../
 - 주어진 데이터(X)를 분류하고자 하는 값(y)에 할당하는 방법
 - 주어진 input data를 찾고자 하는 target value에 assign하는 것
 - input data는 일반적으로 벡터(feature vector), target value는 일반적으로 scalar(integer)임.
+- Metric (평가 기준)
+  - 정확도 (Accuracy)
+  - 정밀도 (Precision)
+  - 재현율 (Recall)
+  - F1 점수 (F1-score)
+  - ROC 곡선 (Receiver Operating Characteristic curve)
 - Classification Model
   - Linear Classifier
   - Logistic Regression
