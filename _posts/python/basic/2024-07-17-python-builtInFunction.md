@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] Built-in Function"
 categories: Python
-tag: [python, function, exec(), .T, .replace(), .to_dict(), eval(), map(), zip()]
+tag: [python, function, exec(), .T, .replace(), .to_dict(), eval(), map(), zip(), all(), any(), chr(), dir(), divmod()]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -187,4 +187,55 @@ df['이름'] = df['이름'].replace(refer_dict)
 > values = (1, 2)
 > result = dict(zip(key, values))
 > result # {'A': 1, 'B': 2}
+```
+
+<br>
+
+## ■ all() 과 any()
+
+### □ all()
+- 반복가능한 데이터를 입력값으로 받아, 데이터의 요소가 모두 참이면 True 아니면 False를 반환
+
+```py
+> all([1,2,3]) # True
+> all([1,2,0]) # False
+> all([]) # True
+```
+
+### □ any()
+- 반복가능한 데이터를 입력값으로 받아, 데이터의 요소 중 하나라도 참이면 True 아니면 False를 반환
+
+```py
+> any([1,2,0]) # True
+> any([0]) # False
+```
+
+<br>
+
+## ■ chr()
+- 유니코드 숫자 값을 입력받아 그에 해당하는 문자 출력
+
+```py
+> chr(65) # 'A'
+> chr(97) # 'a'
+```
+
+<br>
+
+## ■ dir()
+- 객체가 지닌 변수나 함수(메소드)를 보여주는 함수
+
+```py
+> a = [1,2,3]
+> dir(a)
+# ['__add__', '__class__', ..., 'append', 'copy', 'count', ...]
+```
+
+<br>
+
+## ■ divmod()
+- 몫과 나머지를 튜플 형태로 출력함
+
+```py
+> divmod(10,3) # (3, 1)
 ```
