@@ -150,7 +150,7 @@ Initializing game ...
 
 <br>
 
-## relative 패키지
+## ■ relative 패키지
 
 ```py
 # e.g. graphic 폴더의 render.py 모듈에서 sound 폴더의 echo.py 모듈을 사용하고 싶을 때
