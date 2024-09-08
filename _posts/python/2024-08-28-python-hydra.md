@@ -31,9 +31,9 @@ e.g. digress
 ```
 
 ```
-# ![1]({{site.url}}/images/python/hydra/1.png)
+# ![1]({{site.url}}/images/python/2024-08-28-python-hydra/1.png)
 
-# ![1]({{site.url}}/images/python/hydra/2.png)
+# ![1]({{site.url}}/images/python/2024-08-28-python-hydra/2.png)
 ```
 
 - default:로 디폴트 설정이 가능함
