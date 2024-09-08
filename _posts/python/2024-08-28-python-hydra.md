@@ -27,12 +27,14 @@ import hydra
 
 ```py
 e.g. digress
-@hydra.main(version_base='1.3', config_path='../configs', config_name='config')
+# @hydra.main(version_base='1.3', config_path='../configs', config_name='config')
 ```
 
-![1]({{site.url}}/images/python/hydra/1.png)
+```
+# ![1]({{site.url}}/images/python/hydra/1.png)
 
-![1]({{site.url}}/images/python/hydra/2.png)
+# ![1]({{site.url}}/images/python/hydra/2.png)
+```
 
 - default:로 디폴트 설정이 가능함
 - geranl / model / train / dataset은 폴더 이름
