@@ -41,3 +41,10 @@ def mol_with_atom_index(mol):
 mol = Chem.MolFromSmiles('CC1=CC(CCC1)Br')
 mol_with_atom_index(mol)
 ```
+
+<br>
+
+```py
+# 분자 내의 원자 수를 반환
+mol.GetNumAtoms()
+```
