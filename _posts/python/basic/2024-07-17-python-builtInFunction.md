@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] Built-in Function"
 categories: Python
-tag: [python, function, exec(), .T, .replace(), .to_dict(), eval(), map(), zip(), all(), any(), chr(), dir(), divmod()]
+tag: [python, function, exec(), .T, .replace(), .to_dict(), eval(), map(), zip(), all(), any(), chr(), dir(), divmod(), pow(), range(), round(), sorted()]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -238,4 +238,77 @@ df['이름'] = df['이름'].replace(refer_dict)
 
 ```py
 > divmod(10,3) # (3, 1)
+```
+
+<br>
+
+## ■ pow()
+- 제곱한 값 출력
+
+```py
+> pow(2, 4) # 16 (2^4)
+> pow(3, 2) # 9 (3^2)
+```
+
+<br>
+
+## ■ range()
+- 숫자의 범위 값을 반복 가능한 객체로 리턴
+- range(start, end, step)
+- 범위는 [start, end): 끝자리는 포함하지 않음
+
+```py
+> list(range(3))
+# [0, 1, 2]
+> list(range(2, 10))
+# [2, 3, 4, 5, 6, 7, 8, 9]
+> list(range(2, 10, 2))
+# [2, 4, 6, 8]
+```
+
+<br>
+
+## ■ round()
+- 반올림 함수
+- round(n, 소숫점 개수)
+
+```py
+> round(4.51) # 5
+> round(4.5) # 4
+
+# 소숫점 둘째자리까지 반올림
+> round(4.578, 2) # 4.58
+```
+
+<br>
+
+## ■ sorted()
+- parameter
+  - reverse : 내림차순을 할 경우에는 True로 설정
+  - key: 정렬 기준 함수 (주로 lambda 함수를 사용)
+
+```py
+L = [1, 4, 3, 5, 2, 5]
+> sorted(L) # [1, 2, 3, 4, 5, 5]
+> sorted(L, reverse = True) # [5, 5, 4, 3, 2, 1]
+
+> sorted('apple') # ['a', 'e', 'l', 'p', 'p']
+```
+
+```py
+# e.g.
+> L = [1, 4, 3, 5, 2, 5]
+> sorted(L, key = lambda x:abs(x)) # 절대값을 기준으로 오름차순 정렬
+# [1, 2, 3, 4, 5, 5]
+
+> sorted(L, key = lambda x:abs(x-3)) # |x-3|을 기준으로 오름차순 정렬
+# [3, 4, 2, 1, 5, 5]
+
+> T = [(11, 2), (3, 1), (4, 5), (10, 4)]
+> sorted(T,key = lambda x:x[1]) # 리스트 안의 튜플의 두번째 원소를 기준으로 정렬
+# [(3, 1), (11, 2), (10, 4), (4, 5)]
+
+> L = ['We', 'Use', 'Python', 'For', 'Data Preprocessing']
+> sorted(L, key = lambda x:len(x), reverse = True) # 길이를 기준으로 내림차순 정렬
+# ['Data Preprocessing', 'Python', 'Use', 'For', 'We']
 ```
