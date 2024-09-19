@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Regression - Simple Linear Regression의 Parameter Estimation (모수 추정)"
+title: "[Regression] Simple Linear Regression의 Parameter Estimation (모수 추정)"
 categories: Python
 tag: [statistics, regression-analysis, regression, simple-linear-regression, linear-regression]
 toc: true # 목차 보여주기
