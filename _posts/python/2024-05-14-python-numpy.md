@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] Numpy Library"
 categories: Python
-tag: [python, numpy, .array(), .reshape(), .concatenate(), .vstack(), .hstack(), broadcast, .random.randn(), random.random(), random.normal(), .random.randint(), .ones(), .zeros(), .linspace(), .abs(), .square(), .sqrt(), .linalg.norm(), .linalg.eig(), .eye(), .full(), .sum(), .mean(), .std(), .min(), .argmin(), .max(), .argmax(), .sort(), .argsort()]
+tag: [python, numpy, .array(), .reshape(), .concatenate(), .vstack(), .hstack(), broadcast, .random.randn(), random.random(), random.normal(), .random.randint(), .ones(), .zeros(), .linspace(), .abs(), .square(), .sqrt(), .linalg.norm(), .linalg.eig(), .eye(), .full(), .sum(), .mean(), .std(), .min(), .argmin(), .max(), .argmax(), .sort(), .argsort(), .clip()]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -220,6 +220,7 @@ array([[1., 1., 1.],
 > np.square() # 제곱
 > np.sqrt() # 제곱근
 > np.linspace(start, stop, num) # start부터 stop까지 num 개수의 요소를 가지는 등간격의 1차원 배열 반환
+> np.clip(data, a_min = 0, a_max = 1) # a_min 이하는 0의 값으로, a_max 이상의 값은 1의 값으로 변환함 
 ```
 
 <br>
