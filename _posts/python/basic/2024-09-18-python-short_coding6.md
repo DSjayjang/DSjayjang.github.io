@@ -112,3 +112,44 @@ apple
 > print(+(string == string[::-1]))
 # '+'로 True면 1로 변환, False면 0으로 변환함
 ```
+
+<br>
+<br>
+
+```
+알파벳 대소문자로 된 단어가 주어지면, 가장 많이 사용된 알파벳이 무엇인지 알아내는 프로그램을 작성하시오. 단, 대문자와 소문자를 구분하지 않는다.
+
+# e.g.
+# 입력
+Mississipi
+# 출력
+?
+# 입력
+zZa
+# 출력
+Z
+```
+
+```py
+# my coding
+> word = input().upper()
+> Li = [*word]
+> item = {}
+
+> for wd in Li:
+     if wd in item:
+         item[wd] += 1
+     else:
+         item[wd] = 1
+
+> word_list = list(item.values())
+> word_list = sorted(word_list, reverse = True)
+
+> if len(word_list) == 1:
+     print(max(item, key = item.get))
+> else:
+     if word_list[0] == word_list[1]:
+         print("?")     
+     else:
+         print(max(item, key = item.get))
+```

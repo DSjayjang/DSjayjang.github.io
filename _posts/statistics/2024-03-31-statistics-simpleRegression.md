@@ -59,80 +59,11 @@ $$Y = \beta_{0}+\beta_{1}X+\epsilon$$
 
 <br>
 
-## ■ 단순선형회귀직선의 계수 추정
-- 주어진 데이터를 설명할 수 있는 다양한 선형 직선 중, 데이터를 가장 잘 표현할 수 있는 선형회귀직선의 회귀 계수를 추정해야 함
-- 잔차(residual)의 제곱합(SSE)를 최소화하는 회귀 계수를 추정
-
-### □ Least Squares method (최소제곱법)
-- 각 점 $y_{i}$로부터 구하고자 하는 최적 직선 $\hat y_{i}$까지의 수직거리(잔차)의 제곱합을 최소로 하는 직선의 방정식을 구하는 것
-- 잔차(residual)의 제곱합(SSE)를 최소화하는 $\beta_{0}$와 $\beta_{1}$을 추정하기 위해 각 회귀 계수로 편미분하여 미분 값이 0이 되는 점을 찾음
-
-![2]({{site.url}}/images/statistics/2024-03-31-statistics-simpleRegression/2.jpg)
 
 <br>
 
 ## ■ 정규방정식 (Normal Equation)을 이용한 모수 추정
-### □ $\hat \beta_{0}$ : $\beta_{0}$의 최소제곱추정량
 
-$$
-\hat \beta_{0} = \bar y - \hat \beta_{1}\bar x \\
-$$
-
-<br>
-
-$$
-\begin{align*}
-\cfrac{\partial S(\beta_{0},\beta_{1})}{\partial \beta_{0}} = 0 \text{임을  이용} \\
-\sum (y_{i} - (\hat \beta_{0}+ \hat \beta_{1}x_{i}))^{2} &=> \text{미분} \\
-&=> -2 \sum (y_{i}-\hat \beta_{0}-\hat \beta_{1}x_{i}) = 0 \\
-&=> \sum y_{i} -n \hat \beta_{0} - \hat \beta_{1}\sum x_{i} =0 \\
-&=> n \hat \beta_{0} = \sum y_{i}- \hat \beta_{1}\sum x_{i} \\
-&=> \hat \beta_{0} = \bar y - \hat \beta_{1}\bar x \\
-\end{align*}
-$$
-
-<br>
-
-### □ $\hat \beta_{1}$ : $\beta_{1}$의 최소제곱추정량
-
-$$
-\hat \beta_{1} = \cfrac{S_{xy}}{S_{xx}}
-$$
-
-<br>
-
-$$
-\begin{align*}
-\cfrac{\partial S(\beta_{0},\beta_{1})}{\partial \beta_{1}} = 0 \text{임을  이용} \\
-\sum (y_{i} - (\hat \beta_{0}+\hat \beta_{1}x_{i}))^{2} &=> \text{미분} \\
-&=> -2 \sum x_{i}(y_{i}-\hat \beta_{0}-\hat \beta_{1}x_{i}) = 0 \\
-&=> \sum x_{i}(y_{i} - \bar y + \hat \beta_{1}\bar x - \hat \beta_{1}x_{i}) =0 \\
-&=> \sum x_{i}(y_{i}-\bar y) + \hat \beta_{1}\sum x_{i}(\bar x - x_{i}) = 0 \\
-&=> \sum x_{i}(y_{i}-\bar y) = \hat \beta_{1}\sum x_{i}(x_{i}-\bar x) \\
-&=> S_{xy} = \hat \beta_{1}S_{xx} \\
-&=> \hat \beta_{1} = \cfrac{S_{xy}}{S_{xx}}
-\end{align*}
-$$
-
-### ※ ***tips.***
-
-$$
-\begin{align*}
-S_{xx} &= \sum (x_{i} - \bar x)(x_{i} - \bar x) \\
-&= \sum x_{i}(x_{i} - \bar x) - \sum \bar x(x_{i}-\bar x) \\
-&= \sum x_{i}(x_{i} - \bar x) - \bar x \sum x_{i} + n\bar x^{2} \\
-&= \sum x_{i}(x_{i} - \bar x) - n\bar x^{2} + n\bar x^{2} \\
-&= \sum x_{i}(x_{i} - \bar x) \\
-
-\\
-
-S_{xy} &= \sum (x_{i} - \bar x)(y_{i} - \bar y) \\
-&= \sum x_{i}(y_{i} - \bar y) - \sum \bar x(y_{i}-\bar y) \\
-&= \sum x_{i}(y_{i} - \bar y) - \bar x \sum y_{i} + n\bar x \bar y \\
-&= \sum x_{i}(y_{i} - \bar y) - n\bar x \bar y + n\bar x \bar y \\
-&= \sum x_{i}(y_{i} - \bar y)
-\end{align*}
-$$
 
 <br>
 
