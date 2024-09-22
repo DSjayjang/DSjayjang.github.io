@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] Matrix (행렬, 선형대수학)"
 categories: Python
-tag: [python, linear-algebra, matrix, numpy, np.multiply(), np.matmul(), np.transpose(), np.diag(), np.eye(), np.identity(), np.zeros(), np.triu(), np.tril(), toeplitz(), bidiagonal-matrix, householder, scipy, scipy.linalg, self-conneting-edges, degree-matrix]
+tag: [python, linear-algebra, matrix, numpy, np.multiply(), np.matmul(), np.transpose(), np.diag(), np.eye(), np.identity(), np.zeros(), np.triu(), np.tril(), toeplitz(), bidiagonal-matrix, householder, scipy, scipy.linalg, determinant, np.linalg.det(), inverse-matrix, np.linalg.inv(), self-conneting-edges, degree-matrix]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -589,6 +589,37 @@ print(H)
  [-0.13  0.73 -0.40 -0.53]
  [-0.20 -0.40  0.40 -0.80]
  [-0.26 -0.53 -0.80 -0.06]]
+```
+
+<br>
+
+## ■ Determinant (행렬식)
+
+```py
+# numpy 활용
+import numpy as np
+
+> A = np.array = [[3, 2, 0], [-1, -3, 6], [2, 3, -5]]
+
+> detA = np.linalg.det(A)
+> print(detA) # 5.000000000000001
+```
+
+<br>
+
+## ■ Inverse Matrix (역행렬)
+
+```py
+# numpy 활용
+> import numpy as np
+
+> A = np.array = [[3, 2, 0], [-1, -3, 6], [2, 3, -5]]
+
+> invA = np.linalg.inv(A)
+> print(invA)
+[[-0.6  2.   2.4]
+ [ 1.4 -3.  -3.6]
+ [ 0.6 -1.  -1.4]]
 ```
 
 ================================================

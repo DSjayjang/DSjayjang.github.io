@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] Vector (벡터, 선형대수학)"
 categories: Python
-tag: [python, linear-algebra, vector, numpy]
+tag: [python, linear-algebra, vector, numpy, inner-product]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -158,4 +158,35 @@ u = np.array([1, 2, 3])
 v = np.array([4, 5, 6])
 w = u / v
 print(w) # [0.25 0.4  0.5]
+```
+
+<br>
+
+## ■ 벡터의 내적 (inner product)
+
+```py
+# 직접 정의하기
+> def inner_product(a, b):
+    n = len(a)
+    result = 0
+
+    for i in range(n):
+        result += a[i] * b[i]
+    
+    return result
+
+> a = [1, 2, 3]
+> b = [4, 5, 6]
+
+> inner_product(a, b) # 32
+```
+
+```py
+# numpy 활용
+> import numpy as np
+
+> a = np.array([1, 2, 3])
+> b = np.array([4, 5, 6])
+
+> np.inner(a, b) # 32
 ```
