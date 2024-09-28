@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] Vector (벡터, 선형대수학)"
 categories: Python
-tag: [python, linear-algebra, vector, numpy, inner-product]
+tag: [python, linear-algebra, vector, numpy, inner-product, outer-product]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -189,4 +189,44 @@ print(w) # [0.25 0.4  0.5]
 > b = np.array([4, 5, 6])
 
 > np.inner(a, b) # 32
+```
+
+<br>
+
+## ■ 벡터의 외적 (outer product)
+
+```py
+# 직접 계산하기
+
+> def out_product(a, b):
+    result = []
+    n1 = len(a)
+    n2 = len(b)
+
+    for i in range(0, n1):
+        row = []
+        for j in range(0, n2):
+            value = a[i]*b[j]
+            row.append(value)
+        result.append(row)
+    return result
+
+> a = [1, 2, 3]
+> b = [4, 5]
+
+> out_product(a, b)
+# [[4, 5], [8, 10], [12, 15]]
+```
+
+```py
+# numpy 활용
+> import numpy as np
+
+> a = np.array([1, 2, 3])
+> b = np.array([4, 5])
+
+> np.outer(a, b)
+[[ 4  5]
+ [ 8 10]
+ [12 15]]
 ```
