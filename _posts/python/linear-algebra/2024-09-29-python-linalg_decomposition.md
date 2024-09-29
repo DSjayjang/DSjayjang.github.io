@@ -31,6 +31,7 @@ $$
 
 # QR decomposition
 > Q, R = np.linalg.qr(A)
+
 > print(Q)
 [[-0.70710678  0.57735027 -0.40824829]
  [-0.         -0.57735027 -0.81649658]
@@ -65,13 +66,14 @@ $$
 > import numpy as np
 
 > A = np.array([[1, 2, 3], [2, 4, 5,], [3, 5, 3]])
-print(A)
+> print(A)
 [[1 2 3]
  [2 4 5]
  [3 5 3]]
 
 # eigenvalue decomposition
 > e, v = np.linalg.eig(A)
+
 > print(e) # 고유값
 [ 9.90754321  0.05152112 -1.95906434]
 > print(v) # 고유벡터
@@ -111,6 +113,7 @@ $$
 # singular value decomposition
 > U, S, Vt = np.linalg.svd(A, full_matrices=False)
 > S = np.diag(S)
+
 > print(U)
 [[-0.6305882   0.65070051]
  [-0.34294608  0.0720764 ]
@@ -124,7 +127,7 @@ $$
  [-0.8138063   0.58113622]]
 
 # A = U*S*Vt
-> print(U@S@Vt)
+> print(U @ S @ Vt)
 [[3. 6.]
  [2. 3.]
  [1. 2.]
