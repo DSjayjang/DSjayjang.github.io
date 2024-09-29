@@ -96,6 +96,8 @@ $$
 A = U \sum V^{T}
 $$
 
+<br>
+
 ```py
 # Singular Value Decomposition
 > import numpy as np
@@ -138,6 +140,8 @@ $$
 $$
 A = LU
 $$
+
+<br>
 
 ```py
 # LU Decomposition
