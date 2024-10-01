@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] Tensor (텐서, 선형대수학)"
 categories: Python
-tag: [python, linear-algebra, numpy, tensor, norm, np.multiply(), inner-product, matricization, reshape, .reshape(), np.reshape()]
+tag: [python, linear-algebra, numpy, tensor, norm, np.multiply(), inner-product, matricization, reshape, .reshape(), np.reshape(), concatenate, np.concatenate()]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -315,4 +315,37 @@ import numpy as np
 > C2 = B[0].reshape(-1, order = 'F')
 > print(C2)
 [ 1  2  3  4  5  6  7  8  9 10 11 12]
+```
+
+<br>
+
+## ■ Concatenate()
+
+```py
+> import numpy as np
+
+> A = np.array([[1, 2], [3, 4]])
+> B = np.array([[5, 6], [7, 8]])
+> print(A)
+[[1 2]
+ [3 4]]
+> print(B)
+[[5 6]
+ [7 8]]
+
+> C = np.concatenate((A, B), axis = 0)
+> print(C)
+[[1 2]
+ [3 4]
+ [5 6]
+ [7 8]]
+
+> D = np.concatenate((A, B), axis = 1)
+> print(D)
+[[1 2 5 6]
+ [3 4 7 8]]
+
+> E = np.concatenate((A, B), axis = None)
+> print(E)
+[1 2 3 4 5 6 7 8]
 ```
