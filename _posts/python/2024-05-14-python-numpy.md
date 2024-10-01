@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] Numpy Library"
 categories: Python
-tag: [python, numpy, .array(), .reshape(), .concatenate(), .vstack(), .hstack(), broadcast, .random.randn(), random.random(), random.normal(), .random.randint(), .np.random.RandomState(), .ones(), .zeros(), .linspace(), .abs(), .square(), .sqrt(), .linalg.norm(), .linalg.eig(), .eye(), .full(), .sum(), .mean(), .std(), .min(), .argmin(), .max(), .argmax(), .sort(), .argsort(), .clip(), np.float_()]
+tag: [python, numpy, .array(), .reshape(), .concatenate(), .vstack(), .hstack(), broadcast, .random.randn(), random.random(), random.normal(), .random.randint(), .np.random.RandomState(), .ones(), .zeros(), .linspace(), .abs(), .square(), .sqrt(), .linalg.norm(), .linalg.eig(), .eye(), .full(), .sum(), .mean(), .std(), .min(), .argmin(), .max(), .argmax(), .sort(), .argsort(), .clip(), np.float_(), np.where()]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -226,6 +226,12 @@ array([[1., 1., 1.],
 > np.sqrt() # 제곱근
 > np.linspace(start, stop, num) # start부터 stop까지 num 개수의 요소를 가지는 등간격의 1차원 배열 반환
 > np.clip(data, a_min = 0, a_max = 1) # a_min 이하는 0의 값으로, a_max 이상의 값은 1의 값으로 변환함 
+
+# 조건에 따른 값 선택
+> np.where(condition, [x, y])
+# condition(조건)이 True일 경우 x 출력, False일 경우 y 출력
+# e.g.
+> np.where(X >= 0.0, 1, 0) # X가 0보다 클 경우 1, 작을 경우 0
 ```
 
 <br>
