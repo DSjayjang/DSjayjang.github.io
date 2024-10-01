@@ -50,6 +50,24 @@ denosing diffusion models는 2가지로 구성되어 있다.
 
 <br>
 
+### □ Denoising Diffusion Properties
+- diffusion model이 조금 더 효율적이 되기 위해 아래 3가지 성질이 요구된다. (noise가 가우시안일 때)
+  1. distribution $q(z^{t}|x)$는 다른 time steps에서 parallel training이 가능하기 위해 closed-form formula 이어야 한다.
+  2. posterior $p_{\theta}(z^{t-1}|z^{t}) = \int q(z^{t-1}|z^{t}, x)dp_{\theta}(x)$는 x가 neural network의 target으로 사용되기 위해 closed-form expression이어야 한다.
+  3. limit distribution $q_{\infin} = \lim_{T \rightarrow \infin}q(z^{T}|x)$는 x에 의존하면 안된다. 그래야 그것을 추론을 위한 prior distribution으로 사용할 수 있다.
+
+<br>
+
+## ■ DiGress Introduction
+1. Noise Model (forward)
+   - 각 node와 edge에서 독립적으로 발생하는 연속적인 그래프 edit(edge의 추가 및 삭제, node 또는 edge category edit) Markov process이다.
+2. Denoising Neural Network (backward)
+   - noisy input으로부터 clean graph를 예측하기 위해 graph transformer network를 학습했다.
+3. 결과
+    - architecture는 permutation equivariant하고, likelihood estimation에서 evidence lower bound를 허용한다.
+
+<br>
+
 ## ■ DiGress Method
 ### 1. 노이즈 추가 방법 (forward)
 - 각 node와 edge feature 각각에 diffuse를 한다.
@@ -68,7 +86,23 @@ denosing diffusion models는 2가지로 구성되어 있다.
 
 <br>
 
-## ■ DiGress의 2가지 속성
+## ■ DiGress Properties
+- 일반적인 Diffusion model의 noise는 가우시안인데, 이것은 좋지 않은 noise이므로, 이산형 Diffusion model에 맞게 다음과 같이 다시 정의한다.
+
+1. noise는 이제 transition matrices로 표현될 수 있다. ($\mathbf Q^{1}, ..., Q^{T}$), 그리고 $\mathbf[Q^{t}]_{ij}$는 state i에서 j로의 jumping 확률을 나타낸다. $j:q(z^{t}|z^{t-1}) = \mathbf(z^{t-1}Q^{t})$
+<br>
+이 과정들은 Markovian이기 때문에, $x$에서 $z^{t}$로의 transition matrix는 $\bar Q^{t} = Q^{1}Q^{2}...Q^{t}$로 표현될 수 있다. $\bar Q^{t}$는 먼저 계산되거나, closed-form expression을 갖고 있는 한, noisy state $z^{t}$는 noise를 recursively 적용 없이, $q(z^{t}|x) = x\bar Q^{t}$를 이용하여 $x$로부터 생성될 수 있다.
+
+1. posterior distribution $q(z^{t-1}|z^{t}, x)$는 또한 Bayes rule을 적용하여 closed-form 형태로 계산될 수 있다
+$$
+\displaystyle q(z^{t-1}|z^{t}, x) \propto \mathbf z^{t}(Q^{t})^{'} \odot x \bar Q^{t-1}
+$$
+
+3. 노이즈 모델의 limit distribution은 transition model에 의존한다. 가장 간단하고 자주 쓰이는 limit distribution은 **`uniform transition`** 모델이다.
+
+<br>
+
+## ■ DiGress의 속성 추가 2가지
 1. permutation equivariant architecture
 2. permutation invariant loss
 
@@ -117,8 +151,8 @@ denosing diffusion models는 2가지로 구성되어 있다.
 
 ### 2. Diffusion Models
 - denoising diffusion models은 2가지의 메인 구성요소가 있다.
-  - 1. noise model
-  - 2. denosing neural network
+  1. noise model
+  2. denosing neural network
 - noise model q는 noisy data z를 생성하기 위해 데이터 x를 점진적으로 corrupt한다.
 - 이것은 Markovian 구조이다. 
 - denoising network $\phi_{\theta}$는 $z^{t}에서 z^{t-1}$ 예측함으로써 이 과정을 거꾸로 하도록 학습된다.
@@ -140,7 +174,7 @@ denosing diffusion models는 2가지로 구성되어 있다.
 - $\bar Q^{t}$가 precomputed 되었거나 closed-form expression이라면, noisy state $z^{t}$는 noise recursively 적용 없이 ~로 표현될 수 있다.(property 1)
 - posterior distribution $q(z^{t-1}|z^{t}, x)$는 또한 Bayes rule을 적용하여 계산될 수 있다. (property 2)
 - 노이즈 모델의 limit distribution은 transition model에 의존한다.
-- 가장 간단하고 자주 쓰이는 limit distribution은 uniform transition 모델이다.
+- 가장 간단하고 자주 쓰이는 limit distribution은 **`uniform transition`** 모델이다.
 - 그러나 또 다른 고려해야할 것들이 있다.
   - 그래프는 다양한 사이즈를 가진다.
   - permutation equivariance 하다.
@@ -152,7 +186,7 @@ denosing diffusion models는 2가지로 구성되어 있다.
 ### 3. Discrete Denoising Diffusion for Graph Generation (DIGRESS)
 - digress 표기법에 대한 설명~
 
-### 3.1 diffusion process and iverse denoising iterations
+### 3.1 diffusion process and inverse denoising iterations
 
 #### ◎ 1. noise model (노이즈를 추가하는 방법)
 - 각 픽셀에 독립적으로 노이즈를 적용하는 이미지에서의 diffusion model과 비슷하게, 우리는 각 node와 edge feature 각각에 diffuse를 하였다.
