@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] Numpy Library"
 categories: Python
-tag: [python, numpy, .array(), .reshape(), .concatenate(), .vstack(), .hstack(), broadcast, .random.randn(), random.random(), random.normal(), .random.randint(), .ones(), .zeros(), .linspace(), .abs(), .square(), .sqrt(), .linalg.norm(), .linalg.eig(), .eye(), .full(), .sum(), .mean(), .std(), .min(), .argmin(), .max(), .argmax(), .sort(), .argsort(), .clip()]
+tag: [python, numpy, .array(), .reshape(), .concatenate(), .vstack(), .hstack(), broadcast, .random.randn(), random.random(), random.normal(), .random.randint(), .np.random.RandomState(), .ones(), .zeros(), .linspace(), .abs(), .square(), .sqrt(), .linalg.norm(), .linalg.eig(), .eye(), .full(), .sum(), .mean(), .std(), .min(), .argmin(), .max(), .argmax(), .sort(), .argsort(), .clip(), np.float_()]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -203,6 +203,10 @@ array([[1., 1., 1.],
 > np.random.random((m,n)) # 0과 1사이의 m*n 행렬의 난수 생성
 > np.random.normal(mu, s, (m,n)) # 평균이 mu, 표준편차가 s의 정규분포에서 m*n 행렬의 난수 생성
 > np.random.randint(a, b, (m,n)) # [0, b) 구간의 임의의 정수를 뽑아 m*n 행렬 생성
+
+# 독립적인 난수 생성
+> random_state = 1
+> np.random.RandomState(random_state)
 ```
 
 ```py
@@ -216,6 +220,7 @@ array([[1., 1., 1.],
 - 기타 수식
 
 ```py
+> np.float_() # 부동소수점으로 변환 (float64 타입)
 > np.abs() # 절대값
 > np.square() # 제곱
 > np.sqrt() # 제곱근
