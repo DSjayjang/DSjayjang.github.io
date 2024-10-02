@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "[Paper] DiGress: Discrete Denoising Diffusion for Graph Generation"
+title: "[Paper] DiGress"
 categories: Deep-Learning
 tag: [machine-learning, deep-learning, graph-generation, digress, diffusion-model, denoising-diffusion-model, discrete-denoising-diffuion-model]
 toc: true # 목차 보여주기
