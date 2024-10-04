@@ -410,7 +410,7 @@ import numpy as np
 
 <br>
 
-## ■ Concatenate()
+## ■ .concatenate()
 
 ```py
 > import numpy as np

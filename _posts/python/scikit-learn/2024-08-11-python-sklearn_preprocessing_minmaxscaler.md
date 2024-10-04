@@ -2,7 +2,7 @@
 layout: single
 title: "[Python] sklearn.preprocessing (스케일링)"
 categories: Python
-tag: [python, scikit-learn, machine-learning, sklearn.preprocessing, min-max-scaler,standard-scaler]
+tag: [python, scikit-learn, machine-learning, sklearn.preprocessing, min-max-scaler, standard-scaler]
 toc: true # 목차 보여주기
 author_profile: false   # 프로필 제거
 # sidebar:    # 프로필 제거 후 사이드바 보여주기
@@ -12,7 +12,7 @@ typora-root-url: ../
 
 # ※ preprocessing
 
-## ■ MinMaxScaler (스케일링)
+## ■ MinMaxScaler (Min Max 스케일링)
 - 데이터 feature의 값을 특정 범위로 변환하기 위한 라이브러리
 - default는 각 feature의 값을 0과 1사이로 변환함
 
@@ -88,7 +88,7 @@ D 215.000
 <br>
 <br>
 
-## ■ StandardScaler
+## ■ StandardScaler (표준화 스케일링)
 - 데이터를 표준화하는 라이브러리
 - 데이터의 평균을 0, 표준편차를 1로 변환함
 
@@ -110,4 +110,5 @@ D 215.000
 
 # 데이터 변환
 > X_train_scaling = scaler.transform(X_train)
+> X_test_scaling = scaler.transform(X_test)
 ```
